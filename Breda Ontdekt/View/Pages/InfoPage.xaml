@@ -22,12 +22,12 @@
 
         <RelativePanel Grid.Row="1">
             <StackPanel Margin="20, 20, 300, 440">
-                <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="0,0,0,0" Text="{Binding Text}"/>
+                <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="0,0,0,0" Text=""/>
             </StackPanel>
         </RelativePanel>
 
         <RelativePanel Grid.Row="2">
-            <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Center" Margin="150,25,0,15" VerticalAlignment="Top" Click="BackButton_Click"/>
+            <Button x:Uid="Back" x:Name="BackButton"  HorizontalAlignment="Center" Margin="150,25,0,15" VerticalAlignment="Top" />
         </RelativePanel>
     </Grid>
 </Page>
