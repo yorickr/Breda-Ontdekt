@@ -17,7 +17,7 @@
 
         <RelativePanel Grid.Row="0">
             <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-            <TextBlock x:Uid="LanguagePage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" Text="Language Page"/>
+            <TextBlock x:Uid="LanguagePage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
         </RelativePanel>
 
         <RelativePanel Grid.Row="1" Margin="25, 80" HorizontalAlignment="Center" >
@@ -25,8 +25,8 @@
             <Button x:Name="NL_Button" Content="NL Flag" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="150"/>
         </RelativePanel>
 
-        <RelativePanel Grid.Row="2">
-            <Button x:Uid="Back" x:Name="BackButton" HorizontalAlignment="Center" Margin="150,25,0,15" VerticalAlignment="Top"/>
+        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top"/>
         </RelativePanel>
     </Grid>
 </Page>

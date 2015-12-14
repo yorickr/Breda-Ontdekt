@@ -120,7 +120,7 @@
   <data name="Back.Content" xml:space="preserve">
     <value>"Terug"</value>
   </data>
-  <data name="LanguagePage.Content" xml:space="preserve">
+  <data name="LanguagePage.Text" xml:space="preserve">
     <value>"Taal"</value>
   </data>
 </root>
