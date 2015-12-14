@@ -27,10 +27,5 @@ namespace Breda_Ontdekt.View.Pages
         {
             this.InitializeComponent();
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            ErrorHandler.handleError("test", "");
-        }
     }
 }
