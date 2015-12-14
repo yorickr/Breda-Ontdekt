@@ -16,17 +16,14 @@
 
         <RelativePanel Grid.Row="0">
             <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" Text="Help Page"/>
+            <TextBlock x:Uid="HelpPage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
         </RelativePanel>
 
-        <RelativePanel Grid.Row="1">
-            <StackPanel Margin="20, 20, 300, 440">
-                <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="0,0,0,0" Text="{Binding Text}"/>
-            </StackPanel>
+        <RelativePanel Grid.Row="1" Margin="25, 250" HorizontalAlignment="Left" >
         </RelativePanel>
 
-        <RelativePanel Grid.Row="2">
-            <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Center" Margin="150,25,0,15" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top"/>
         </RelativePanel>
     </Grid>
 </Page>

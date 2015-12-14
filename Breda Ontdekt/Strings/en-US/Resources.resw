@@ -118,9 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back.Content" xml:space="preserve">
-    <value>"Back"</value>
+    <value>Back</value>
+  </data>
+  <data name="HelpPage.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="InfoPage.Text" xml:space="preserve">
+    <value />
   </data>
   <data name="LanguagePage.Text" xml:space="preserve">
-    <value>"Language"</value>
+    <value>Language</value>
   </data>
 </root>
