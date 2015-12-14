@@ -12,7 +12,7 @@ namespace Breda_Ontdekt.ViewModel.Lib
     {
         // nl-nl
         // en-US
-        public static void changeLanguage(string language, Page page, Frame frame)
+        public static void switchLanguage(string language, Page page, Frame frame)
         {
             try
             {
@@ -21,7 +21,6 @@ namespace Breda_Ontdekt.ViewModel.Lib
             }
             catch (Exception)
             {
-                
                 ErrorHandler.handleError("language change fout", "ok");
             }
         }
