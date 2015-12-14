@@ -10,8 +10,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="470" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 

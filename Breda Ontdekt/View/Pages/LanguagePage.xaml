@@ -10,8 +10,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="470" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -21,12 +21,12 @@
         </RelativePanel>
 
         <RelativePanel Grid.Row="1" Margin="25, 80" HorizontalAlignment="Center" >
-            <Button x:Name="UK_Button" Content="Uk Flag" Margin="0,0,0,0" VerticalAlignment="Top"  Width="150" Height="150"/>
-            <Button x:Name="NL_Button" Content="NL Flag" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="150"/>
+            <Button x:Name="UK_Button" Content="Uk Flag" Margin="0,0,0,0" VerticalAlignment="Top"  Width="150" Height="150" Click="UK_Button_Click"/>
+            <Button x:Name="NL_Button" Content="NL Flag" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="150" Click="NL_Button_Click"/>
         </RelativePanel>
 
         <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top"/>
+            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click" Visibility="Collapsed"/>
         </RelativePanel>
     </Grid>
 </Page>

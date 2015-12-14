@@ -9,8 +9,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="470" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -19,11 +19,12 @@
             <TextBlock x:Uid="RoutePage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
         </RelativePanel>
 
-        <RelativePanel Grid.Row="1" Margin="25, 250" HorizontalAlignment="Left">
+        <RelativePanel Grid.Row="1" Margin="25, 25" HorizontalAlignment="Center">
+            <ListBox x:Name="RouteListBox" HorizontalAlignment="Left" Height="250" FontSize="28" SelectionChanged="RouteListBox_SelectionChanged"/>
         </RelativePanel>
 
         <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top"/>
+            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
         </RelativePanel>
     </Grid>
 </Page>
