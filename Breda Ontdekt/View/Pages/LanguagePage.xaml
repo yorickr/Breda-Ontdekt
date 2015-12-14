@@ -10,25 +10,23 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="470" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <RelativePanel Grid.Row="0">
             <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" Text="Language Page"/>
+            <TextBlock x:Uid="LanguagePage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
         </RelativePanel>
 
-        <RelativePanel Grid.Row="1">
-            <StackPanel Margin="20, 20, 300, 440">
-                <Button x:Name="UK_Button" Content="Uk" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
-                <Button x:Name="NL_Button" Content="NL" HorizontalAlignment="Center" Margin="150,25,0,15" VerticalAlignment="Top" Click="BackButton_Click"/>
-            </StackPanel>
+        <RelativePanel Grid.Row="1" Margin="25, 80" HorizontalAlignment="Center" >
+            <Button x:Name="UK_Button" Content="Uk Flag" Margin="0,0,0,0" VerticalAlignment="Top"  Width="150" Height="150" Click="UK_Button_Click"/>
+            <Button x:Name="NL_Button" Content="NL Flag" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="150" Click="NL_Button_Click"/>
         </RelativePanel>
 
-        <RelativePanel Grid.Row="2">
-            <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Center" Margin="150,25,0,15" VerticalAlignment="Top" Click="BackButton_Click"/>
+        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click" Visibility="Collapsed"/>
         </RelativePanel>
     </Grid>
 </Page>
