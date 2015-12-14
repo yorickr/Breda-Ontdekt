@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Breda_Ontdekt.Model.Entities
 {
-    class Route
+    public class Route
     {
+        public List<RoutePoint> routePoints { get; set; }
+        public Route()
+        {
+            routePoints = new List<RoutePoint>();
+        }
+
+        public void addRoutePoint(RoutePoint routePoint)
+        {
+            routePoints.Add(routePoint);
+        }
     }
 }
