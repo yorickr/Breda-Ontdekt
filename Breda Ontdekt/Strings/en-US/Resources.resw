@@ -129,4 +129,7 @@
   <data name="LanguagePage.Text" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="RoutePage.Text" xml:space="preserve">
+    <value>Route</value>
+  </data>
 </root>
