@@ -26,5 +26,26 @@ namespace Breda_Ontdekt.View.Pages
         {
             this.InitializeComponent();
         }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            HamburgerMenu.IsPaneOpen = !HamburgerMenu.IsPaneOpen;
+        }
+
+        private void StackPanel_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if (e.Cumulative.Translation.X < -50)
+            {
+                HamburgerMenu.IsPaneOpen = false;
+            }
+        }
+
+        private void Grid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if (e.Cumulative.Translation.X > 50)
+            {
+                HamburgerMenu.IsPaneOpen = true;
+            }
+        }
     }
 }
