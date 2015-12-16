@@ -109,8 +109,10 @@ namespace Breda_Ontdekt.View.Pages
 
         private async Task<MapRouteFinderResult> FindRoute()
         {
-            const string beginLocation = "Lovensdijkstraat 63 Breda";
-            const string endLocation = "Lotusberg 35 Roosendaal";
+            //const string beginLocation = "Lovensdijkstraat 63 Breda";
+            //const string endLocation = "Lotusberg 35 Roosendaal";
+            string beginLocation = fromField.Text;
+            string endLocation = toField.Text;
 
             // Get MapLocation for beginLocation and endLocation:
             MapLocationFinderResult result
