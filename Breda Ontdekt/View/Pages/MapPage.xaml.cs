@@ -38,6 +38,47 @@ namespace Breda_Ontdekt.View.Pages
 
         }
 
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            HamburgerMenu.IsPaneOpen = !HamburgerMenu.IsPaneOpen;
+        }
+
+        private void StackPanel_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if (e.Cumulative.Translation.X < -50)
+            {
+                HamburgerMenu.IsPaneOpen = false;
+            }
+        }
+
+        private void Grid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if (e.Cumulative.Translation.X > 50)
+            {
+                HamburgerMenu.IsPaneOpen = true;
+            }
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HelpPage));
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(InfoPage));
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LanguagePage));
+        }
+
+        private void LanguageButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LanguagePage));
+        }
+
         private async void DoRouting(object sender, RoutedEventArgs e)
         {
             MapRouteFinderResult routeFinderResult = await FindRoute();
