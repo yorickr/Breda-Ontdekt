@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Breda_Ontdekt.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,29 @@ namespace Breda_Ontdekt.View.Pages
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> testList = new List<string>();
+            testList.Add("some");
+            testList.Add("testing");
+            bool a = await Storage.SaveMyListData(testList, "filename.txt");
+            textBox.Text = a.ToString();
+        }
+
+        private async void button1_Click(object sender, RoutedEventArgs e)
+        {
+            try {
+                await Storage.GetMyListData("filename.txt");
+                // foreach(string s in list){
+                textBox.Text += "loaded";
+                // }
+            }
+            catch(Exception ex)
+            {
+                textBox.Text = ex.ToString();
+            }
         }
     }
 }
