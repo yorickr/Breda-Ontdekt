@@ -14,6 +14,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+
         <RelativePanel Grid.Row="0">
             <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="24" Margin="20,10,0,0" Text="Breda Ontdekt"/>
         </RelativePanel>
@@ -28,4 +29,5 @@
 
         </RelativePanel>
     </Grid>
+
 </Page>

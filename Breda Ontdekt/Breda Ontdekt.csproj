@@ -105,6 +105,7 @@
     <Compile Include="Model\Entities\RoutePoint.cs" />
     <Compile Include="Model\Entities\Site.cs" />
     <Compile Include="Model\ObjectInfo.cs" />
+    <Compile Include="Model\Storage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AppGlobal.cs" />
     <Compile Include="ViewModel\Lib\ErrorHandler.cs" />
