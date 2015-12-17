@@ -120,6 +120,9 @@
   <data name="Back.Content" xml:space="preserve">
     <value>Terug</value>
   </data>
+  <data name="Continue.Content" xml:space="preserve">
+    <value>Doorgaan</value>
+  </data>
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>
   </data>

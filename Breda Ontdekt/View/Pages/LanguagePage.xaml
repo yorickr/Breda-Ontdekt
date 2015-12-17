@@ -21,8 +21,16 @@
         </RelativePanel>
 
         <RelativePanel Grid.Row="1" Margin="25, 80" HorizontalAlignment="Center" >
-            <Button x:Name="UK_Button" Content="Uk Flag" Margin="0,0,0,0" VerticalAlignment="Top"  Width="150" Height="150" Click="UK_Button_Click"/>
-            <Button x:Name="NL_Button" Content="NL Flag" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="150" Click="NL_Button_Click"/>
+            <Button x:Name="UK_Button" Margin="0,0,0,0" VerticalAlignment="Top"  Width="150" Height="121" Click="UK_Button_Click">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/UKFlag.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="NL_Button" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="123" Click="NL_Button_Click">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/DutchFlag.png"/>
+                </Button.Background>
+            </Button>
         </RelativePanel>
 
         <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
