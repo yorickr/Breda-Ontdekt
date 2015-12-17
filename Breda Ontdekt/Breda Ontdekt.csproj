@@ -93,6 +93,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Assets\sites.csv" />
     <None Include="project.json" />
     <PRIResource Include="Strings\nl-nl\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />

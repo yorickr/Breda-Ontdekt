@@ -111,7 +111,7 @@
         <Page.BottomAppBar>
             <CommandBar>
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Icon="ZoomOut" Label="zoom out" />
+                    <AppBarButton Icon="ZoomOut" Label="zoom out" Click="test"/>
                 </CommandBar.SecondaryCommands>
                 <AppBarButton Label="Routes" Icon="Directions" Click="DoRouting"/>
                 <AppBarButton Label="Geofences" Icon="View" />

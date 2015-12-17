@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Breda_Ontdekt.Model.Entities;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -50,6 +52,21 @@ namespace Breda_Ontdekt.Model
             var setResult = (List<string>)stuffSerializer.ReadObject(readStream);
             return setResult;
 
+        }
+
+        public static async Task<List<Site>> GetRouteInfo()
+        {
+            var routeFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"\Assets\sites.csv");
+            using (StreamReader str = new StreamReader(await routeFile.OpenStreamForReadAsync()))
+            {
+                string readline;
+                while((readline = str.ReadLine())!= null)
+                {
+                    Debug.WriteLine(readline);
+                }
+            }
+
+            return null;
         }
     }
 

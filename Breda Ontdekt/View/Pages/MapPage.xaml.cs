@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Breda_Ontdekt.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -284,8 +285,9 @@ namespace Breda_Ontdekt.View.Pages
             }
         }
 
-
-
-
+        private void test(object sender, RoutedEventArgs e)
+        {
+            Storage.GetRouteInfo();
+        }
     }
 }
