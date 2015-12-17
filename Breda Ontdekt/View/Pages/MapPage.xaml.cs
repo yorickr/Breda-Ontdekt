@@ -60,8 +60,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-	        Boolean firstTime = false;
-            this.Frame.Navigate(typeof(LanguagePage), firstTime);
+            this.Frame.Navigate(typeof(LanguagePage));
         }
 
         private void LanguageButton_Click(object sender, RoutedEventArgs e)
