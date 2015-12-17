@@ -31,8 +31,9 @@ namespace Breda_Ontdekt.View.Pages
         private async void button_Click(object sender, RoutedEventArgs e)
         {
             List<string> testList = new List<string>();
-            testList.Add("some");
-            testList.Add("testing");
+            testList.Add(" some ");
+            testList.Add("testing ");
+            testList.Add("testing ");
             bool a = await Storage.SaveMyListData(testList, "filename.txt");
             textBox.Text = a.ToString();
         }
@@ -40,10 +41,10 @@ namespace Breda_Ontdekt.View.Pages
         private async void button1_Click(object sender, RoutedEventArgs e)
         {
             try {
-                await Storage.GetMyListData("filename.txt");
-                // foreach(string s in list){
-                textBox.Text += "loaded";
-                // }
+                List<string> list = await Storage.GetMyListData("filename.txt");
+                foreach(string s in list){
+                textBox.Text += s ;
+                }
             }
             catch(Exception ex)
             {

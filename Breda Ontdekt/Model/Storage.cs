@@ -11,8 +11,7 @@ namespace Breda_Ontdekt.Model
 {
     public static class Storage
     {
-        //public const string filename = "SettingStuff.txt";
-
+       
         /// <summary>
         /// This methods saves the data in the local storage of the app
         /// </summary>
@@ -26,7 +25,7 @@ namespace Breda_Ontdekt.Model
                 StorageFile savedStuffFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
                 using (Stream writeStream = await savedStuffFile.OpenStreamForWriteAsync())
                 {
-                    DataContractSerializer stuffSerializer = new DataContractSerializer(typeof(List<Object> ) );
+                    DataContractSerializer stuffSerializer = new DataContractSerializer(typeof(List<string> ) );
                     stuffSerializer.WriteObject(writeStream, saveData);
                     await writeStream.FlushAsync();
                     writeStream.Dispose();
