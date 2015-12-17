@@ -285,9 +285,18 @@ namespace Breda_Ontdekt.View.Pages
             }
         }
 
-        private void test(object sender, RoutedEventArgs e)
+        private async void test(object sender, RoutedEventArgs e)
         {
-            Storage.GetRouteInfo();
+            (await Storage.GetRouteInfo()).ForEach(s =>
+            {
+                MapIcon mapIcon1 = new MapIcon();
+                mapIcon1.Location = s.position;
+                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                mapIcon1.Title = "Space Needle";
+                mapIcon1.ZIndex = 0;
+
+                MapView.MapElements.Add(mapIcon1);
+            });
         }
     }
 }

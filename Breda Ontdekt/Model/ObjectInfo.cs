@@ -10,11 +10,11 @@ namespace Breda_Ontdekt.Model
     public abstract class ObjectInfo
     {
         //the position of the object
-        public Geoposition position { get; set; }
+        public Geopoint position { get; set; }
         public string name { get; set; }
         public string description { get; set; }
 
-        public ObjectInfo(string name, Geoposition position)
+        public ObjectInfo(string name, Geopoint position)
         {
             this.name = name;
             this.position = position;
