@@ -151,7 +151,8 @@ namespace Breda_Ontdekt.View.Pages
             // ... and another coordinate conversion
             var pos = new Geopoint(new BasicGeoposition { Latitude = point.Coordinate.Point.Position.Latitude, Longitude = point.Coordinate.Point.Position.Longitude });
 
-            DrawCarIcon(pos);
+            //DrawCarIcon(pos);
+            DrawUserIcon(pos);
 
             //slower: DrawCarImage(pos);
 
@@ -175,6 +176,22 @@ namespace Breda_Ontdekt.View.Pages
             carIcon.Location = pos;
         }
 
+        private void DrawUserIcon(Geopoint pos)
+        {
+            int userZIndex = 4;
+            var userIcon = MapView.MapElements.OfType<MapIcon>().FirstOrDefault(p => p.ZIndex == userZIndex);
+            if(userIcon == null)
+            {
+                userIcon = new MapIcon
+                {
+                    NormalizedAnchorPoint = new Point(0.5, 0.5),
+                    ZIndex = userZIndex
+                };
+                userIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/user.png"));
+                MapView.MapElements.Add(userIcon);
+            }
+            userIcon.Location = pos;
+        }
 
         private async void GeofenceStateChanged(GeofenceMonitor sender, object args)
         {
