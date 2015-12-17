@@ -12,7 +12,6 @@ namespace Breda_Ontdekt.Model.Entities
     /// </summary>
     public enum direction { right, left, forward}
 
-
     public class RoutePoint : ObjectInfo
     {
         public direction direction { get; set; }
