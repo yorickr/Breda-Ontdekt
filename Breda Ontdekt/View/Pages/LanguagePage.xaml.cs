@@ -22,28 +22,47 @@ namespace Breda_Ontdekt.View.Pages
 	/// </summary>
 	public sealed partial class LanguagePage : Page
 	{
-		public Boolean firstTime = true;
+		private Boolean _firstTime = true;
 
 		public LanguagePage()
 		{
 			this.InitializeComponent();
-			if(firstTime == false)
-			{
-			}
+			this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
 		}
 
 		private void BackButton_Click(object sender, RoutedEventArgs e)
 		{
+			this.Frame.Navigate(typeof (MapPage));
 		}
 
 		private void UK_Button_Click(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(RoutePage));
+			if (_firstTime == true)
+			{
+				_firstTime = false;
+				this.BackButton.Visibility = Visibility.Visible;
+				this.Frame.Navigate(typeof(RoutePage));
+			}
+			else if (_firstTime == false)
+			{
+				this.Frame.Navigate(typeof(MapPage));
+			}
+
 		}
 
 		private void NL_Button_Click(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(RoutePage));
+			if (_firstTime == true)
+			{
+				_firstTime = false;
+				this.BackButton.Visibility = Visibility.Visible;
+				this.Frame.Navigate(typeof(RoutePage));
+			}
+						else if (_firstTime == false)
+			{
+				this.Frame.Navigate(typeof(MapPage));
+			}
+
 		}
 	}
 }
