@@ -50,22 +50,47 @@ namespace Breda_Ontdekt.View.Pages
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(HelpPage));
+            
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(InfoPage));
+            
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LanguagePage));
+            
         }
 
         private void LanguageButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LanguagePage));
+            
+        }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            StackPanel panel = (StackPanel) e.ClickedItem;
+            switch(panel.Name)
+            {
+                case "HelpPanel":
+                    this.Frame.Navigate(typeof(HelpPage));
+                    break;
+                case "InfoPanel":
+                    this.Frame.Navigate(typeof(InfoPage));
+                    break;
+                case "LanguagePanel":
+                    this.Frame.Navigate(typeof(LanguagePage));
+                    break;
+                case "ResetPanel":
+                    this.Frame.Navigate(typeof(LanguagePage));
+                    break;
+                case "VVVPanel":
+                    //not implemented yet
+                    break;
+                default:
+                    throw new Exception();
+            }
         }
     }
 }

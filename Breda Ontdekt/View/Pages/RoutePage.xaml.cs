@@ -34,7 +34,7 @@ namespace Breda_Ontdekt.View.Pages
 
 		private void RouteListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-
+            
 		}
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
