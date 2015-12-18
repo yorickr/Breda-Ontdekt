@@ -56,15 +56,21 @@ namespace Breda_Ontdekt.Model
 
         public static async Task<List<Site>> GetRouteInfo()
         {
-            var routeFile = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"\Assets\sites.csv");
-            using (StreamReader str = new StreamReader(await routeFile.OpenStreamForReadAsync()))
-            {
-                string readline;
-                while((readline = str.ReadLine())!= null)
+            try {
+                Uri url = new Uri("ms-appx:///Assets/sites.csv");
+                StorageFile f = await StorageFile.GetFileFromApplicationUriAsync(url);
+                string s = await Windows.Storage.FileIO.ReadTextAsync(f);
+                
+                using (StreamReader str = new StreamReader(await f.OpenStreamForReadAsync()))
                 {
-                    Debug.WriteLine(readline);
+                    string readline;
+                    while ((readline = str.ReadLine()) != null)
+                    {
+                        Debug.WriteLine(readline);
+                    }
                 }
             }
+            catch { }
 
             return null;
         }
