@@ -13,10 +13,20 @@ namespace Breda_Ontdekt.Model.Entities
     {
         public List<BitmapImage> images { get; set; }
 
-        public Site(string name, Geoposition location, string description) : base(name, location)
+        public Site(string name, Geopoint location, string description) : base(name, location)
         {
             base.description = description;
             this.images = new List<BitmapImage>();
+        }
+
+        public override string ToString()
+        {
+            return base.name + " " + base.position.Position.ToString() + " " + description;
+        }
+
+        public Geopoint GetPoint()
+        {
+            return base.position;
         }
 
         public void AddImage(Uri url)

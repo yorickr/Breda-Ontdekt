@@ -16,7 +16,7 @@ namespace Breda_Ontdekt.Model.Entities
     {
         public direction direction { get; set; }
 
-        public RoutePoint(string name, Geoposition position, direction direction): base(name, position)
+        public RoutePoint(string name, Geopoint position, direction direction): base(name, position)
         {
             this.direction = direction;
         }
