@@ -21,7 +21,7 @@ namespace Breda_Ontdekt.ViewModel.Lib
             }
             catch (Exception)
             {
-                ErrorHandler.handleError("language change fout", "ok");
+                ErrorHandler.handleError("language change error", "ok");
             }
         }
     }

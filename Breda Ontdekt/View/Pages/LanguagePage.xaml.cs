@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Breda_Ontdekt.ViewModel.Lib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -41,12 +43,14 @@ namespace Breda_Ontdekt.View.Pages
 			{
 				_firstTime = false;
 				this.BackButton.Visibility = Visibility.Visible;
-				this.Frame.Navigate(typeof(RoutePage));
+                Setting.switchLanguage("en-GB", new RoutePage(), this.Frame);
+                Frame.Navigate(typeof(RoutePage));
 			}
 			else if (_firstTime == false)
 			{
-				this.Frame.Navigate(typeof(MapPage));
-			}
+                Setting.switchLanguage("en-GB", new MapPage(), this.Frame);
+                Frame.Navigate(typeof(MapPage));
+            }
 
 		}
 
@@ -56,12 +60,14 @@ namespace Breda_Ontdekt.View.Pages
 			{
 				_firstTime = false;
 				this.BackButton.Visibility = Visibility.Visible;
-				this.Frame.Navigate(typeof(RoutePage));
-			}
+                Setting.switchLanguage("nl-NL", new RoutePage(), this.Frame);
+                Frame.Navigate(typeof(RoutePage));
+            }
 						else if (_firstTime == false)
 			{
-				this.Frame.Navigate(typeof(MapPage));
-			}
+                Setting.switchLanguage("nl-NL", new MapPage(), this.Frame);
+                Frame.Navigate(typeof(MapPage));
+            }
 
 		}
 	}
