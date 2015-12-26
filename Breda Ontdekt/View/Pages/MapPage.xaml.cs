@@ -38,52 +38,6 @@ namespace Breda_Ontdekt.View.Pages
             this.InitializeComponent();
         }
 
-        private void StackPanel_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
-        {
-            if (e.Cumulative.Translation.X < -50)
-            {
-                HamburgerMenu.IsPaneOpen = false;
-            }
-        }
-
-        private void Grid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
-        {
-            if (e.Cumulative.Translation.X > 50)
-            {
-                HamburgerMenu.IsPaneOpen = true;
-            }
-        }
-
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            StackPanel panel = (StackPanel)e.ClickedItem;
-            switch (panel.Name)
-            {
-                case "HelpPanel":
-                    this.Frame.Navigate(typeof(HelpPage));
-                    break;
-                case "InfoPanel":
-                    this.Frame.Navigate(typeof(InfoPage));
-                    break;
-                case "LanguagePanel":
-                    this.Frame.Navigate(typeof(LanguagePage));
-                    break;
-                case "ResetPanel":
-                    this.Frame.Navigate(typeof(LanguagePage));
-                    break;
-                case "VVVPanel":
-                    //not implemented yet
-                    break;
-                default:
-                    throw new Exception();
-            }
-        }
-
-        private void MenuButton_Click(object sender, RoutedEventArgs e)
-        {
-            HamburgerMenu.IsPaneOpen = !HamburgerMenu.IsPaneOpen;
-        }
-
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(HelpPage));
@@ -321,6 +275,11 @@ namespace Breda_Ontdekt.View.Pages
 
                 MapView.MapElements.Add(mapIcon1);
             });
+        }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.instance.SwitchMenu();
         }
     }
 }

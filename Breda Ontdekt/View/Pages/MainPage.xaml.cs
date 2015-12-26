@@ -24,9 +24,68 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public static MainPage instance
+        {
+            get; set;
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
+            instance = this;
+            Frame.Navigate(typeof(LanguagePage));
+        }
+
+        private void ListView_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if(e.Cumulative.Translation.X < -20)
+            {
+                HamburgerMenu.IsPaneOpen = false;
+            }
+        }
+
+        private void Grid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if(e.Cumulative.Translation.X > 50)
+            {
+                HamburgerMenu.IsPaneOpen = true;
+            }
+        }
+
+        public void SwitchMenu()
+        {
+            HamburgerMenu.IsPaneOpen = !HamburgerMenu.IsPaneOpen;
+        }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            StackPanel panel = (StackPanel)e.ClickedItem;
+            switch (panel.Name)
+            {
+                case "HelpPanel":
+                    this.Frame.Navigate(typeof(HelpPage));
+                    break;
+                case "InfoPanel":
+                    this.Frame.Navigate(typeof(InfoPage));
+                    break;
+                case "LanguagePanel":
+                    this.Frame.Navigate(typeof(LanguagePage));
+                    break;
+                case "ResetPanel":
+                    this.Frame.Navigate(typeof(LanguagePage));
+                    break;
+                case "VVVPanel":
+                    //not implemented yet
+                    break;
+                default:
+                    throw new Exception();
+            }
+            HamburgerMenu.IsPaneOpen = false;
+        }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchMenu();
         }
     }
 }

@@ -9,25 +9,58 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-
-        <RelativePanel Grid.Row="0">
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="24" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-        </RelativePanel>
-
-        <RelativePanel Grid.Row="1">
-            <StackPanel Margin="0, 0, 360,580">
-                
-            </StackPanel>
-        </RelativePanel>
-
-        <RelativePanel Grid.Row="2">
-
-        </RelativePanel>
+        <SplitView Grid.Row="0" x:Name="HamburgerMenu" DisplayMode="Overlay" IsPaneOpen="False" CompactPaneLength="20" OpenPaneLength="200">
+            <SplitView.Pane>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <RelativePanel Grid.Row="0" Background="White">
+                        <Button x:Name="MenuButton" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Background="Transparent" Width="50" Height="50" Click="MenuButton_Click"/>
+                    </RelativePanel>
+                    <StackPanel Grid.Row="1" ManipulationMode="TranslateX" ManipulationCompleted="ListView_ManipulationCompleted" Background="White">
+                        <ListView Background="White" ItemClick="ListView_ItemClick" IsItemClickEnabled="True">
+                            <StackPanel x:Name ="HelpPanel" Orientation="Horizontal" >
+                                <TextBlock x:Name="HelpButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE897;" Width="Auto"/>
+                                <TextBlock x:Uid="Help" Name="Help" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                            <StackPanel x:Name="LanguagePanel" Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock x:Name="LanguageButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE7C1;"/>
+                                <TextBlock x:Uid="Language" Name="Language" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                            <StackPanel x:Name="ResetPanel" Orientation="Horizontal" >
+                                <TextBlock x:Name="ResetButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE895;"/>
+                                <TextBlock x:Uid="Reset" Name="Reset" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                            <StackPanel x:Name="VVVPanel" Orientation="Horizontal">
+                                <TextBlock x:Name="VVVButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE72B;"/>
+                                <TextBlock x:Uid="VVV" Name="VVV" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                            <StackPanel x:Name="InfoPanel" Orientation="Horizontal">
+                                <TextBlock x:Name="InfoButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE897;"/>
+                                <TextBlock x:Name="Info" Text="InfoPage" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Frame Name="Frame"/>
+                    <Grid ManipulationMode="TranslateX"
+                          ManipulationCompleted="Grid_ManipulationCompleted"
+                          Width="10"
+                          Background="Transparent"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Stretch">
+                    </Grid>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 
 </Page>
