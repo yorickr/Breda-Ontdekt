@@ -9,6 +9,7 @@ namespace Breda_Ontdekt.Model.Entities
     public class Route
     {
         public List<RoutePoint> routePoints { get; set; }
+        public string name { get; set; }
 
         public Route()
         {

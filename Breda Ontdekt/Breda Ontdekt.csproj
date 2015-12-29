@@ -114,6 +114,7 @@
     <Compile Include="ViewModel\Lib\ErrorHandler.cs" />
     <Compile Include="ViewModel\Lib\GeoUtil.cs" />
     <Compile Include="ViewModel\Lib\Setting.cs" />
+    <Compile Include="ViewModel\RoutePageModel.cs" />
     <Compile Include="View\Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>

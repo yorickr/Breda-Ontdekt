@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Breda_Ontdekt.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,12 @@ namespace Breda_Ontdekt.View.Pages
 	/// </summary>
 	public sealed partial class RoutePage : Page
 	{
+        private RoutePageModel model;
+
 		public RoutePage()
 		{
 			this.InitializeComponent();
+            model = new RoutePageModel();
 		}
 
 		private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -40,6 +44,11 @@ namespace Breda_Ontdekt.View.Pages
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MapPage));
+        }
+
+        private void routes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MapPage), (Model.Entities.Route)e.ClickedItem);
         }
     }
 }
