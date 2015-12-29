@@ -56,8 +56,13 @@ namespace Breda_Ontdekt.View.Pages
             catch { }
         }
 
-        private void DrawRoute(Route route)
+        private async void DrawRoute(Route route)
         {
+            //center map on the route and zoom the map
+            ObjectInfo centerObject = model.GetObject("Begijnenhof");
+            MapView.Center = centerObject.position;
+            MapView.ZoomLevel = 15;
+
             //draw each object in from the route on the map
             foreach (ObjectInfo o in  route.routePoints){
                 try {
@@ -72,10 +77,26 @@ namespace Breda_Ontdekt.View.Pages
                 }
                 catch { }
             }
-            //center map on the route and zoom the map
-            ObjectInfo centerObject = model.GetObject("Begijnenhof");
-            MapView.Center = centerObject.position;
-            MapView.ZoomLevel = 15;
+            
+
+            //draw line between all the points
+            ObjectInfo fromObject = null;
+            foreach(ObjectInfo toObject in route.routePoints){
+                if (fromObject != null)
+                {
+                    MapRouteFinderResult routeResult = await MapRouteFinder.GetWalkingRouteAsync(fromObject.position, toObject.position);
+                    if (routeResult.Status == MapRouteFinderStatus.Success)
+                    {
+                        MapRoute maproute = routeResult.Route;
+                        // Draw all segments of route and add a Geofence for every turn:
+                        DrawRoute(maproute);
+                       // await MapView.TrySetViewBoundsAsync(maproute.BoundingBox, null, MapAnimationKind.Linear);
+                    }
+                }
+                fromObject = toObject;
+            }
+
+
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
@@ -122,10 +143,10 @@ namespace Breda_Ontdekt.View.Pages
             //Draw a semi transparent fat green line
             var color = Colors.Green;
             color.A = 128;
-            MapView.MapElements.Clear();
+            //MapView.MapElements.Clear();
             var line = new MapPolyline
             {
-                StrokeThickness = 11,
+                StrokeThickness = 5,
                 StrokeColor = color,
                 StrokeDashed = false,
                 ZIndex = 2
