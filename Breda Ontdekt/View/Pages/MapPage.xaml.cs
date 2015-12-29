@@ -56,16 +56,18 @@ namespace Breda_Ontdekt.View.Pages
             catch { }
         }
 
-        private async void DrawRoute(Route route)
+        private void DrawRoute(Route route)
         {
             //draw each object in from the route on the map
             foreach (ObjectInfo o in  route.routePoints){
                 try {
+                    
                     MapIcon mapIcon1 = new MapIcon();
                     mapIcon1.Location = o.position;
                     mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
                     mapIcon1.Title = o.name;
                     mapIcon1.ZIndex = 0;
+                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                     MapView.MapElements.Add(mapIcon1);
                 }
                 catch { }
@@ -74,7 +76,6 @@ namespace Breda_Ontdekt.View.Pages
             ObjectInfo centerObject = model.GetObject("Begijnenhof");
             MapView.Center = centerObject.position;
             MapView.ZoomLevel = 15;
-
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
