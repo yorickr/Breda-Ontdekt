@@ -1,4 +1,5 @@
-﻿using Breda_Ontdekt.Model.Entities;
+﻿using Breda_Ontdekt.Model;
+using Breda_Ontdekt.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,11 +19,16 @@ namespace Breda_Ontdekt.ViewModel
             LoadRoutes();
         }
 
-        public void LoadRoutes()
+        public async void LoadRoutes()
         {
+            List<Site> sites = await Storage.GetRouteInfo();
             //todo load routes from class Storage
             //for testing: 
             Route route = new Route();
+            foreach(Site s in sites)
+            {
+                route.addRoutePoint(s);
+            }
             route.name = "historische kilometer";
             AddRoute(route);
         }

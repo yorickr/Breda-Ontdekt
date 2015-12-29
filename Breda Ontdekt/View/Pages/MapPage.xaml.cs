@@ -1,4 +1,6 @@
 ﻿using Breda_Ontdekt.Model;
+using Breda_Ontdekt.Model.Entities;
+using Breda_Ontdekt.ViewModel.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,11 +33,48 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class MapPage : Page
     {
-        private Geolocator geolocator;
+        private MapPageModel model; 
 
         public MapPage()
         {
+            model = new MapPageModel();
             this.InitializeComponent();
+        }
+        
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if((Route)e.Parameter != null)
+            try
+            {
+                //try to get route when navigate to this page
+                model.selectedRoute = (Route)e.Parameter;
+                
+                //draw all points of the route
+                DrawRoute(model.selectedRoute);
+               
+            }
+            catch { }
+        }
+
+        private async void DrawRoute(Route route)
+        {
+            //draw each object in from the route on the map
+            foreach (ObjectInfo o in  route.routePoints){
+                try {
+                    MapIcon mapIcon1 = new MapIcon();
+                    mapIcon1.Location = o.position;
+                    mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                    mapIcon1.Title = o.name;
+                    mapIcon1.ZIndex = 0;
+                    MapView.MapElements.Add(mapIcon1);
+                }
+                catch { }
+            }
+            //center map on the route and zoom the map
+            ObjectInfo centerObject = model.GetObject("Begijnenhof");
+            MapView.Center = centerObject.position;
+            MapView.ZoomLevel = 15;
+
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
@@ -245,26 +284,27 @@ namespace Breda_Ontdekt.View.Pages
 
         public void ToggleTracking(object sender, RoutedEventArgs e)
         {
-            if (geolocator == null)
+            if (model.geolocator == null)
             {
-                geolocator = new Geolocator
+                model.geolocator = new Geolocator
                 {
                     DesiredAccuracy = PositionAccuracy.High,
                     MovementThreshold = 1
                 };
-                geolocator.PositionChanged += GeolocatorPositionChanged;
+                model.geolocator.PositionChanged += GeolocatorPositionChanged;
                 GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
             }
             else
             {
                 GeofenceMonitor.Current.GeofenceStateChanged -= GeofenceStateChanged;
-                geolocator.PositionChanged -= GeolocatorPositionChanged;
-                geolocator = null;
+                model.geolocator.PositionChanged -= GeolocatorPositionChanged;
+                model.geolocator = null;
             }
         }
 
         private async void test(object sender, RoutedEventArgs e)
         {
+            
             (await Storage.GetRouteInfo()).ForEach(s =>
             {
                 MapIcon mapIcon1 = new MapIcon();
