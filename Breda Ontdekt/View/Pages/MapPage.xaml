@@ -1,13 +1,121 @@
-﻿<Page
+    <Page
     x:Class="Breda_Ontdekt.View.Pages.MapPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Breda_Ontdekt.View.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RelativePanel Grid.Row="0">
+                <Button x:Name="MenuButton" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50" Background="Transparent" Click="MenuButton_Click"/>
+            </RelativePanel>
+            <SplitView Grid.Row="1" x:Name="HamburgerMenu" DisplayMode="Overlay" IsPaneOpen="False" CompactPaneLength="0" OpenPaneLength="200">
+                <SplitView.Pane>
+                    <StackPanel Background="White" ManipulationMode="TranslateX" ManipulationCompleted="StackPanel_ManipulationCompleted">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="HelpButton" Height="50" FontFamily="Segoe MDL2 Assets" Content="&#xE897;" Background="Transparent" Click="HelpButton_Click"/>
+                            <Button x:Name="Help" Content="Help" Height="50" Background="Transparent"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="LanguageButton" Height="50" FontFamily="Segoe MDL2 Assets" Content="&#xE7C1;" Background="Transparent" Click="LanguageButton_Click"/>
+                            <Button x:Name="Language" Content="Select Language" Height="50" Background="Transparent"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <Button x:Name="ResetButton" Height="50" FontFamily="Segoe MDL2 Assets" Content="&#xE895;" Background="Transparent" Click="ResetButton_Click"/>
+                            <Button x:Name="Reset" Content="Reset App" Height="50" Background="Transparent"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="VVVButton" Height="50" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Background="Transparent"/>
+                            <Button x:Name="VVV" Content="Go Back to the VVV" Height="50" Background="Transparent"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="InfoButton" Height="50" FontFamily="Segoe MDL2 Assets" Content="&#xE897;" Background="Transparent" Click="InfoButton_Click"/>
+                            <Button x:Name="Info" Content="InfoPage" Height="50" Background="Transparent"/>
+                        </StackPanel>
+                    </StackPanel>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                      ManipulationCompleted="Grid_ManipulationCompleted"
+                      ManipulationMode="TranslateX">
+                        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    </Grid>
-</Page>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+
+                            </Grid.RowDefinitions>
+
+                            <Maps:MapControl
+            Grid.Row="0"
+            x:Name="MapView"
+            ZoomInteractionMode="GestureAndControl"
+            TiltInteractionMode="GestureAndControl"
+            PedestrianFeaturesVisible="True"
+            MapServiceToken="xS4vNHeSZFK8abeuR8CL~2uSX4RiX25qGkRIQBRyBfw~AoVbkGgjXqhmrv1XyZPAWMLi74iLFbRI_bG2O5WWFzyO2gAFQkARtwiSsNdjV4kB"
+            
+            />
+
+                            <Grid
+            Grid.Row="1"
+            >
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                x:Name="fromLabel"
+                Text="From"
+                Grid.Column="0"
+                Margin="10"
+                />
+                                <TextBox
+                x:Name="fromField"
+                Margin="10"
+               Grid.Column="1"
+            />
+                                <TextBlock
+                x:Name="toLabel"
+                Text="To"
+                Margin="10"
+                Grid.Column="2"
+                />
+                                <TextBox
+                x:Name="toField"
+                Margin="10"
+                Grid.Column="3"
+            />
+
+                            </Grid>
+
+                        </Grid>
+
+
+                    </Grid>
+                </SplitView.Content>
+            </SplitView>
+        </Grid>
+
+        <Page.BottomAppBar>
+            <CommandBar>
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Icon="ZoomOut" Label="zoom out" Click="test"/>
+                </CommandBar.SecondaryCommands>
+                <AppBarButton Label="Routes" Icon="Directions" Click="DoRouting"/>
+                <AppBarButton Label="Geofences" Icon="View" />
+                <AppBarButton Label="Track" Icon="Target" Click="ToggleTracking"/>
+            </CommandBar>
+        </Page.BottomAppBar>
+    </Page>

@@ -7,7 +7,34 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="470" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel Grid.Row="0">
+            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
+            <TextBlock x:Uid="LanguagePage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="1" Margin="25, 80" HorizontalAlignment="Center" >
+            <Button x:Name="UK_Button" Margin="0,0,0,0" VerticalAlignment="Top"  Width="150" Height="121" Click="UK_Button_Click">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/UKFlag.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="NL_Button" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="123" Click="NL_Button_Click">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/DutchFlag.png"/>
+                </Button.Background>
+            </Button>
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click" Visibility="Collapsed"/>
+        </RelativePanel>
     </Grid>
 </Page>

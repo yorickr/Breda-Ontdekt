@@ -17,14 +17,33 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Breda_Ontdekt.View.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class LanguagePage : Page
-    {
-        public LanguagePage()
-        {
-            this.InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class LanguagePage : Page
+	{
+		public Boolean firstTime = true;
+
+		public LanguagePage()
+		{
+			this.InitializeComponent();
+			if(firstTime == false)
+			{
+			}
+		}
+
+		private void BackButton_Click(object sender, RoutedEventArgs e)
+		{
+		}
+
+		private void UK_Button_Click(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(RoutePage));
+		}
+
+		private void NL_Button_Click(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(RoutePage));
+		}
+	}
 }
