@@ -18,28 +18,28 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Breda_Ontdekt.View.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class RoutePage : Page
-    {
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class RoutePage : Page
+	{
         private RoutePageModel model;
 
-        public RoutePage()
-        {
-            this.InitializeComponent();
+		public RoutePage()
+		{
+			this.InitializeComponent();
             model = new RoutePageModel();
-        }
+		}
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(LanguagePage));
-        }
+		private void BackButton_Click(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(LanguagePage));
+		}
 
-        private void RouteListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+		private void RouteListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+            
+		}
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Breda_Ontdekt.ViewModel.Lib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,28 +24,51 @@ namespace Breda_Ontdekt.View.Pages
 	/// </summary>
 	public sealed partial class LanguagePage : Page
 	{
-		public Boolean firstTime = true;
+		private Boolean _firstTime = true;
 
 		public LanguagePage()
 		{
 			this.InitializeComponent();
-			if(firstTime == false)
-			{
-			}
+			this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
 		}
 
 		private void BackButton_Click(object sender, RoutedEventArgs e)
 		{
+			this.Frame.Navigate(typeof (MapPage));
 		}
 
 		private void UK_Button_Click(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(RoutePage));
+			if (_firstTime == true)
+			{
+				_firstTime = false;
+				this.BackButton.Visibility = Visibility.Visible;
+                Setting.switchLanguage("en-GB", new RoutePage(), this.Frame);
+                Frame.Navigate(typeof(RoutePage));
+			}
+			else if (_firstTime == false)
+			{
+                Setting.switchLanguage("en-GB", new MapPage(), this.Frame);
+                Frame.Navigate(typeof(MapPage));
+            }
+
 		}
 
 		private void NL_Button_Click(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(RoutePage));
+			if (_firstTime == true)
+			{
+				_firstTime = false;
+				this.BackButton.Visibility = Visibility.Visible;
+                Setting.switchLanguage("nl-NL", new RoutePage(), this.Frame);
+                Frame.Navigate(typeof(RoutePage));
+            }
+						else if (_firstTime == false)
+			{
+                Setting.switchLanguage("nl-NL", new MapPage(), this.Frame);
+                Frame.Navigate(typeof(MapPage));
+            }
+
 		}
 	}
 }
