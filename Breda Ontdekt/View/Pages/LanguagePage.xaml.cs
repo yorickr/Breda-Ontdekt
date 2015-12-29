@@ -63,7 +63,7 @@ namespace Breda_Ontdekt.View.Pages
                 Setting.switchLanguage("nl-NL", new RoutePage(), this.Frame);
                 Frame.Navigate(typeof(RoutePage));
             }
-						else if (_firstTime == false)
+			else if (_firstTime == false)
 			{
                 Setting.switchLanguage("nl-NL", new MapPage(), this.Frame);
                 Frame.Navigate(typeof(MapPage));

@@ -21,7 +21,14 @@ namespace Breda_Ontdekt.ViewModel
 
         public async void LoadRoutes()
         {
-            List<Site> sites = await Storage.GetRouteInfo();
+            List<Site> sites = new List<Site>();
+            try {
+                sites = await Storage.GetRouteInfo();
+            }
+            catch (Exception)
+            {
+
+            }
             //todo load routes from class Storage
             //for testing: 
             Route route = new Route();
@@ -29,7 +36,7 @@ namespace Breda_Ontdekt.ViewModel
             {
                 route.addRoutePoint(s);
             }
-            route.name = "historische kilometer";
+            route.name = "Historische Kilometer";
             AddRoute(route);
         }
 
