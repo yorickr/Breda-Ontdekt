@@ -105,11 +105,6 @@ namespace Breda_Ontdekt.View.Pages
             this.Frame.Navigate(typeof(HelpPage));
         }
 
-        private void InfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(InfoPage));
-        }
-
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(LanguagePage));

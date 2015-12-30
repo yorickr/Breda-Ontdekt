@@ -120,9 +120,6 @@
     <Compile Include="View\Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\InfoPage.xaml.cs">
-      <DependentUpon>InfoPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Pages\LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
     </Compile>
@@ -165,10 +162,6 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="View\Pages\HelpPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\InfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

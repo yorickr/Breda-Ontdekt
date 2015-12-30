@@ -129,6 +129,12 @@
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="HelpTextPart1.Text" xml:space="preserve">
+    <value>Deze applicatie laat een route zien met bezienswaardigheden. In het routeoverzicht op de kaart is het pad aangegeven tussen verschillende monumenten die op de route liggen. Er kan gebruik gemaakt worden van in- en uitzoomen op de kaart. Ook is er een handig menu dat u kan helpen met verschillende dingen, zoals het selecteren van een nieuwe taal, of het terugkeren naar de VVV.</value>
+  </data>
+  <data name="HelpTextPart2.Text" xml:space="preserve">
+    <value>Aan de onderzijde van het routeoverzicht ziet u een balk met een aantal icoontjes. Deze icoontjes hebben allemaal een actie.</value>
+  </data>
   <data name="InfoPage.Text" xml:space="preserve">
     <value />
   </data>
