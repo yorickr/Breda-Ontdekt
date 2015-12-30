@@ -34,26 +34,27 @@ namespace Breda_Ontdekt.View.Pages
     public sealed partial class MapPage : Page
     {
         private MapPageModel model;
-        
+
         public MapPage()
         {
             model = new MapPageModel();
             this.InitializeComponent();
+            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
-        
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if((Route)e.Parameter != null)
-            try
-            {
-                //try to get route when navigate to this page
-                model.selectedRoute = (Route)e.Parameter;
-                
-                //draw all points of the route
-                DrawRoute(model.selectedRoute);
-               
-            }
-            catch { }
+            if ((Route)e.Parameter != null)
+                try
+                {
+                    //try to get route when navigate to this page
+                    model.selectedRoute = (Route)e.Parameter;
+
+                    //draw all points of the route
+                    DrawRoute(model.selectedRoute);
+
+                }
+                catch { }
         }
 
         private async void DrawRoute(Route route)
@@ -64,9 +65,11 @@ namespace Breda_Ontdekt.View.Pages
             MapView.ZoomLevel = 15;
 
             //draw each object in from the route on the map
-            foreach (ObjectInfo o in  route.routePoints){
-                try {
-                    
+            foreach (ObjectInfo o in route.routePoints)
+            {
+                try
+                {
+
                     MapIcon mapIcon1 = new MapIcon();
                     mapIcon1.Location = o.position;
                     mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
@@ -74,15 +77,16 @@ namespace Breda_Ontdekt.View.Pages
                     mapIcon1.ZIndex = 0;
                     mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                     MapView.MapElements.Add(mapIcon1);
-                    
+
                 }
                 catch { }
             }
-            
+
 
             //draw line between all the points
             ObjectInfo fromObject = null;
-            foreach(ObjectInfo toObject in route.routePoints){
+            foreach (ObjectInfo toObject in route.routePoints)
+            {
                 if (fromObject != null)
                 {
                     MapRouteFinderResult routeResult = await MapRouteFinder.GetWalkingRouteAsync(fromObject.position, toObject.position);
@@ -91,7 +95,7 @@ namespace Breda_Ontdekt.View.Pages
                         MapRoute maproute = routeResult.Route;
                         // Draw all segments of route and add a Geofence for every turn:
                         DrawRoute(maproute);
-                       // await MapView.TrySetViewBoundsAsync(maproute.BoundingBox, null, MapAnimationKind.Linear);
+                        // await MapView.TrySetViewBoundsAsync(maproute.BoundingBox, null, MapAnimationKind.Linear);
                     }
                 }
                 fromObject = toObject;
@@ -257,7 +261,7 @@ namespace Breda_Ontdekt.View.Pages
         {
             int userZIndex = 4;
             var userIcon = MapView.MapElements.OfType<MapIcon>().FirstOrDefault(p => p.ZIndex == userZIndex);
-            if(userIcon == null)
+            if (userIcon == null)
             {
                 userIcon = new MapIcon
                 {
@@ -322,7 +326,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private async void test(object sender, RoutedEventArgs e)
         {
-            
+
             (await Storage.GetRouteInfo()).ForEach(s =>
             {
                 MapIcon mapIcon1 = new MapIcon();
@@ -338,6 +342,16 @@ namespace Breda_Ontdekt.View.Pages
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             MainPage.instance.SwitchMenu();
+        }
+
+        //when the user clicks on the map this method is called
+        private void MapView_MapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            //get mapIcon from args
+            MapIcon clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
+            ObjectInfo o = model.GetObject(clickedIcon.Title);
+            //navigate to info page
+            Frame.Navigate(typeof(InfoPage), o);
         }
     }
 }
