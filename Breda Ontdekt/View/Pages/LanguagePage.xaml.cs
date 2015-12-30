@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,11 +31,7 @@ namespace Breda_Ontdekt.View.Pages
 		{
 			this.InitializeComponent();
 			this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-		}
 
-		private void BackButton_Click(object sender, RoutedEventArgs e)
-		{
-			this.Frame.Navigate(typeof (MapPage));
 		}
 
 		private void UK_Button_Click(object sender, RoutedEventArgs e)
@@ -42,7 +39,6 @@ namespace Breda_Ontdekt.View.Pages
 			if (_firstTime == true)
 			{
 				_firstTime = false;
-				this.BackButton.Visibility = Visibility.Visible;
                 Setting.switchLanguage("en-GB", new RoutePage(), this.Frame);
                 Frame.Navigate(typeof(RoutePage));
 			}
@@ -59,7 +55,6 @@ namespace Breda_Ontdekt.View.Pages
 			if (_firstTime == true)
 			{
 				_firstTime = false;
-				this.BackButton.Visibility = Visibility.Visible;
                 Setting.switchLanguage("nl-NL", new RoutePage(), this.Frame);
                 Frame.Navigate(typeof(RoutePage));
             }
@@ -68,7 +63,6 @@ namespace Breda_Ontdekt.View.Pages
                 Setting.switchLanguage("nl-NL", new MapPage(), this.Frame);
                 Frame.Navigate(typeof(MapPage));
             }
-
 		}
 	}
 }

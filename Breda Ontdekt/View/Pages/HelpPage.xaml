@@ -7,10 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" VerticalSnapPointsAlignment="Near">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="90" />
-            <RowDefinition Height="470" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -19,11 +24,28 @@
             <TextBlock x:Uid="HelpPage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
         </RelativePanel>
 
-        <RelativePanel Grid.Row="1" Margin="25, 250" HorizontalAlignment="Left" >
+        <RelativePanel Grid.Row="1" Margin="25, 5" HorizontalAlignment="Left">
+            <TextBlock x:Uid="HelpItem1Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" Margin="28,0,0,0" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem1Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" Margin="28,17,0,0" TextWrapping="WrapWholeWords"/>
+            <Image Source="/Assets/user.png" Height="25" Grid.Column="2" Margin="0,0,0,0" />
         </RelativePanel>
 
-        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+        <RelativePanel Grid.Row="2" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem2Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem2Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            <Image Source="/Assets/Help-Main.png" Margin="0,60,0,0" />
+        </RelativePanel>
+
+
+        <RelativePanel Grid.Row="3" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem3Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem3Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            <Image Source="/Assets/Help-Menu.png" Margin="0,38,0,0" Height="250"/>
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="6" HorizontalAlignment="Center">
             <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
         </RelativePanel>
     </Grid>
+    </ScrollViewer>
 </Page>

@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Breda_Ontdekt.ViewModel.Lib;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,7 +25,7 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public static MainPage instance
+		public static MainPage instance
         {
             get; set;
         }
@@ -32,11 +33,12 @@ namespace Breda_Ontdekt.View.Pages
         public MainPage()
         {
             this.InitializeComponent();
-            instance = this;
+
+			instance = this;
             Frame.Navigate(typeof(LanguagePage));
         }
 
-        private void ListView_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+		private void ListView_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             if(e.Cumulative.Translation.X < -20)
             {
@@ -81,7 +83,12 @@ namespace Breda_Ontdekt.View.Pages
                     throw new Exception();
             }
             HamburgerMenu.IsPaneOpen = false;
-        }
+
+			SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+			Frame.CanGoBack ?
+			AppViewBackButtonVisibility.Visible :
+			AppViewBackButtonVisibility.Collapsed;
+		}
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {

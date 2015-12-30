@@ -126,6 +126,24 @@
   <data name="Help.Text" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="HelpItem1Header.Text" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="HelpItem1Info.Text" xml:space="preserve">
+    <value>This icon shows you your position.</value>
+  </data>
+  <data name="HelpItem2Header.Text" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="HelpItem2Info.Text" xml:space="preserve">
+    <value>This is how the main app looks like. Left you can see the Menu open, you can open the menu by pushing on the 3 vertical stripes in the left upper corner. </value>
+  </data>
+  <data name="HelpItem3Header.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="HelpItem3Info.Text" xml:space="preserve">
+    <value>Here you can find the following:</value>
+  </data>
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>
   </data>

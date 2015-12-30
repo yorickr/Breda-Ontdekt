@@ -32,9 +32,5 @@
                 </Button.Background>
             </Button>
         </RelativePanel>
-
-        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click" Visibility="Collapsed"/>
-        </RelativePanel>
     </Grid>
 </Page>
