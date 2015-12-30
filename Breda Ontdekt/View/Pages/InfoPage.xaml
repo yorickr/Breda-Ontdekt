@@ -7,24 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" VerticalSnapPointsAlignment="Near">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="90" />
-            <RowDefinition Height="470" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+            <RelativePanel Grid.Row="0">
+                <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
+                <TextBlock x:Uid="InfoPage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
+            </RelativePanel>
 
-        <RelativePanel Grid.Row="0">
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-            <TextBlock x:Uid="InfoPage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
-        </RelativePanel>
+            <RelativePanel Grid.Row="1" Margin="25,10,0,0" HorizontalAlignment="Center">
+                <Image Source="{Binding Image}" Height="120"/>
+            </RelativePanel>
 
-        <RelativePanel Grid.Row="1" Margin="25, 250" HorizontalAlignment="Left">
-        </RelativePanel>
+            <RelativePanel Grid.Row="2" Margin="25,20,0,0" HorizontalAlignment="Left">
+                <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords" Text="{Binding SiteName}"/>
+                <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,34,0,0" Text="{Binding SiteInfo}"/>
+            </RelativePanel>
 
-        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Stretch" Click="BackButton_Click"/>
-        </RelativePanel>
-    </Grid>
+            <RelativePanel Grid.Row="3" HorizontalAlignment="Center">
+                <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Stretch" Click="BackButton_Click"/>
+            </RelativePanel>
+        </Grid>
+    </ScrollViewer>
 </Page>
