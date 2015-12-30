@@ -40,10 +40,6 @@
                                 <TextBlock x:Name="VVVButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE72B;"/>
                                 <TextBlock x:Uid="VVV" Name="VVV" Height="Auto" Margin="8,-3"/>
                             </StackPanel>
-                            <StackPanel x:Name="InfoPanel" Orientation="Horizontal">
-                                <TextBlock x:Name="InfoButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE897;"/>
-                                <TextBlock x:Name="Info" Text="InfoPage" Height="Auto" Margin="8,-3"/>
-                            </StackPanel>
                         </ListView>
                     </StackPanel>
                 </Grid>

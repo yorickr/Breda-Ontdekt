@@ -33,8 +33,8 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class MapPage : Page
     {
-        private MapPageModel model; 
-
+        private MapPageModel model;
+        
         public MapPage()
         {
             model = new MapPageModel();
@@ -74,6 +74,7 @@ namespace Breda_Ontdekt.View.Pages
                     mapIcon1.ZIndex = 0;
                     mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                     MapView.MapElements.Add(mapIcon1);
+                    
                 }
                 catch { }
             }

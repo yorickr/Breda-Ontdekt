@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <RelativePanel Grid.Row="0" Background="White">
-            <Button x:Name="MenuButton" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Background="Transparent" Width="50" Height="50" Click="MenuButton_Click"/>
+            <Button x:Name="MenuButton" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Background="Transparent" Width="50" Height="50" Click="MenuButton_Click" VerticalAlignment="Top"/>
         </RelativePanel>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Grid.Row="1">
             <Grid.RowDefinitions>
