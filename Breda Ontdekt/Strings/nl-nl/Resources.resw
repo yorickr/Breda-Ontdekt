@@ -136,7 +136,7 @@
     <value>Aan de onderzijde van het routeoverzicht ziet u een balk met een aantal icoontjes. Deze icoontjes hebben allemaal een actie.</value>
   </data>
   <data name="InfoPage.Text" xml:space="preserve">
-    <value />
+    <value>Informatie</value>
   </data>
   <data name="Language.Text" xml:space="preserve">
     <value>Selecteer een taal</value>

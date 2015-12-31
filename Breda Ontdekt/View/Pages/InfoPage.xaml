@@ -31,7 +31,7 @@
             </RelativePanel>
 
             <RelativePanel Grid.Row="3" HorizontalAlignment="Center">
-                <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Stretch" Click="BackButton_Click"/>
+                <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Stretch" Click="BackButton_Click_1"/>
             </RelativePanel>
         </Grid>
         </ScrollViewer>

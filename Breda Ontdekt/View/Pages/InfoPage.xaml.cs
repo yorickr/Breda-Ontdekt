@@ -40,11 +40,20 @@ namespace Breda_Ontdekt.View.Pages
                     //try to get site when navigate to this page
                     site = (ObjectInfo)e.Parameter;
                     siteName.Text = site.name;
+                    if(site.description != null)
+                    {
+
+                    }
                 }
                 catch { }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }

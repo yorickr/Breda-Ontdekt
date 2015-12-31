@@ -33,9 +33,8 @@ namespace Breda_Ontdekt.View.Pages
         public MainPage()
         {
             this.InitializeComponent();
-
-			instance = this;
-            Frame.Navigate(typeof(LanguagePage));
+            instance = this;
+            Frame.Navigate(typeof(StartPage));
         }
 
 		private void ListView_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
