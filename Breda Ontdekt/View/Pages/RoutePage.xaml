@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#e9ece5">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -15,8 +15,8 @@
         </Grid.RowDefinitions>
 
         <RelativePanel Grid.Row="0">
-            <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" Text="Breda Ontdekt"/>
-            <TextBlock x:Uid="RoutePage" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Margin="5" FontWeight="Bold"/>
+            <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" Foreground="#3b3a36" FontWeight="Bold" Text="Breda Ontdekt"/>
+            <TextBlock x:Uid="RoutePage" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Foreground="#3b3a36" FontSize="24" Margin="5" FontWeight="Bold"/>
         </RelativePanel>
 
         <ScrollViewer x:Name="listView" Margin="0,40,0,0" Grid.Row="1" RelativePanel.AlignRightWithPanel="True" 
@@ -38,7 +38,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{x:Bind name, Mode =TwoWay}" Grid.Column="1" Grid.Row="0" Margin="5" FontWeight="Bold"/>
+                                <TextBlock Text="{x:Bind name, Mode =TwoWay}" Grid.Column="1" Foreground="#3b3a36" Grid.Row="0" Margin="5" FontWeight="Bold"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

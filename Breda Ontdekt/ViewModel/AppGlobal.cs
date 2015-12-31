@@ -4,6 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//#c0dfd9 light blue
+//#e9ece5 light grey/white
+//#b3c2bf Grey
+//#3b3a36 Dark grey
+
+
 namespace Breda_Ontdekt.ViewModel
 {
     class AppGlobal

@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#e9ece5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -16,18 +16,18 @@
         </Grid.RowDefinitions>
 
         <RelativePanel Grid.Row="0">
-            <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" Text="Breda Ontdekt"/>
-            <TextBlock RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Margin="5" FontWeight="Bold" Text="Choose your Language"/>
+            <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" Text="Breda Ontdekt" Foreground="#3b3a36"/>
+            <TextBlock RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Margin="5" FontWeight="Bold" Text="Choose your Language" Foreground="#3b3a36"/>
         </RelativePanel>
 
         <RelativePanel Grid.Row="1" Margin="25, 80" HorizontalAlignment="Center" >
-            <TextBlock FontSize="24" RelativePanel.Below="UK_Button" RelativePanel.AlignHorizontalCenterWith="UK_Button">English</TextBlock>
+            <TextBlock FontSize="24" RelativePanel.Below="UK_Button" RelativePanel.AlignHorizontalCenterWith="UK_Button" Foreground="#3b3a36">English</TextBlock>
             <Button x:Name="UK_Button" Margin="0,0,0,0" VerticalAlignment="Top"  Width="150" Height="121" Click="UK_Button_Click">
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/UKFlag.png"/>
                 </Button.Background>
             </Button>
-            <TextBlock FontSize="24" RelativePanel.Below="NL_Button" RelativePanel.AlignHorizontalCenterWith="NL_Button">Nederlands</TextBlock>
+            <TextBlock FontSize="24" RelativePanel.Below="NL_Button" RelativePanel.AlignHorizontalCenterWith="NL_Button" Foreground="#3b3a36">Nederlands</TextBlock>
             <Button x:Name="NL_Button" Margin="0,160,0,0" VerticalAlignment="Top"  Width="150" Height="123" Click="NL_Button_Click">
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/DutchFlag.png"/>
