@@ -7,14 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#e9ece5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="InfoPage" FontSize="30" FontWeight="Bold" FontStyle="Italic"  Grid.Row="0"/>
-        <TextBlock x:Name="siteName"  Text="" FontSize="30" FontWeight="Bold" FontStyle="Italic"  Grid.Row="1"/>
-        <Button Content="back" Click="Button_Click"   HorizontalAlignment="Stretch" Grid.Row="2" />
+        <RelativePanel Grid.Row="0">
+            <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" x:Uid="InfoPage" Foreground="#3b3a36"/>
+            <TextBlock x:Name="siteName" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Foreground="#3b3a36" Margin="5,5,5,10" FontWeight="Bold"/>
+        </RelativePanel>
+        <RelativePanel Grid.Row="1">
+            <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
+        </RelativePanel>
+        <RelativePanel Grid.Row="2">
+            <Button x:Uid="Back" Click="Button_Click"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="28" Background="#e9ece5" Foreground="#3b3a36"/>
+        </RelativePanel>
+        
     </Grid>
 </Page>

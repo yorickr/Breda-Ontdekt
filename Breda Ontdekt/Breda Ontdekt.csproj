@@ -93,6 +93,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\sites.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -120,6 +121,9 @@
     <Compile Include="View\Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\InfoPage.xaml.cs">
+      <DependentUpon>InfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="View\Pages\RoutePage.xaml.cs">
       <DependentUpon>RoutePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +172,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\InfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\LanguagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\RoutePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

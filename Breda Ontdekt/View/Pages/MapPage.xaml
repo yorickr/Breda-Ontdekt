@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <RelativePanel Grid.Row="0" Background="White">
+        <RelativePanel Grid.Row="0" Background="#e9ece5">
             <Button x:Name="MenuButton" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Background="Transparent" Width="50" Height="50" Click="MenuButton_Click" VerticalAlignment="Top"/>
         </RelativePanel>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Grid.Row="1">
@@ -30,7 +30,7 @@
                                 MapServiceToken="xS4vNHeSZFK8abeuR8CL~2uSX4RiX25qGkRIQBRyBfw~AoVbkGgjXqhmrv1XyZPAWMLi74iLFbRI_bG2O5WWFzyO2gAFQkARtwiSsNdjV4kB"
                                 MapElementClick="MapView_MapElementClick"   
                      />
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Background="#e9ece5" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="3*"/>
@@ -63,7 +63,7 @@
         </Grid>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar Background="#e9ece5">
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="ZoomOut" Label="zoom out" Click="test"/>
             </CommandBar.SecondaryCommands>
