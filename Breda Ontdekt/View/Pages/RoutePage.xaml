@@ -15,11 +15,12 @@
         </Grid.RowDefinitions>
 
         <RelativePanel Grid.Row="0">
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-            <TextBlock x:Uid="RoutePage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
+            <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" Text="Breda Ontdekt"/>
+            <TextBlock x:Uid="RoutePage" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Margin="5" FontWeight="Bold"/>
         </RelativePanel>
 
-        <ScrollViewer x:Name="listView" Margin="0,40,0,0" Grid.Row="1" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" >
+        <ScrollViewer x:Name="listView" Margin="0,40,0,0" Grid.Row="1" RelativePanel.AlignRightWithPanel="True" 
+                      RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -45,9 +46,5 @@
             </Grid>
         </ScrollViewer>
 
-
-        <RelativePanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
-            <Button x:Uid="Continue" x:Name="ContinueButton" Margin="0,0,0,0" VerticalAlignment="Bottom" RelativePanel.AlignBottomWithPanel="True" Click="ContinueButton_Click"/>
-        </RelativePanel>
     </Grid>
 </Page>

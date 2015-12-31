@@ -147,6 +147,9 @@
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="HelpTextPart1.Text" xml:space="preserve">
+    <value />
+  </data>
   <data name="InfoPage.Text" xml:space="preserve">
     <value />
   </data>
@@ -160,7 +163,7 @@
     <value>Reset App</value>
   </data>
   <data name="RoutePage.Text" xml:space="preserve">
-    <value>Route</value>
+    <value>Select your route</value>
   </data>
   <data name="VVV.Text" xml:space="preserve">
     <value>Go back to the VVV</value>

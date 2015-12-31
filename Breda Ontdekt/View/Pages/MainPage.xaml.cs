@@ -67,9 +67,6 @@ namespace Breda_Ontdekt.View.Pages
                 case "HelpPanel":
                     this.Frame.Navigate(typeof(HelpPage));
                     break;
-                case "InfoPanel":
-                    this.Frame.Navigate(typeof(InfoPage));
-                    break;
                 case "LanguagePanel":
                     this.Frame.Navigate(typeof(LanguagePage));
                     break;

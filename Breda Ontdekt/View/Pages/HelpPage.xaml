@@ -20,8 +20,8 @@
         </Grid.RowDefinitions>
 
         <RelativePanel Grid.Row="0">
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-            <TextBlock x:Uid="HelpPage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
+            <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" Text="Breda Ontdekt"/>
+            <TextBlock x:Uid="HelpPage" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Margin="5" FontWeight="Bold"/>
         </RelativePanel>
 
         <RelativePanel Grid.Row="1" Margin="25, 5" HorizontalAlignment="Left">

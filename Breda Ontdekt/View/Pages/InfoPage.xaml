@@ -18,7 +18,7 @@
 
             <RelativePanel Grid.Row="0">
                 <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="18" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-                <TextBlock x:Uid="InfoPage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
+                <TextBlock x:Name="siteName" x:Uid="InfoPage" RelativePanel.AlignLeftWithPanel="True" FontSize="40" Margin="20,30,0,0" />
             </RelativePanel>
 
             <RelativePanel Grid.Row="1" Margin="25,10,0,0" HorizontalAlignment="Center">
@@ -34,5 +34,6 @@
                 <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Stretch" Click="BackButton_Click"/>
             </RelativePanel>
         </Grid>
-    </ScrollViewer>
+        </ScrollViewer>
+
 </Page>

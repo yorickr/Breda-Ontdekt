@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Breda_Ontdekt.Model;
+using Breda_Ontdekt.Model.Entities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,14 +24,29 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class InfoPage : Page
     {
+        private ObjectInfo site;
+
         public InfoPage()
         {
             this.InitializeComponent();
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(MapPage));
+            if ((ObjectInfo)e.Parameter != null)
+                try
+                {
+
+                    //try to get site when navigate to this page
+                    site = (ObjectInfo)e.Parameter;
+                    siteName.Text = site.name;
+                }
+                catch { }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
         }
     }
 }

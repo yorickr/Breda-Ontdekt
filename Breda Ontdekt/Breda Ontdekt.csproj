@@ -95,6 +95,7 @@
     </Content>
     <Content Include="Assets\Help-Main.png" />
     <Content Include="Assets\Help-Menu.png" />
+    <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\sites.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -116,12 +117,10 @@
     <Compile Include="ViewModel\Lib\ErrorHandler.cs" />
     <Compile Include="ViewModel\Lib\GeoUtil.cs" />
     <Compile Include="ViewModel\Lib\Setting.cs" />
-    <Compile Include="ViewModel\RoutePageModel.cs" />
+    <Compile Include="ViewModel\Pages\MapPageModel.cs" />
+    <Compile Include="ViewModel\Pages\RoutePageModel.cs" />
     <Compile Include="View\Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\InfoPage.xaml.cs">
-      <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
@@ -165,10 +164,6 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="View\Pages\HelpPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\InfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
