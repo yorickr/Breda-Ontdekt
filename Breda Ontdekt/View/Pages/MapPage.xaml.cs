@@ -34,6 +34,7 @@ namespace Breda_Ontdekt.View.Pages
     public sealed partial class MapPage : Page
     {
         private MapPageModel model;
+        private bool routeLoaded = false;
 
         public MapPage()
         {
@@ -44,9 +45,10 @@ namespace Breda_Ontdekt.View.Pages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if ((Route)e.Parameter != null)
+            if ((Route)e.Parameter != null && !routeLoaded)
                 try
                 {
+                    routeLoaded = true;
                     //try to get route when navigate to this page
                     model.selectedRoute = (Route)e.Parameter;
 
@@ -347,11 +349,15 @@ namespace Breda_Ontdekt.View.Pages
         //when the user clicks on the map this method is called
         private void MapView_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
-            //get mapIcon from args
-            MapIcon clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
-            ObjectInfo o = model.GetObject(clickedIcon.Title);
-            //navigate to info page
-            Frame.Navigate(typeof(InfoPage), o);
+            try
+            {
+                //get mapIcon from args
+                MapIcon clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
+                ObjectInfo o = model.GetObject(clickedIcon.Title);
+                //navigate to info page
+                Frame.Navigate(typeof(InfoPage), o);
+            }
+            catch { }
         }
     }
 }
