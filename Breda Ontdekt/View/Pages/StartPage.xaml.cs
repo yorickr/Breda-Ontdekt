@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Animation;
+using Breda_Ontdekt.Model.Entities;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,8 +22,12 @@ namespace Breda_Ontdekt.View.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
     public sealed partial class StartPage : Page
     {
+
+        TransferClass transfer = new TransferClass();
+
         public StartPage()
         {
             this.InitializeComponent();
@@ -30,7 +35,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LanguagePage));
+            this.Frame.Navigate(typeof(LanguagePage),transfer);
         }
     }
 }

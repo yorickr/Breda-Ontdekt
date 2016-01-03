@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Breda_Ontdekt.Model.Entities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,14 +23,22 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class HelpPage : Page
     {
+
+        private TransferClass transfer;
+
         public HelpPage()
         {
             this.InitializeComponent();
         }
 
-		private void BackButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            transfer = (TransferClass)e.Parameter;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
 		{
-            this.Frame.Navigate(typeof(MapPage));
+            this.Frame.Navigate(typeof(MapPage),transfer);
 		}
 	}
 }

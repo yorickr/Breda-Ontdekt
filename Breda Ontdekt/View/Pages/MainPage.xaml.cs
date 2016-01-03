@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Breda_Ontdekt.ViewModel.Lib;
 using Windows.UI.Core;
+using Breda_Ontdekt.Model.Entities;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +26,9 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        private TransferClass transfer;
+
 		public static MainPage instance
         {
             get; set;
@@ -33,11 +37,12 @@ namespace Breda_Ontdekt.View.Pages
         public MainPage()
         {
             this.InitializeComponent();
+            transfer = new TransferClass();
             instance = this;
             Frame.Navigate(typeof(StartPage));
         }
 
-		private void ListView_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        private void ListView_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             if(e.Cumulative.Translation.X < -20)
             {
@@ -64,13 +69,13 @@ namespace Breda_Ontdekt.View.Pages
             switch (panel.Name)
             {
                 case "HelpPanel":
-                    this.Frame.Navigate(typeof(HelpPage));
+                    this.Frame.Navigate(typeof(HelpPage),transfer);
                     break;
                 case "LanguagePanel":
-                    this.Frame.Navigate(typeof(LanguagePage));
+                    this.Frame.Navigate(typeof(LanguagePage),transfer);
                     break;
                 case "ResetPanel":
-                    this.Frame.Navigate(typeof(LanguagePage));
+                    this.Frame.Navigate(typeof(LanguagePage),transfer);
                     break;
                 case "VVVPanel":
                     //not implemented yet

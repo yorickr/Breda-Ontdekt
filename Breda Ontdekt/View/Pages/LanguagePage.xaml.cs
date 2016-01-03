@@ -1,4 +1,5 @@
-﻿using Breda_Ontdekt.ViewModel.Lib;
+﻿using Breda_Ontdekt.Model.Entities;
+using Breda_Ontdekt.ViewModel.Lib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,6 +28,8 @@ namespace Breda_Ontdekt.View.Pages
 	{
 		private Boolean _firstTime = true;
 
+        private TransferClass transfer;
+
 		public LanguagePage()
 		{
 			this.InitializeComponent();
@@ -34,18 +37,23 @@ namespace Breda_Ontdekt.View.Pages
 
 		}
 
-		private void UK_Button_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            transfer = (TransferClass)e.Parameter;
+        }
+
+        private void UK_Button_Click(object sender, RoutedEventArgs e)
 		{
 			if (_firstTime == true)
 			{
 				_firstTime = false;
                 Setting.switchLanguage("en-GB", new RoutePage(), this.Frame);
-                Frame.Navigate(typeof(RoutePage));
+                Frame.Navigate(typeof(RoutePage),transfer);
 			}
 			else if (_firstTime == false)
 			{
                 Setting.switchLanguage("en-GB", new MapPage(), this.Frame);
-                Frame.Navigate(typeof(MapPage));
+                Frame.Navigate(typeof(MapPage),transfer);
             }
 
 		}
@@ -56,12 +64,12 @@ namespace Breda_Ontdekt.View.Pages
 			{
 				_firstTime = false;
                 Setting.switchLanguage("nl-NL", new RoutePage(), this.Frame);
-                Frame.Navigate(typeof(RoutePage));
+                Frame.Navigate(typeof(RoutePage),transfer);
             }
 			else if (_firstTime == false)
 			{
                 Setting.switchLanguage("nl-NL", new MapPage(), this.Frame);
-                Frame.Navigate(typeof(MapPage));
+                Frame.Navigate(typeof(MapPage),transfer);
             }
 		}
 	}

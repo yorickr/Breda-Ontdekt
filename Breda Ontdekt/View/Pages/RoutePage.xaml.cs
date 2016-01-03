@@ -1,4 +1,5 @@
-﻿using Breda_Ontdekt.ViewModel;
+﻿using Breda_Ontdekt.Model.Entities;
+using Breda_Ontdekt.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,16 +25,21 @@ namespace Breda_Ontdekt.View.Pages
 	public sealed partial class RoutePage : Page
 	{
         private RoutePageModel model;
+        private TransferClass transfer;
 
 		public RoutePage()
 		{
 			this.InitializeComponent();
             model = new RoutePageModel();
 		}
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            transfer = (TransferClass)e.Parameter;
+        }
 
-		private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(LanguagePage));
+			this.Frame.Navigate(typeof(LanguagePage), transfer);
 		}
 
 		private void RouteListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -43,12 +49,13 @@ namespace Breda_Ontdekt.View.Pages
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MapPage));
+            this.Frame.Navigate(typeof(MapPage), transfer);
         }
 
         private void routes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.Frame.Navigate(typeof(MapPage), (Model.Entities.Route)e.ClickedItem);
+            transfer.route = (Model.Entities.Route)e.ClickedItem;
+            this.Frame.Navigate(typeof(MapPage), transfer);
         }
     }
 }

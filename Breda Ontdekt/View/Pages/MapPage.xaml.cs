@@ -34,21 +34,23 @@ namespace Breda_Ontdekt.View.Pages
     public sealed partial class MapPage : Page
     {
         private MapPageModel model;
-
+        private TransferClass transfer;
         public MapPage()
         {
             model = new MapPageModel();
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
-
+        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if ((Route)e.Parameter != null)
+            transfer = (TransferClass)e.Parameter;
+            if (transfer.route != null)
                 try
                 {
+
                     //try to get route when navigate to this page
-                    model.selectedRoute = (Route)e.Parameter;
+                    model.selectedRoute = transfer.route;
 
                     //draw all points of the route
                     DrawRoute(model.selectedRoute);
@@ -106,17 +108,17 @@ namespace Breda_Ontdekt.View.Pages
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(HelpPage));
+            this.Frame.Navigate(typeof(HelpPage),transfer);
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LanguagePage));
+            this.Frame.Navigate(typeof(LanguagePage), transfer);
         }
 
         private void LanguageButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LanguagePage));
+            this.Frame.Navigate(typeof(LanguagePage), transfer);
         }
 
         private async void DoRouting(object sender, RoutedEventArgs e)
@@ -350,8 +352,9 @@ namespace Breda_Ontdekt.View.Pages
             //get mapIcon from args
             MapIcon clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
             ObjectInfo o = model.GetObject(clickedIcon.Title);
+            transfer.info = o;
             //navigate to info page
-            Frame.Navigate(typeof(InfoPage), o);
+            Frame.Navigate(typeof(InfoPage), transfer);
         }
     }
 }
