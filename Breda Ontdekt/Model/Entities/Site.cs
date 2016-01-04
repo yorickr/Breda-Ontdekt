@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Media;
+using Windows.Storage;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace Breda_Ontdekt.Model.Entities
@@ -15,8 +18,56 @@ namespace Breda_Ontdekt.Model.Entities
 
         public Site(string name, Geopoint location, string description) : base(name, location)
         {
-            base.description = description;
+            try
+            {
+                Debug.WriteLine(description);
+                int descriptionId = Int32.Parse(description);
+                switch(descriptionId)
+                {
+                    //nassaumonument
+                    case 1:
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/nassaumonument.txt"));
+                        break;
+                    //kasteel
+                    case 2:
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/kasteel.txt"));
+                        break;
+                    //torenstraat
+                    case 3:
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        break;
+                    //stadhuis
+                    case 4:
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        break;
+                    //antoniuskerk
+                    case 5:
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        break;
+                    //bibliotheek
+                    case 6:
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        break;
+                    //kloosterkazerne
+                    case 7:
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        break;
+                }
+                Debug.WriteLine("Succesfully converted description to id.");
+            }
+            catch(Exception)
+            {
+                Debug.WriteLine("Couldn't succesfully convert description to id");
+                base.description = description;
+            }
+
             this.images = new List<BitmapImage>();
+        }
+
+        private string GetDescription(Uri uri)
+        {
+            StorageFile file = StorageFile.GetFileFromApplicationUriAsync(uri).AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+            return File.ReadAllText(file.Path);
         }
 
         public override string ToString()
