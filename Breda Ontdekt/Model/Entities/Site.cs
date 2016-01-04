@@ -16,7 +16,7 @@ namespace Breda_Ontdekt.Model.Entities
     {
         public List<BitmapImage> images { get; set; }
 
-        public Site(string name, Geopoint location, string description) : base(name, location)
+        public Site(string id, string name, Geopoint location, string description) : base(name, location, id)
         {
             try
             {
