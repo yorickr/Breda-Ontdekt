@@ -78,7 +78,8 @@ namespace Breda_Ontdekt.View.Pages
                     this.Frame.Navigate(typeof(LanguagePage),transfer);
                     break;
                 case "VVVPanel":
-                    //not implemented yet
+                    transfer.isReturn = true;
+                    this.Frame.Navigate(typeof(MapPage), transfer);
                     break;
                 default:
                     throw new Exception();

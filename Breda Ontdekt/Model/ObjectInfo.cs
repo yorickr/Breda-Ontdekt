@@ -7,7 +7,7 @@ using Windows.Devices.Geolocation;
 
 namespace Breda_Ontdekt.Model
 {
-    public abstract class ObjectInfo
+    public  class ObjectInfo
     {
         //the position of the object
         public Geopoint position { get; set; }
