@@ -1,11 +1,13 @@
 ﻿using Breda_Ontdekt.Model.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -34,11 +36,33 @@ namespace Breda_Ontdekt.View.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             transfer = (TransferClass)e.Parameter;
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            currentView.BackRequested += backButton_Tapped;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
 		{
             this.Frame.Navigate(typeof(MapPage),transfer);
 		}
-	}
+
+        private void backButton_Tapped(object sender, BackRequestedEventArgs e)
+
+        {
+
+            // insert anything you need to do before navigating
+
+            if (Frame.CanGoBack) Frame.GoBack();
+
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
+            currentView.BackRequested -= backButton_Tapped;
+        }
+    }
 }
