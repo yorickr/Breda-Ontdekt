@@ -99,6 +99,18 @@
     <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\routepoint_seen.png" />
+    <Content Include="Assets\siteImages\1.jpg" />
+    <Content Include="Assets\siteImages\10.jpg" />
+    <Content Include="Assets\siteImages\11.jpg" />
+    <Content Include="Assets\siteImages\12.jpg" />
+    <Content Include="Assets\siteImages\2.jpg" />
+    <Content Include="Assets\siteImages\3.jpg" />
+    <Content Include="Assets\siteImages\4.jpg" />
+    <Content Include="Assets\siteImages\5.jpg" />
+    <Content Include="Assets\siteImages\6.jpg" />
+    <Content Include="Assets\siteImages\7.jpg" />
+    <Content Include="Assets\siteImages\8.jpg" />
+    <Content Include="Assets\siteImages\9.jpg" />
     <Content Include="Assets\sites.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
