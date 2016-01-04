@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -75,11 +76,11 @@ namespace Breda_Ontdekt.Model
             {
                 var sepvals = l.Split(',');
 
-                double latdegrees = Double.Parse(sepvals[1].Split('°')[0]);
-                double latminutes = Double.Parse(sepvals[1].Split('°')[1]);
+                double latdegrees = Double.Parse(sepvals[1].Split('°')[0], CultureInfo.InvariantCulture);
+                double latminutes = Double.Parse(sepvals[1].Split('°')[1], CultureInfo.InvariantCulture);
 
-                double longdegrees = Double.Parse(sepvals[2].Split('°')[0]);
-                double longminutes = Double.Parse(sepvals[2].Split('°')[1]);
+                double longdegrees = Double.Parse(sepvals[2].Split('°')[0], CultureInfo.InvariantCulture);
+                double longminutes = Double.Parse(sepvals[2].Split('°')[1], CultureInfo.InvariantCulture);
                 
                 var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(latdegrees,latminutes,0), Longitude = ConvertDegreeAngleToDouble(longdegrees,longminutes,0)};
                 siteList.Add(new Site(sepvals[3],new Geopoint(geopos), sepvals[4]));
