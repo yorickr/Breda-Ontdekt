@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Breda_Ontdekt.Model.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,12 @@ namespace Breda_Ontdekt.ViewModel.Lib
     {
         // nl-nl
         // en-US
-        public static void switchLanguage(string language, Page page, Frame frame)
+        public static void switchLanguage(string language, Page page, Frame frame, TransferClass transfer)
         {
             try
             {
                 ApplicationLanguages.PrimaryLanguageOverride = language;
-                frame.Navigate(page.GetType());
+                frame.Navigate(page.GetType(), transfer);
             }
             catch (Exception)
             {

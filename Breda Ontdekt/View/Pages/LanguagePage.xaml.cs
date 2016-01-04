@@ -47,13 +47,11 @@ namespace Breda_Ontdekt.View.Pages
 			if (_firstTime == true)
 			{
 				_firstTime = false;
-                Setting.switchLanguage("en-GB", new RoutePage(), this.Frame);
-                Frame.Navigate(typeof(RoutePage),transfer);
+                Setting.switchLanguage("en-GB", new RoutePage(), this.Frame, transfer);
 			}
 			else if (_firstTime == false)
 			{
-                Setting.switchLanguage("en-GB", new MapPage(), this.Frame);
-                Frame.Navigate(typeof(MapPage),transfer);
+                Setting.switchLanguage("en-GB", new MapPage(), this.Frame, transfer);
             }
 
 		}
@@ -63,13 +61,11 @@ namespace Breda_Ontdekt.View.Pages
 			if (_firstTime == true)
 			{
 				_firstTime = false;
-                Setting.switchLanguage("nl-NL", new RoutePage(), this.Frame);
-                Frame.Navigate(typeof(RoutePage),transfer);
+                Setting.switchLanguage("nl-NL", new RoutePage(), this.Frame, transfer);
             }
 			else if (_firstTime == false)
 			{
-                Setting.switchLanguage("nl-NL", new MapPage(), this.Frame);
-                Frame.Navigate(typeof(MapPage),transfer);
+                Setting.switchLanguage("nl-NL", new MapPage(), this.Frame, transfer);
             }
 		}
 	}

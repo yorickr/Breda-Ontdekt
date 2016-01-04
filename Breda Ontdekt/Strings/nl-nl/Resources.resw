@@ -126,14 +126,26 @@
   <data name="Help.Text" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="HelpItem1Header.Text" xml:space="preserve">
+    <value>Positie</value>
+  </data>
+  <data name="HelpItem1Info.Text" xml:space="preserve">
+    <value>Dit icoon geeft jou positie weer.</value>
+  </data>
+  <data name="HelpItem2Header.Text" xml:space="preserve">
+    <value>Overzicht</value>
+  </data>
+  <data name="HelpItem2Info.Text" xml:space="preserve">
+    <value>Dit is hoe het belangrijkste gedeelt van de app eruit ziet. Links zie je het menu open. Je kunt het menu openen door op de 3 verticale strepen in de hoek linksboven te drukken.</value>
+  </data>
+  <data name="HelpItem3Header.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="HelpItem3Info.Text" xml:space="preserve">
+    <value>Hier vind je het volgende:</value>
+  </data>
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>
-  </data>
-  <data name="HelpTextPart1.Text" xml:space="preserve">
-    <value>Deze applicatie laat een route zien met bezienswaardigheden. In het routeoverzicht op de kaart is het pad aangegeven tussen verschillende monumenten die op de route liggen. Er kan gebruik gemaakt worden van in- en uitzoomen op de kaart. Ook is er een handig menu dat u kan helpen met verschillende dingen, zoals het selecteren van een nieuwe taal, of het terugkeren naar de VVV.</value>
-  </data>
-  <data name="HelpTextPart2.Text" xml:space="preserve">
-    <value>Aan de onderzijde van het routeoverzicht ziet u een balk met een aantal icoontjes. Deze icoontjes hebben allemaal een actie.</value>
   </data>
   <data name="InfoPage.Text" xml:space="preserve">
     <value>Informatie</value>
