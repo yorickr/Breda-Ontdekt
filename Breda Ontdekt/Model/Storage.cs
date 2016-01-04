@@ -16,7 +16,7 @@ namespace Breda_Ontdekt.Model
 {
     public static class Storage
     {
-       
+
         /// <summary>
         /// This methods saves the data in the local storage of the app
         /// </summary>
@@ -30,7 +30,7 @@ namespace Breda_Ontdekt.Model
                 StorageFile savedStuffFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
                 using (Stream writeStream = await savedStuffFile.OpenStreamForWriteAsync())
                 {
-                    DataContractSerializer stuffSerializer = new DataContractSerializer(typeof(List<string> ) );
+                    DataContractSerializer stuffSerializer = new DataContractSerializer(typeof(List<string>));
                     stuffSerializer.WriteObject(writeStream, saveData);
                     await writeStream.FlushAsync();
                     writeStream.Dispose();
@@ -47,7 +47,7 @@ namespace Breda_Ontdekt.Model
         {
             var readStream = await ApplicationData.Current.LocalFolder.OpenStreamForReadAsync(fileName);
 
-            if(readStream == null)
+            if (readStream == null)
                 return new List<string>();
 
             DataContractSerializer stuffSerializer = new DataContractSerializer(typeof(List<string>));
@@ -81,49 +81,63 @@ namespace Breda_Ontdekt.Model
 
                 double longdegrees = Double.Parse(sepvals[2].Split('°')[0], CultureInfo.InvariantCulture);
                 double longminutes = Double.Parse(sepvals[2].Split('°')[1], CultureInfo.InvariantCulture);
-                
-                var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(latdegrees,latminutes,0), Longitude = ConvertDegreeAngleToDouble(longdegrees,longminutes,0)};
 
-                Site site = new Site(sepvals[0], sepvals[3], new Geopoint(geopos), sepvals[4]);
-                
+                var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(latdegrees, latminutes, 0), Longitude = ConvertDegreeAngleToDouble(longdegrees, longminutes, 0) };
+                siteList.Add(new Site(sepvals[0], sepvals[3], new Geopoint(geopos), sepvals[4]));
+
             });
             siteList.ForEach(s => Debug.WriteLine(s.ToString()));
-            
-            //List<Site> tempList = await LoadImages(siteList);
-           // if (tempList != null)
-             //   siteList = tempList;
+
+            List<Site> sitesWithImages = await AddImages(siteList);
             return siteList;
         }
 
-        public static async Task<List<Site>> LoadImages(List<Site> sites)
+        private static async Task<List<Site>> AddImages(List<Site> sites)
         {
-            StorageFolder localfolder = ApplicationData.Current.LocalFolder;
-            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/images.csv"));
-            String csv = await FileIO.ReadTextAsync(file);
-
-            var alllines = csv.Split('\n');
-            List<String> linesList = alllines.ToList();
-
-            linesList.ForEach(l =>
+            try
             {
-                String[] sepval = l.Split(':');
-                string name = sepval[0];
-                int i = 0;
-                List<Uri> imageNumbers = new List<Uri>();
-                foreach (string sepsepval in sepval[1].Split('&')){
-                    Uri u = new Uri("ms-appx:///Assets/siteImages/" + sepsepval + ".jpg");
-                    imageNumbers.Add(u);
-                    i++;
-                }
-                foreach(Site s in sites)
+                //get file from applicationfolder
+                StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/SiteImagesNumbers.csv"));
+
+                //get content from the file
+                String content = await FileIO.ReadTextAsync(file);
+
+                //split lines from content to a list
+                List<String> lines = content.Split('\n').ToList();
+
+                foreach(string line in lines)
                 {
-                    if (s.name.Equals(name))
-                        s.imageUrls = imageNumbers;                        
+                    //seperate key and values from line
+                    List<string> lineList = line.Split(':').ToList();
+
+                    //get key
+                    string key = lineList[0];
+
+                    //get values
+                    List<string> values = lineList[1].Split('&').ToList();
+                    List<Uri> uriValues = new List<Uri>();
+                    //parse string values to uri values
+                    values.ForEach(v =>
+                        uriValues.Add(new Uri("ms-appx:///Assets/siteImages/" + v + ".jpg")));
+
+                    //search for same object
+                    sites.ForEach(s =>
+                    {
+                        //if it is the same add the uris
+                        if (s.name == key)
+                            s.imageUrls = uriValues;
+                    });
+
                 }
-            });
-            return sites;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex.Message);
+            }
+            return null;
         }
+        
     }
 
-    
+
 }

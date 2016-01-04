@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace Breda_Ontdekt.ViewModel
 {
@@ -38,12 +39,15 @@ namespace Breda_Ontdekt.ViewModel
             }
             route.name = "Historische Kilometer";
             AddRoute(route);
+
         }
 
         public void AddRoute(Route route)
         {
             _routes.Add(route);
         }
+
+        
     }
 
 }
