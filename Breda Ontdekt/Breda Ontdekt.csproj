@@ -124,7 +124,8 @@
     <Content Include="Assets\sites.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Assets\images.csv" />
+    <None Include="Assets\SiteImagesNumbers" />
+    <None Include="Assets\SiteImagesNumbers.csv" />
     <None Include="project.json" />
     <PRIResource Include="Strings\nl-nl\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
