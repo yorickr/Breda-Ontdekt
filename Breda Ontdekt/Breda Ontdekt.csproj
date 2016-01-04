@@ -98,6 +98,7 @@
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
+    <Content Include="Assets\routepoint_seen.png" />
     <Content Include="Assets\sites.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
