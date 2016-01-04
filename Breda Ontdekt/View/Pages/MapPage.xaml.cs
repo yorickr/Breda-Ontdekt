@@ -334,7 +334,7 @@ namespace Breda_Ontdekt.View.Pages
                                 {
                                     //ManeuverDisplay.DisplayManeuver(maneuverList.Where(p => p.Id == report.Geofence.Id).First());
                                     Debug.WriteLine("in geofence");
-                                    new MessageDialog("in geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+                                    //new MessageDialog("in geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
                                 });
                                 break;
                             }
@@ -344,7 +344,7 @@ namespace Breda_Ontdekt.View.Pages
                                 {
                                     //ManeuverDisplay.HideManeuver(report.Geofence.Id);
                                     Debug.WriteLine("uit geofence");
-                                    new MessageDialog("uit geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+                                    //new MessageDialog("uit geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
                                 });
                                 break;
                             }
