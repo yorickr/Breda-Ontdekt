@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Breda_Ontdekt.ViewModel.Lib;
+using Windows.UI.Core;
+using Breda_Ontdekt.Model.Entities;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,7 +26,10 @@ namespace Breda_Ontdekt.View.Pages
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public static MainPage instance
+
+        private TransferClass transfer;
+
+		public static MainPage instance
         {
             get; set;
         }
@@ -32,6 +37,7 @@ namespace Breda_Ontdekt.View.Pages
         public MainPage()
         {
             this.InitializeComponent();
+            transfer = new TransferClass();
             instance = this;
             Frame.Navigate(typeof(StartPage));
         }
@@ -63,13 +69,13 @@ namespace Breda_Ontdekt.View.Pages
             switch (panel.Name)
             {
                 case "HelpPanel":
-                    this.Frame.Navigate(typeof(HelpPage));
+                    this.Frame.Navigate(typeof(HelpPage),transfer);
                     break;
                 case "LanguagePanel":
-                    this.Frame.Navigate(typeof(LanguagePage));
+                    this.Frame.Navigate(typeof(LanguagePage),transfer);
                     break;
                 case "ResetPanel":
-                    this.Frame.Navigate(typeof(LanguagePage));
+                    this.Frame.Navigate(typeof(LanguagePage),transfer);
                     break;
                 case "VVVPanel":
                     //not implemented yet
@@ -78,7 +84,12 @@ namespace Breda_Ontdekt.View.Pages
                     throw new Exception();
             }
             HamburgerMenu.IsPaneOpen = false;
-        }
+
+			SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+			Frame.CanGoBack ?
+			AppViewBackButtonVisibility.Visible :
+			AppViewBackButtonVisibility.Collapsed;
+		}
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {

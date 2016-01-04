@@ -25,30 +25,38 @@ namespace Breda_Ontdekt.View.Pages
     public sealed partial class InfoPage : Page
     {
         private ObjectInfo site;
+        private TransferClass transfer;
 
         public InfoPage()
         {
             this.InitializeComponent();
         }
+        
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if ((ObjectInfo)e.Parameter != null)
+            transfer = (TransferClass)e.Parameter;
+            if (transfer.info != null)
                 try
                 {
 
                     //try to get site when navigate to this page
-                    site = (ObjectInfo)e.Parameter;
+                    site = transfer.info;
                     siteName.Text = site.name;
                     if(site.description != null)
                     {
-                        siteInfo.Text = site.description;
+
                     }
                 }
                 catch { }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }

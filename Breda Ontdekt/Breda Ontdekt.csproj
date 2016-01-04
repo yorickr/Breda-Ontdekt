@@ -93,6 +93,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Help-Main.png" />
+    <Content Include="Assets\Help-Menu.png" />
+    <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\sites.csv">
@@ -109,6 +112,7 @@
     <Compile Include="Model\Entities\Route.cs" />
     <Compile Include="Model\Entities\RoutePoint.cs" />
     <Compile Include="Model\Entities\Site.cs" />
+    <Compile Include="Model\Entities\TransferClass.cs" />
     <Compile Include="Model\ObjectInfo.cs" />
     <Compile Include="Model\Storage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
