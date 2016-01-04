@@ -103,7 +103,17 @@
     <Content Include="Assets\siteImages\10.jpg" />
     <Content Include="Assets\siteImages\11.jpg" />
     <Content Include="Assets\siteImages\12.jpg" />
+    <Content Include="Assets\siteImages\15.jpg" />
+    <Content Include="Assets\siteImages\16.jpg" />
+    <Content Include="Assets\siteImages\17.jpg" />
+    <Content Include="Assets\siteImages\18.jpg" />
+    <Content Include="Assets\siteImages\19.jpg" />
     <Content Include="Assets\siteImages\2.jpg" />
+    <Content Include="Assets\siteImages\22.jpg" />
+    <Content Include="Assets\siteImages\23.jpg" />
+    <Content Include="Assets\siteImages\24.jpg" />
+    <Content Include="Assets\siteImages\25.jpg" />
+    <Content Include="Assets\siteImages\26.jpg" />
     <Content Include="Assets\siteImages\3.jpg" />
     <Content Include="Assets\siteImages\4.jpg" />
     <Content Include="Assets\siteImages\5.jpg" />
@@ -114,6 +124,7 @@
     <Content Include="Assets\sites.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Assets\siteImages\images.csv" />
     <None Include="project.json" />
     <PRIResource Include="Strings\nl-nl\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
