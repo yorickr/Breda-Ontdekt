@@ -15,6 +15,7 @@ namespace Breda_Ontdekt.Model
         public string description { get; set; }
         public bool isPassed { get; set; }
         public string id { get; set; }
+        public List<int> imageNumbers { get; set; }
 
         public ObjectInfo(string name, Geopoint position, string id)
         {

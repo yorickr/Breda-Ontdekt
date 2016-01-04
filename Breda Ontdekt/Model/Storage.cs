@@ -83,12 +83,42 @@ namespace Breda_Ontdekt.Model
                 double longminutes = Double.Parse(sepvals[2].Split('°')[1], CultureInfo.InvariantCulture);
                 
                 var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(latdegrees,latminutes,0), Longitude = ConvertDegreeAngleToDouble(longdegrees,longminutes,0)};
-                siteList.Add(new Site(sepvals[0],sepvals[3],new Geopoint(geopos), sepvals[4]));
+
+                Site site = new Site(sepvals[0], sepvals[3], new Geopoint(geopos), sepvals[4]);
                 
             });
             siteList.ForEach(s => Debug.WriteLine(s.ToString()));
 
+            siteList = await LoadImages(siteList);
             return siteList;
+        }
+
+        public static async Task<List<Site>> LoadImages(List<Site> sites)
+        {
+            StorageFolder localfolder = ApplicationData.Current.LocalFolder;
+            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/siteImages/images.csv"));
+            String csv = await FileIO.ReadTextAsync(file);
+
+            var alllines = csv.Split('\n');
+            List<String> linesList = alllines.ToList();
+
+            linesList.ForEach(l =>
+            {
+                String[] sepval = l.Split(';');
+                string name = sepval[0];
+                int i = 0;
+                List<int> imageNumbers = new List<int>();
+                foreach (string sepsepval in sepval[1].Split('&'){
+                    int value = Int32.Parse(sepsepval[i]);
+                    i++;
+                }
+                foreach(Site s in sites)
+                {
+                    if (s.name.Equals(name))
+                        s.imageNumbers = imageNumbers;                        
+                }
+            });
+            return sites;
         }
     }
 
