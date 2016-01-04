@@ -38,19 +38,19 @@ namespace Breda_Ontdekt.Model.Entities
                         break;
                     //stadhuis
                     case 4:
-                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/stadhuis.txt"));
                         break;
                     //antoniuskerk
                     case 5:
-                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/antoniuskerk.txt"));
                         break;
                     //bibliotheek
                     case 6:
-                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/bibliotheek.txt"));
                         break;
                     //kloosterkazerne
                     case 7:
-                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/kloosterkazerne.txt"));
                         break;
                 }
                 Debug.WriteLine("Succesfully converted description to id.");
