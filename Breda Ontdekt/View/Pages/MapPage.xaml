@@ -22,14 +22,14 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Maps:MapControl
-                                Grid.Row="0"
-                                x:Name="MapView"
-                                ZoomInteractionMode="GestureAndControl"
-                                TiltInteractionMode="GestureAndControl"
-                                PedestrianFeaturesVisible="True"
-                                MapServiceToken="xS4vNHeSZFK8abeuR8CL~2uSX4RiX25qGkRIQBRyBfw~AoVbkGgjXqhmrv1XyZPAWMLi74iLFbRI_bG2O5WWFzyO2gAFQkARtwiSsNdjV4kB"
-                                MapElementClick="MapView_MapElementClick"   
-                     />
+                    Grid.Row="0"
+                    x:Name="MapView"
+                    ZoomInteractionMode="GestureAndControl"
+                    TiltInteractionMode="GestureAndControl"
+                    PedestrianFeaturesVisible="True"
+                    MapServiceToken="xS4vNHeSZFK8abeuR8CL~2uSX4RiX25qGkRIQBRyBfw~AoVbkGgjXqhmrv1XyZPAWMLi74iLFbRI_bG2O5WWFzyO2gAFQkARtwiSsNdjV4kB"
+                    MapElementClick="MapView_MapElementClick"   
+            />
             <Grid Grid.Row="1" Background="#e9ece5" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>

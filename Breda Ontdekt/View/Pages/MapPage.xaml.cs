@@ -3,6 +3,7 @@ using Breda_Ontdekt.Model.Entities;
 using Breda_Ontdekt.ViewModel.Pages;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -15,6 +16,7 @@ using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -63,6 +65,7 @@ namespace Breda_Ontdekt.View.Pages
                         MapView.MapElements.Clear();
                         //draw all points of the route
                         DrawRoute(model.selectedRoute);
+                        //DrawGeofences();
                         routeLoaded = true;
                     }
                     catch { }
@@ -78,14 +81,14 @@ namespace Breda_Ontdekt.View.Pages
             }
             Route r = new Route();
             var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(51, 35.6467, 0), Longitude = ConvertDegreeAngleToDouble(4, 46.7650, 0) };
-            r.addRoutePoint(new ObjectInfo("VVV", new Geopoint(geopos)));
+            r.addRoutePoint(new ObjectInfo("VVV", new Geopoint(geopos), "1"));
             Geolocator geolocator = new Geolocator();
             Geoposition geoposition = null;
             geolocator.PositionChanged += GeolocatorPositionChanged;
             GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
             geoposition = await geolocator.GetGeopositionAsync();
             Geopoint p = geoposition.Coordinate.Point;
-            r.addRoutePoint(new ObjectInfo("", p));
+            r.addRoutePoint(new ObjectInfo("", p, "0"));
             MapView.MapElements.Clear();
             DrawRoute(r);
         }
@@ -115,6 +118,10 @@ namespace Breda_Ontdekt.View.Pages
                     mapIcon1.ZIndex = 0;
                     mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                     MapView.MapElements.Add(mapIcon1);
+                    AddFence(o.id, o.position);
+                    //if you want to delete the geofence locations, use this code:
+                    //GeofenceMonitor.Current.Geofences.Clear();
+                    //RemoveGeofences();
 
                 }
                 catch { }
@@ -326,6 +333,8 @@ namespace Breda_Ontdekt.View.Pages
                                 await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                                 {
                                     //ManeuverDisplay.DisplayManeuver(maneuverList.Where(p => p.Id == report.Geofence.Id).First());
+                                    Debug.WriteLine("in geofence");
+                                    new MessageDialog("in geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
                                 });
                                 break;
                             }
@@ -334,6 +343,8 @@ namespace Breda_Ontdekt.View.Pages
                                 await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                                 {
                                     //ManeuverDisplay.HideManeuver(report.Geofence.Id);
+                                    Debug.WriteLine("uit geofence");
+                                    new MessageDialog("uit geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
                                 });
                                 break;
                             }
@@ -392,5 +403,62 @@ namespace Breda_Ontdekt.View.Pages
             //navigate to info page
             Frame.Navigate(typeof(InfoPage), transfer);
         }
+
+        const int fenceIndex = 1;
+        private void DrawGeofences()
+        {
+            //Draw semi transparent purple circles for every fence
+            var color = Colors.Purple;
+            color.A = 80;
+
+            // Note GetFenceGeometries is a custom extension method
+            //foreach (var pointlist in GeofenceMonitor.Current.GetFenceGeometries())
+            //{
+            //    var shape = new MapPolygon
+            //    {
+            //        FillColor = color,
+            //        StrokeColor = color,
+            //        Path = new Geopath(pointlist.Select(p => p.Position)),
+            //        ZIndex = fenceIndex
+
+            //    };
+            //    MapView.MapElements.Add(shape);
+            //}
+        }
+
+        private void RemoveGeofences()
+        {
+            var routeFences = MapView.MapElements.Where(p => p.ZIndex == fenceIndex).ToList();
+            foreach (var fence in routeFences)
+            {
+                MapView.MapElements.Remove(fence);
+            }
+        }
+
+        /// <summary>
+        /// Creation 
+        /// </summary>
+        public void AddFence(string key, Geopoint position)
+        {
+            // Replace if it already exists for this maneuver key
+            var oldFence = GeofenceMonitor.Current.Geofences.Where(p => p.Id == key).FirstOrDefault();
+            if (oldFence != null)
+            {
+                GeofenceMonitor.Current.Geofences.Remove(oldFence);
+            }
+
+            Geocircle geocircle = new Geocircle(position.Position, 25);
+
+            bool singleUse = false;
+
+            MonitoredGeofenceStates mask = 0;
+
+            mask |= MonitoredGeofenceStates.Entered;
+            mask |= MonitoredGeofenceStates.Exited;
+
+            var geofence = new Geofence(key, geocircle, mask, singleUse, TimeSpan.FromSeconds(1));
+            GeofenceMonitor.Current.Geofences.Add(geofence);
+        }
+
     }
 }
