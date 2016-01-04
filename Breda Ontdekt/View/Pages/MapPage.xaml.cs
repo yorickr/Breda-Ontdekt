@@ -44,6 +44,15 @@ namespace Breda_Ontdekt.View.Pages
             model = new MapPageModel();
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+
+            //enable user tracking
+            model.geolocator = new Geolocator
+            {
+                DesiredAccuracy = PositionAccuracy.High,
+                MovementThreshold = 1
+            };
+            model.geolocator.PositionChanged += GeolocatorPositionChanged;
+            GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
         }
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -119,11 +128,12 @@ namespace Breda_Ontdekt.View.Pages
                     mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                     MapView.MapElements.Add(mapIcon1);
                     AddFence(o.id, o.position);
+
                     //if you want to delete the geofence locations, use this code:
                     //GeofenceMonitor.Current.Geofences.Clear();
                     //RemoveGeofences();
 
-                }
+    }
                 catch { }
             }
 
@@ -164,24 +174,18 @@ namespace Breda_Ontdekt.View.Pages
             this.Frame.Navigate(typeof(LanguagePage), transfer);
         }
 
-        private async void DoRouting(object sender, RoutedEventArgs e)
-        {
-            MapRouteFinderResult routeFinderResult = await FindRoute();
-            if (routeFinderResult.Status == MapRouteFinderStatus.Success)
-            {
-                MapRoute route = routeFinderResult.Route;
+        //private async void DoRouting(object sender, RoutedEventArgs e)
+        //{
+        //    MapRouteFinderResult routeFinderResult = await FindRoute();
+        //    if (routeFinderResult.Status == MapRouteFinderStatus.Success)
+        //    {
+        //        MapRoute route = routeFinderResult.Route;
 
-                // Draw all segments of route and add a Geofence for every turn:
-                DrawRoute(route);
-                await MapView.TrySetViewBoundsAsync(route.BoundingBox, null, MapAnimationKind.Linear);
-            }
-        }
-
-        private async void doThings()
-        {
-            var route = await FindRoute();
-            DrawRoute(route.Route);
-        }
+        //        // Draw all segments of route and add a Geofence for every turn:
+        //        DrawRoute(route);
+        //        await MapView.TrySetViewBoundsAsync(route.BoundingBox, null, MapAnimationKind.Linear);
+        //    }
+        //}
 
         private void DrawRoute(MapRoute route)
         {
@@ -233,37 +237,37 @@ namespace Breda_Ontdekt.View.Pages
         }
 
 
-        private async Task<MapRouteFinderResult> FindRoute()
-        {
-            //const string beginLocation = "Lovensdijkstraat 63 Breda";
-            //const string endLocation = "Lotusberg 35 Roosendaal";
-            string beginLocation = fromField.Text;
-            string endLocation = toField.Text;
+        //private async Task<MapRouteFinderResult> FindRoute()
+        //{
+        //    //const string beginLocation = "Lovensdijkstraat 63 Breda";
+        //    //const string endLocation = "Lotusberg 35 Roosendaal";
+        //    string beginLocation = fromField.Text;
+        //    string endLocation = toField.Text;
 
-            // Get MapLocation for beginLocation and endLocation:
-            MapLocationFinderResult result
-                = await MapLocationFinder.FindLocationsAsync(beginLocation, MapView.Center);
-            MapLocation from = result.Locations.First();
+        //    // Get MapLocation for beginLocation and endLocation:
+        //    MapLocationFinderResult result
+        //        = await MapLocationFinder.FindLocationsAsync(beginLocation, MapView.Center);
+        //    MapLocation from = result.Locations.First();
 
-            result = await MapLocationFinder.FindLocationsAsync(endLocation, MapView.Center);
-            MapLocation to = result.Locations.First();
+        //    result = await MapLocationFinder.FindLocationsAsync(endLocation, MapView.Center);
+        //    MapLocation to = result.Locations.First();
 
-            // Gets a driving route using the specified start and end coordinates.
-            MapRouteFinderResult routeResult
-            //    = await MapRouteFinder.GetDrivingRouteAsync(from.Point, to.Point);
-                  = await MapRouteFinder.GetWalkingRouteAsync(from.Point, to.Point);
+        //    // Gets a driving route using the specified start and end coordinates.
+        //    MapRouteFinderResult routeResult
+        //    //    = await MapRouteFinder.GetDrivingRouteAsync(from.Point, to.Point);
+        //          = await MapRouteFinder.GetWalkingRouteAsync(from.Point, to.Point);
 
-            //stuff die in een heeeele andere methode gedaan moet worden
-            MapView.Center = from.Point;
-            MapView.ZoomLevel = 15;
+        //    //stuff die in een heeeele andere methode gedaan moet worden
+        //    MapView.Center = from.Point;
+        //    MapView.ZoomLevel = 15;
 
-            if (routeResult.Status == MapRouteFinderStatus.Success)
-            {
-                return routeResult;
-            }
+        //    if (routeResult.Status == MapRouteFinderStatus.Success)
+        //    {
+        //        return routeResult;
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
 
         private async void GeolocatorPositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {

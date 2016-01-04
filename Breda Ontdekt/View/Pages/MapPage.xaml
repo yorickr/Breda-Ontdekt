@@ -30,7 +30,7 @@
                     MapServiceToken="xS4vNHeSZFK8abeuR8CL~2uSX4RiX25qGkRIQBRyBfw~AoVbkGgjXqhmrv1XyZPAWMLi74iLFbRI_bG2O5WWFzyO2gAFQkARtwiSsNdjV4kB"
                     MapElementClick="MapView_MapElementClick"   
             />
-            <Grid Grid.Row="1" Background="#e9ece5" >
+            <!--<Grid Grid.Row="1" Background="#e9ece5" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="3*"/>
@@ -59,9 +59,10 @@
                                     Margin="10"
                                     Grid.Column="3"
                                     />
-            </Grid>
+            </Grid>-->
         </Grid>
     </Grid>
+    <!--
     <Page.BottomAppBar>
         <CommandBar Background="#e9ece5">
             <CommandBar.SecondaryCommands>
@@ -71,5 +72,5 @@
             <AppBarButton Label="Geofences" Icon="View" />
             <AppBarButton Label="Track" Icon="Target" Click="ToggleTracking"/>
         </CommandBar>
-    </Page.BottomAppBar>
+    </Page.BottomAppBar>-->
 </Page>
