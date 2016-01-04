@@ -153,6 +153,13 @@
   <ItemGroup>
     <Content Include="Assets\car.png" />
     <Content Include="Assets\DutchFlag.png" />
+    <Content Include="Assets\text\antoniuskerk.txt" />
+    <Content Include="Assets\text\bibliotheek.txt" />
+    <Content Include="Assets\text\kasteel.txt" />
+    <Content Include="Assets\text\kloosterkazerne.txt" />
+    <Content Include="Assets\text\nassaumonument.txt" />
+    <Content Include="Assets\text\stadhuis.txt" />
+    <Content Include="Assets\text\torenstraat.txt" />
     <Content Include="Assets\UKFlag.png" />
     <Content Include="Assets\user.png" />
     <Content Include="Properties\Default.rd.xml" />

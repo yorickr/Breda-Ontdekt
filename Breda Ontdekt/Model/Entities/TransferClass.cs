@@ -11,6 +11,7 @@ namespace Breda_Ontdekt.Model.Entities
 
         public ObjectInfo info { get; set; }
         public Route route { get; set; }
+        public bool isReturn { get; set; }
 
     }
 }

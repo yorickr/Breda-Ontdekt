@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <ScrollViewer>
     <Grid Background="#e9ece5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,12 +17,16 @@
             <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" x:Uid="InfoPage" Foreground="#3b3a36"/>
             <TextBlock x:Name="siteName" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Foreground="#3b3a36" Margin="5,5,5,10" FontWeight="Bold"/>
         </RelativePanel>
-        <RelativePanel Grid.Row="1">
-            <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
-        </RelativePanel>
+
+            <RelativePanel Grid.Row="1">
+                <RelativePanel>
+                        <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
+                    </RelativePanel>
+            </RelativePanel>
         <RelativePanel Grid.Row="2">
             <Button x:Uid="Back" Click="Button_Click"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="28" Background="#e9ece5" Foreground="#3b3a36"/>
         </RelativePanel>
 
     </Grid>
+    </ScrollViewer>
 </Page>

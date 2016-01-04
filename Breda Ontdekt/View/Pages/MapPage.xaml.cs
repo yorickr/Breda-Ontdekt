@@ -47,17 +47,52 @@ namespace Breda_Ontdekt.View.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             transfer = (TransferClass)e.Parameter;
-            if (transfer.route != null)
-                try
-                {
-                    //try to get route when navigate to this page
-                    model.selectedRoute = transfer.route;
+           
+            if (transfer.isReturn == true)
+            {
+                returnHome();
+            }
+            else
+            {
+                if (transfer.route != null && !routeLoaded)
+                    try
+                    {
+                        //try to get route when navigate to this page
+                        model.selectedRoute = transfer.route;
 
-                    //draw all points of the route
-                    DrawRoute(model.selectedRoute);
+                        MapView.MapElements.Clear();
+                        //draw all points of the route
+                        DrawRoute(model.selectedRoute);
+                        routeLoaded = true;
+                    }
+                    catch { }
+            }
+            
+        }
 
-                }
-                catch { }
+        private async void returnHome()
+        {
+            if (model.geolocator != null)
+            {
+                model.geolocator = null;
+            }
+            Route r = new Route();
+            var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(51, 35.6467, 0), Longitude = ConvertDegreeAngleToDouble(4, 46.7650, 0) };
+            r.addRoutePoint(new ObjectInfo("VVV", new Geopoint(geopos)));
+            Geolocator geolocator = new Geolocator();
+            Geoposition geoposition = null;
+            geolocator.PositionChanged += GeolocatorPositionChanged;
+            GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
+            geoposition = await geolocator.GetGeopositionAsync();
+            Geopoint p = geoposition.Coordinate.Point;
+            r.addRoutePoint(new ObjectInfo("", p));
+            MapView.MapElements.Clear();
+            DrawRoute(r);
+        }
+
+        public static double ConvertDegreeAngleToDouble(double degrees, double minutes, double seconds)
+        {
+            return degrees + (minutes / 60) + (seconds / 3600);
         }
 
         private async void DrawRoute(Route route)
