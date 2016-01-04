@@ -47,15 +47,16 @@ namespace Breda_Ontdekt.View.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             transfer = (TransferClass)e.Parameter;
-            if (transfer.route != null)
+            if (transfer.route != null && !routeLoaded)
                 try
                 {
                     //try to get route when navigate to this page
                     model.selectedRoute = transfer.route;
 
+                    MapView.MapElements.Clear();
                     //draw all points of the route
                     DrawRoute(model.selectedRoute);
-
+                    routeLoaded = true;
                 }
                 catch { }
         }
