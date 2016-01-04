@@ -303,6 +303,20 @@ namespace Breda_Ontdekt.View.Pages
             MainPage.instance.SwitchMenu();
         }
 
+        public bool ChangeObjectChanged(int objectID)
+        {
+
+            //check for each object in the route if the index is equal to objectID
+            foreach(ObjectInfo o in model.selectedRoute.routePoints)
+            {
+                //change -1 to o.index when is updated
+                if( - 1 /*o.index*/ == objectID)
+                    DrawObjectInfoIcon(o);
+                    return true;
+            }
+            return false;
+        }
+
         //when the user clicks on the map this method is called
         private void MapView_MapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
