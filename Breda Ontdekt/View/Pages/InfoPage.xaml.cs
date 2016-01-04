@@ -41,10 +41,6 @@ namespace Breda_Ontdekt.View.Pages
                     //try to get site when navigate to this page
                     TransferClass transfer = (TransferClass)e.Parameter;
                     site = transfer.info;
-                    
-                    //for testing
-                    site.isPassed = true;
-
                     siteName.Text = site.name;
                     if (site.description != null)
                     {

@@ -6,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Storage;
 
 namespace Breda_Ontdekt.ViewModel
 {
@@ -15,16 +14,16 @@ namespace Breda_Ontdekt.ViewModel
         private ObservableCollection<Route> _routes = new ObservableCollection<Route>();
         public ObservableCollection<Route> routes { get { return this._routes; } }
 
-        public RoutePageModel()
+        public RoutePageModel(TransferClass tc)
         {
-            LoadRoutes();
+            LoadRoutes(tc.language);
         }
 
-        public async void LoadRoutes()
+        public async void LoadRoutes(string language)
         {
             List<Site> sites = new List<Site>();
             try {
-                sites = await Storage.GetRouteInfo();
+                sites = await Storage.GetRouteInfo(language);
             }
             catch (Exception)
             {
@@ -39,15 +38,12 @@ namespace Breda_Ontdekt.ViewModel
             }
             route.name = "Historische Kilometer";
             AddRoute(route);
-
         }
 
         public void AddRoute(Route route)
         {
             _routes.Add(route);
         }
-
-        
     }
 
 }

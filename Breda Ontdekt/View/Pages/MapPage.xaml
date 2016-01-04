@@ -66,8 +66,9 @@
     <Page.BottomAppBar>
         <CommandBar Background="#e9ece5">
             <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="ZoomOut" Label="zoom out" />
+                <AppBarButton Icon="ZoomOut" Label="zoom out" Click="test"/>
             </CommandBar.SecondaryCommands>
+            <AppBarButton Label="Routes" Icon="Directions" Click="DoRouting"/>
             <AppBarButton Label="Geofences" Icon="View" />
             <AppBarButton Label="Track" Icon="Target" Click="ToggleTracking"/>
         </CommandBar>

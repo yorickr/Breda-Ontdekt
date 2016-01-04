@@ -154,7 +154,7 @@
     <value>Information</value>
   </data>
   <data name="Language.Text" xml:space="preserve">
-    <value>Select Language</value>
+    <value>Route selection</value>
   </data>
   <data name="LanguagePage.Text" xml:space="preserve">
     <value>Language</value>

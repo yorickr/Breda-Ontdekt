@@ -98,34 +98,7 @@
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
-    <Content Include="Assets\routepoint_seen.png" />
-    <Content Include="Assets\siteImages\1.jpg" />
-    <Content Include="Assets\siteImages\10.jpg" />
-    <Content Include="Assets\siteImages\11.jpg" />
-    <Content Include="Assets\siteImages\12.jpg" />
-    <Content Include="Assets\siteImages\15.jpg" />
-    <Content Include="Assets\siteImages\16.jpg" />
-    <Content Include="Assets\siteImages\17.jpg" />
-    <Content Include="Assets\siteImages\18.jpg" />
-    <Content Include="Assets\siteImages\19.jpg" />
-    <Content Include="Assets\siteImages\2.jpg" />
-    <Content Include="Assets\siteImages\22.jpg" />
-    <Content Include="Assets\siteImages\23.jpg" />
-    <Content Include="Assets\siteImages\24.jpg" />
-    <Content Include="Assets\siteImages\25.jpg" />
-    <Content Include="Assets\siteImages\26.jpg" />
-    <Content Include="Assets\siteImages\3.jpg" />
-    <Content Include="Assets\siteImages\4.jpg" />
-    <Content Include="Assets\siteImages\5.jpg" />
-    <Content Include="Assets\siteImages\6.jpg" />
-    <Content Include="Assets\siteImages\7.jpg" />
-    <Content Include="Assets\siteImages\8.jpg" />
-    <Content Include="Assets\siteImages\9.jpg" />
     <Content Include="Assets\sites.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Assets\SiteImagesNumbers" />
-    <Content Include="Assets\SiteImagesNumbers.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="project.json" />
@@ -180,13 +153,20 @@
   <ItemGroup>
     <Content Include="Assets\car.png" />
     <Content Include="Assets\DutchFlag.png" />
-    <Content Include="Assets\text\antoniuskerk.txt" />
-    <Content Include="Assets\text\bibliotheek.txt" />
-    <Content Include="Assets\text\kasteel.txt" />
-    <Content Include="Assets\text\kloosterkazerne.txt" />
-    <Content Include="Assets\text\nassaumonument.txt" />
-    <Content Include="Assets\text\stadhuis.txt" />
-    <Content Include="Assets\text\torenstraat.txt" />
+    <Content Include="Assets\text\antoniuskerkEN.txt" />
+    <Content Include="Assets\text\antoniuskerkNL.txt" />
+    <Content Include="Assets\text\bibliotheekEN.txt" />
+    <Content Include="Assets\text\bibliotheekNL.txt" />
+    <Content Include="Assets\text\kasteelEN.txt" />
+    <Content Include="Assets\text\kasteelNL.txt" />
+    <Content Include="Assets\text\kloosterkazerneEN.txt" />
+    <Content Include="Assets\text\kloosterkazerneNL.txt" />
+    <Content Include="Assets\text\nassaumonumentEN.txt" />
+    <Content Include="Assets\text\nassaumonumentNL.txt" />
+    <Content Include="Assets\text\stadhuisEN.txt" />
+    <Content Include="Assets\text\stadhuisNL.txt" />
+    <Content Include="Assets\text\torenstraatEN.txt" />
+    <Content Include="Assets\text\torenstraatNL.txt" />
     <Content Include="Assets\UKFlag.png" />
     <Content Include="Assets\user.png" />
     <Content Include="Properties\Default.rd.xml" />
