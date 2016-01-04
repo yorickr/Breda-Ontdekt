@@ -88,15 +88,17 @@ namespace Breda_Ontdekt.Model
                 
             });
             siteList.ForEach(s => Debug.WriteLine(s.ToString()));
-
-            siteList = await LoadImages(siteList);
+            
+            List<Site> tempList = await LoadImages(siteList);
+            if (tempList != null)
+                siteList = tempList;
             return siteList;
         }
 
         public static async Task<List<Site>> LoadImages(List<Site> sites)
         {
             StorageFolder localfolder = ApplicationData.Current.LocalFolder;
-            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/siteImages/images.csv"));
+            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/images.csv"));
             String csv = await FileIO.ReadTextAsync(file);
 
             var alllines = csv.Split('\n');
@@ -104,18 +106,19 @@ namespace Breda_Ontdekt.Model
 
             linesList.ForEach(l =>
             {
-                String[] sepval = l.Split(';');
+                String[] sepval = l.Split(':');
                 string name = sepval[0];
                 int i = 0;
-                List<int> imageNumbers = new List<int>();
-                foreach (string sepsepval in sepval[1].Split('&'){
-                    int value = Int32.Parse(sepsepval[i]);
+                List<Uri> imageNumbers = new List<Uri>();
+                foreach (string sepsepval in sepval[1].Split('&')){
+                    Uri u = new Uri("ms-appx:///Assets/siteImages/" + sepsepval + ".jpg");
+                    imageNumbers.Add(u);
                     i++;
                 }
                 foreach(Site s in sites)
                 {
                     if (s.name.Equals(name))
-                        s.imageNumbers = imageNumbers;                        
+                        s.imageUrls = imageNumbers;                        
                 }
             });
             return sites;
