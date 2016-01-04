@@ -14,12 +14,14 @@ namespace Breda_Ontdekt.Model
         public string name { get; set; }
         public string description { get; set; }
         public bool isPassed { get; set; }
+        public string id { get; set; }
 
-        public ObjectInfo(string name, Geopoint position)
+        public ObjectInfo(string name, Geopoint position, string id)
         {
             this.name = name;
             this.position = position;
             isPassed = false;
+            this.id = id;
         }
 
     }
