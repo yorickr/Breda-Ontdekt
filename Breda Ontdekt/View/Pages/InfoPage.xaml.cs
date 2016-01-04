@@ -44,7 +44,7 @@ namespace Breda_Ontdekt.View.Pages
                 catch { }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
