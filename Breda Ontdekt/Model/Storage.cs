@@ -89,9 +89,9 @@ namespace Breda_Ontdekt.Model
             });
             siteList.ForEach(s => Debug.WriteLine(s.ToString()));
             
-            List<Site> tempList = await LoadImages(siteList);
-            if (tempList != null)
-                siteList = tempList;
+            //List<Site> tempList = await LoadImages(siteList);
+           // if (tempList != null)
+             //   siteList = tempList;
             return siteList;
         }
 
