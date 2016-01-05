@@ -11,19 +11,42 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <!--Title-->
         <RelativePanel Grid.Row="0">
             <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" x:Uid="InfoPage" Foreground="#3b3a36"/>
             <TextBlock x:Name="siteName" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Foreground="#3b3a36" Margin="5,5,5,10" FontWeight="Bold"/>
         </RelativePanel>
-
+        
+        <!--Images-->
             <RelativePanel Grid.Row="1">
                 <RelativePanel>
-                        <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
-                    </RelativePanel>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                        <GridView ItemsSource="{x:Bind images}" IsItemClickEnabled="True">
+                            
+                            <GridView.ItemTemplate>
+                                <DataTemplate  x:DataType="local:Image">
+                                    <StackPanel Orientation="Vertical"  HorizontalAlignment="Center">
+                                        <Image  Source="{x:Bind url}" MaxHeight="200"  HorizontalAlignment="Stretch"></Image>
+                                    </StackPanel>
+                                </DataTemplate>
+
+                            </GridView.ItemTemplate>
+
+                        </GridView>
+                    </ScrollViewer>
+                </RelativePanel>
             </RelativePanel>
-        <RelativePanel Grid.Row="2">
+
+            <!--Info-->
+            <RelativePanel Grid.Row="2">
+                <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
+            </RelativePanel>
+        
+            <!--Back Button-->
+            <RelativePanel Grid.Row="3">
             <Button x:Uid="Back" Click="Button_Click"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="28" Background="#e9ece5" Foreground="#3b3a36"/>
         </RelativePanel>
 

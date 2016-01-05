@@ -53,6 +53,7 @@ namespace Breda_Ontdekt.View.Pages
             // insert anything you need to do before navigating
 
             if (Frame.CanGoBack) Frame.GoBack();
+            e.Handled = true;
 
         }
 
