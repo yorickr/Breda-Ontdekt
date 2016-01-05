@@ -152,6 +152,7 @@
     <Compile Include="View\Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Image.cs" />
     <Compile Include="View\Pages\InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>

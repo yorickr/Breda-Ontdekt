@@ -89,7 +89,7 @@ namespace Breda_Ontdekt.Model
             siteList.ForEach(s => Debug.WriteLine(s.ToString()));
 
             List<Site> siteListImages = await AddImages(siteList);
-            return siteList;
+            return siteListImages;
         }
 
         private static async Task<List<Site>> AddImages(List<Site> sites)
@@ -115,10 +115,10 @@ namespace Breda_Ontdekt.Model
 
                     //get values
                     List<string> values = lineList[1].Split('&').ToList();
-                    List<Uri> uriValues = new List<Uri>();
+                    List<string> uriValues = new List<string>();
                     //parse string values to uri values
                     values.ForEach(v =>
-                        uriValues.Add(new Uri("ms-appx:///Assets/siteImages/" + v + ".jpg")));
+                        uriValues.Add("/Assets/siteImages/" + v + ".jpg"));
 
                     //search for same object
                     sites.ForEach(s =>
@@ -129,6 +129,7 @@ namespace Breda_Ontdekt.Model
                     });
 
                 }
+                return sites;
             }
             catch (Exception ex)
             {
