@@ -139,7 +139,7 @@
     <value>Informatie</value>
   </data>
   <data name="Language.Text" xml:space="preserve">
-    <value>Route Selecteren</value>
+    <value>Selecteer een taal</value>
   </data>
   <data name="LanguagePage.Text" xml:space="preserve">
     <value>Taal</value>

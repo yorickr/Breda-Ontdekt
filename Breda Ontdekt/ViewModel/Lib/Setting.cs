@@ -12,11 +12,12 @@ namespace Breda_Ontdekt.ViewModel.Lib
     {
         // nl-nl
         // en-US
-        public static void switchLanguage(string language, Frame frame)
+        public static void switchLanguage(string language, Page page, Frame frame)
         {
             try
             {
                 ApplicationLanguages.PrimaryLanguageOverride = language;
+                frame.Navigate(page.GetType());
             }
             catch (Exception)
             {

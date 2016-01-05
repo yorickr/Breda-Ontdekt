@@ -63,14 +63,6 @@ namespace Breda_Ontdekt.View.Pages
             {
                 returnHome();
             }
-            if (transfer.resetted)
-            {
-                MapView.MapElements.Clear();
-                model.selectedRoute = transfer.route;
-                DrawRoute(model.selectedRoute);
-                routeLoaded = true;
-                transfer.resetted = false;
-            }
             else
             {
                 if (transfer.route != null && !routeLoaded)
@@ -127,7 +119,7 @@ namespace Breda_Ontdekt.View.Pages
             {
                 try
                 {
-
+                    DrawObjectInfoIcon(o);
                     MapIcon mapIcon1 = new MapIcon();
                     mapIcon1.Location = o.position;
                     mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
@@ -140,11 +132,9 @@ namespace Breda_Ontdekt.View.Pages
                     //if you want to delete the geofence locations, use this code:
                     //GeofenceMonitor.Current.Geofences.Clear();
                     //RemoveGeofences();
-
-    }
+                }
                 catch { }
             }
-
 
             //draw line between all the points
             ObjectInfo fromObject = null;
@@ -163,8 +153,21 @@ namespace Breda_Ontdekt.View.Pages
                 }
                 fromObject = toObject;
             }
+        }
 
+        public void DrawObjectInfoIcon(ObjectInfo objectInfo)
+        {
+            MapIcon mapIcon1 = new MapIcon();
+            mapIcon1.Location = objectInfo.position;
+            mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+            mapIcon1.Title = objectInfo.name;
+            mapIcon1.ZIndex = 0;
+            if (!objectInfo.isPassed)
+                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
+            else
+                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint_seen.png"));
 
+            MapView.MapElements.Add(mapIcon1);
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
@@ -243,8 +246,7 @@ namespace Breda_Ontdekt.View.Pages
             icon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/traffic.png"));
             MapView.MapElements.Add(icon);
         }
-
-
+        
         //private async Task<MapRouteFinderResult> FindRoute()
         //{
         //    //const string beginLocation = "Lovensdijkstraat 63 Breda";
@@ -276,6 +278,7 @@ namespace Breda_Ontdekt.View.Pages
 
         //    return null;
         //}
+        
 
         private async void GeolocatorPositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {
@@ -284,6 +287,7 @@ namespace Breda_Ontdekt.View.Pages
                 await GeolocatorPositionChanged(args.Position);
             });
         }
+
         private async Task GeolocatorPositionChanged(Geoposition point)
         {
             // ... and another coordinate conversion
@@ -295,23 +299,6 @@ namespace Breda_Ontdekt.View.Pages
             //slower: DrawCarImage(pos);
 
             await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
-        }
-
-        const int carZIndewxz = 4;
-        private void DrawCarIcon(Geopoint pos)
-        {
-            var carIcon = MapView.MapElements.OfType<MapIcon>().FirstOrDefault(p => p.ZIndex == carZIndewxz);
-            if (carIcon == null)
-            {
-                carIcon = new MapIcon
-                {
-                    NormalizedAnchorPoint = new Point(0.5, 0.5),
-                    ZIndex = carZIndewxz
-                };
-                carIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/car.png"));
-                MapView.MapElements.Add(carIcon);
-            }
-            carIcon.Location = pos;
         }
 
         private void DrawUserIcon(Geopoint pos)
@@ -385,24 +372,23 @@ namespace Breda_Ontdekt.View.Pages
             }
         }
 
-        private async void test(object sender, RoutedEventArgs e)
-        {
-
-            (await Storage.GetRouteInfo("EN")).ForEach(s =>
-            {
-                MapIcon mapIcon1 = new MapIcon();
-                mapIcon1.Location = s.position;
-                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                mapIcon1.Title = "Space Needle";
-                mapIcon1.ZIndex = 0;
-
-                MapView.MapElements.Add(mapIcon1);
-            });
-        }
-
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             MainPage.instance.SwitchMenu();
+        }
+
+        public bool ChangeObjectChanged(int objectID)
+        {
+
+            //check for each object in the route if the index is equal to objectID
+            foreach(ObjectInfo o in model.selectedRoute.routePoints)
+            {
+                //change -1 to o.index when is updated
+                if( - 1 /*o.index*/ == objectID)
+                    DrawObjectInfoIcon(o);
+                    return true;
+            }
+            return false;
         }
 
         //when the user clicks on the map this method is called
@@ -411,6 +397,11 @@ namespace Breda_Ontdekt.View.Pages
             //get mapIcon from args
             MapIcon clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
             ObjectInfo o = model.GetObject(clickedIcon.Title);
+
+            //for testing:
+            o.isPassed = true;
+            DrawObjectInfoIcon(o);
+
             transfer.info = o;
             //navigate to info page
             Frame.Navigate(typeof(InfoPage), transfer);

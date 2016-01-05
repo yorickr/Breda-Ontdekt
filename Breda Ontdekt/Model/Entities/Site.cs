@@ -16,7 +16,7 @@ namespace Breda_Ontdekt.Model.Entities
     {
         public List<BitmapImage> images { get; set; }
 
-        public Site(string id, string name, Geopoint location, string description, string language) : base(name, location, id)
+        public Site(string id, string name, Geopoint location, string description) : base(name, location, id)
         {
             try
             {
@@ -26,80 +26,31 @@ namespace Breda_Ontdekt.Model.Entities
                 {
                     //nassaumonument
                     case 1:
-                        if (language == "NL")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/nassaumonumentNL.txt"));
-                        }
-                        else if (language == "EN")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/nassaumonumentEN.txt"));
-                        }
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/nassaumonument.txt"));
                         break;
                     //kasteel
                     case 2:
-                        if (language == "NL")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/kasteelNL.txt"));
-                        }
-                        else if (language == "EN")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/kasteelEN.txt"));
-                        }
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/kasteel.txt"));
                         break;
                     //torenstraat
                     case 3:
-                        if (language == "NL")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraatNL.txt"));
-                        }
-                        else if (language == "EN")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraatEN.txt"));
-                        }
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/torenstraat.txt"));
                         break;
                     //stadhuis
                     case 4:
-                        if (language == "NL")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/stadhuisNL.txt"));
-                        }
-                        else if (language == "EN")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/stadhuisEN.txt"));
-                        }
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/stadhuis.txt"));
                         break;
                     //antoniuskerk
                     case 5:
-                        if (language == "NL")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/antoniuskerkNL.txt"));
-                        }
-                        else if (language == "EN")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/antoniuskerkEN.txt"));
-                        }
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/antoniuskerk.txt"));
                         break;
                     //bibliotheek
                     case 6:
-                        if (language == "NL")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/bibliotheekNL.txt"));
-                        }
-                        else if (language == "EN")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/bibliotheekEN.txt"));
-                        }
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/bibliotheek.txt"));
                         break;
                     //kloosterkazerne
                     case 7:
-                        if (language == "NL")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/kloosterkazerneNL.txt"));
-                        }
-                        else if (language == "EN")
-                        {
-                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/kloosterkazerneEN.txt"));
-                        }
+                        base.description = GetDescription(new Uri("ms-appx:///Assets/text/kloosterkazerne.txt"));
                         break;
                 }
                 Debug.WriteLine("Succesfully converted description to id.");

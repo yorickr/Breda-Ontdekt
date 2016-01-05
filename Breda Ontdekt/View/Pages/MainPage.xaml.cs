@@ -72,7 +72,6 @@ namespace Breda_Ontdekt.View.Pages
                     this.Frame.Navigate(typeof(HelpPage),transfer);
                     break;
                 case "LanguagePanel":
-                    transfer.resetted = true;
                     this.Frame.Navigate(typeof(LanguagePage),transfer);
                     break;
                 case "ResetPanel":
