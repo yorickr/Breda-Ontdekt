@@ -9,11 +9,16 @@
     <ScrollViewer>
     <Grid Background="#e9ece5">
         <Grid.RowDefinitions>
+            <!--title row-->
             <RowDefinition Height="Auto"/>
+            <!--image row-->
             <RowDefinition Height="Auto"/>
+            <!--info row-->
             <RowDefinition Height="Auto"/>
+            <!--back button row-->
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <!--Title-->
         <RelativePanel Grid.Row="0">
             <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" x:Uid="InfoPage" Foreground="#3b3a36"/>
@@ -29,7 +34,7 @@
                             <GridView.ItemTemplate>
                                 <DataTemplate  x:DataType="local:Image">
                                     <StackPanel Orientation="Vertical"  HorizontalAlignment="Center">
-                                        <Image  Source="{x:Bind url}" MaxHeight="200"  HorizontalAlignment="Stretch"></Image>
+                                        <Image  Source="{x:Bind url}" MaxHeight="250"  HorizontalAlignment="Center"></Image>
                                     </StackPanel>
                                 </DataTemplate>
 
