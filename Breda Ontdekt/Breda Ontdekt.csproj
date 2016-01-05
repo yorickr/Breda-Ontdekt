@@ -180,13 +180,20 @@
   <ItemGroup>
     <Content Include="Assets\car.png" />
     <Content Include="Assets\DutchFlag.png" />
-    <Content Include="Assets\text\antoniuskerk.txt" />
-    <Content Include="Assets\text\bibliotheek.txt" />
-    <Content Include="Assets\text\kasteel.txt" />
-    <Content Include="Assets\text\kloosterkazerne.txt" />
-    <Content Include="Assets\text\nassaumonument.txt" />
-    <Content Include="Assets\text\stadhuis.txt" />
-    <Content Include="Assets\text\torenstraat.txt" />
+    <Content Include="Assets\text\antoniuskerkEN.txt" />
+    <Content Include="Assets\text\antoniuskerkNL.txt" />
+    <Content Include="Assets\text\bibliotheekEN.txt" />
+    <Content Include="Assets\text\bibliotheekNL.txt" />
+    <Content Include="Assets\text\kasteelEN.txt" />
+    <Content Include="Assets\text\kasteelNL.txt" />
+    <Content Include="Assets\text\kloosterkazerneEN.txt" />
+    <Content Include="Assets\text\kloosterkazerneNL.txt" />
+    <Content Include="Assets\text\nassaumonumentEN.txt" />
+    <Content Include="Assets\text\nassaumonumentNL.txt" />
+    <Content Include="Assets\text\stadhuisEN.txt" />
+    <Content Include="Assets\text\stadhuisNL.txt" />
+    <Content Include="Assets\text\torenstraatEN.txt" />
+    <Content Include="Assets\text\torenstraatNL.txt" />
     <Content Include="Assets\UKFlag.png" />
     <Content Include="Assets\user.png" />
     <Content Include="Properties\Default.rd.xml" />

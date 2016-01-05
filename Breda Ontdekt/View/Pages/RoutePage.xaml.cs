@@ -30,11 +30,11 @@ namespace Breda_Ontdekt.View.Pages
 		public RoutePage()
 		{
 			this.InitializeComponent();
-            model = new RoutePageModel();
 		}
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             transfer = (TransferClass)e.Parameter;
+            model = new RoutePageModel(transfer);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

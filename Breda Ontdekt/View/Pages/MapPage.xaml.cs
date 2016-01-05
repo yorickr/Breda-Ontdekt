@@ -54,14 +54,22 @@ namespace Breda_Ontdekt.View.Pages
             model.geolocator.PositionChanged += GeolocatorPositionChanged;
             GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
         }
-        
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             transfer = (TransferClass)e.Parameter;
-           
+
             if (transfer.isReturn == true)
             {
                 returnHome();
+            }
+            if (transfer.resetted)
+            {
+                MapView.MapElements.Clear();
+                model.selectedRoute = transfer.route;
+                DrawRoute(model.selectedRoute);
+                routeLoaded = true;
+                transfer.resetted = false;
             }
             else
             {
@@ -79,7 +87,7 @@ namespace Breda_Ontdekt.View.Pages
                     }
                     catch { }
             }
-            
+
         }
 
         private async void returnHome()
