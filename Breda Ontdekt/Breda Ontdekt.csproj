@@ -93,12 +93,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Help-Main.png" />
-    <Content Include="Assets\Help-Menu.png" />
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\routepoint_seen.png" />
+    <Content Include="Assets\Menu.png" />
+    <Content Include="Assets\Map.png" />
     <Content Include="Assets\siteImages\1.jpg" />
     <Content Include="Assets\siteImages\10.jpg" />
     <Content Include="Assets\siteImages\11.jpg" />
