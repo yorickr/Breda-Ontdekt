@@ -128,13 +128,6 @@ namespace Breda_Ontdekt.View.Pages
                 try
                 {
                     DrawObjectInfoIcon(o);
-                    MapIcon mapIcon1 = new MapIcon();
-                    mapIcon1.Location = o.position;
-                    mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                    mapIcon1.Title = o.name;
-                    mapIcon1.ZIndex = 0;
-                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
-                    MapView.MapElements.Add(mapIcon1);
                     AddFence(o.id, o.position);
 
                     //if you want to delete the geofence locations, use this code:
