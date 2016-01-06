@@ -50,7 +50,7 @@
 
             <!--Website-->
             <RelativePanel Grid.Row="3" HorizontalAlignment="Center">
-                <HyperlinkButton NavigateUri="http://www.vvvbreda.nl/" Content="Website" Margin="5,5,5,5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray"/>
+                <Button Content="Website" Name="websiteButton" Click="ToVVV_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" />
             </RelativePanel>
         </Grid>
     </ScrollViewer>

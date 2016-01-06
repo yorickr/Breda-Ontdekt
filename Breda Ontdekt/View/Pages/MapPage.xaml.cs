@@ -369,15 +369,16 @@ namespace Breda_Ontdekt.View.Pages
                                 {
                                     Geofence pos = report.Geofence;
                                     int id = Int16.Parse(pos.Id) - 1;
-                                    if(id == model.selectedRoute.routePoints.Count)
+                                    try
                                     {
-
+                                        ObjectInfo o = model.selectedRoute.routePoints[id];
+                                        o.isPassed = true;
+                                        DrawObjectInfoIcon(o);
+                                        transfer.info = o;
+                                        Frame.Navigate(typeof(InfoPage), transfer);
                                     }
-                                    ObjectInfo o = model.selectedRoute.routePoints[id];
-                                    o.isPassed = true;
-                                    DrawObjectInfoIcon(o);
-                                    transfer.info = o;
-                                    Frame.Navigate(typeof(InfoPage), transfer);
+                                    catch { }
+                                
                                     
                                     Debug.WriteLine("in geofence");
                                     //Hier nog coole dingen doen: als aangekomen bij laatste punt, toon popup met melding dat route is afgelopen en vragen of de gebruiker de weg terug wil krijgen naar het vvv

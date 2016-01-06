@@ -28,6 +28,7 @@ namespace Breda_Ontdekt.View.Pages
     {
         private ObjectInfo site;
         private ObservableCollection<Image> images;
+        TransferClass transfer;
 
         public InfoPage()
         {
@@ -42,7 +43,7 @@ namespace Breda_Ontdekt.View.Pages
                 {
 
                     //try to get site when navigate to this page
-                    TransferClass transfer = (TransferClass)e.Parameter;
+                    transfer = (TransferClass)e.Parameter;
                     site = transfer.info;
                     
                     if (site.lastPoint)
@@ -51,7 +52,8 @@ namespace Breda_Ontdekt.View.Pages
                     }
 
                     siteName.Text = site.name;
-
+                    if (site.lastPoint)
+                        websiteButton.Content = "go back to vvv";
                     if (site.imageUrls != null)
                         LoadImages();
 
@@ -93,9 +95,15 @@ namespace Breda_Ontdekt.View.Pages
             currentView.BackRequested -= backButton_Tapped;
         }
 
-        private void ToVVV_Click(object sender, RoutedEventArgs e)
+        private async void ToVVV_Click(object sender, RoutedEventArgs e)
         {
-            
+            if(!site.lastPoint)
+                await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.vvvbreda.nl"));
+            else
+            {
+                transfer.isReturn = true;
+                this.Frame.Navigate(typeof(MapPage), transfer);
+            }
         }
     }
 }
