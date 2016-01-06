@@ -74,7 +74,6 @@ namespace Breda_Ontdekt.View.Pages
                 case "LanguagePanel":
                     transfer.resetted = true;
                     this.Frame.Navigate(typeof(LanguagePage),transfer);
-
                     break;
                 case "ResetPanel":
                     this.Frame.Navigate(typeof(LanguagePage),transfer);
@@ -97,6 +96,23 @@ namespace Breda_Ontdekt.View.Pages
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             SwitchMenu();
+        }
+
+        public void refreshMenu(string language)
+        {
+            switch(language)
+            {
+                case "en-US":
+                    Language.Text = "Select Route";
+                    Reset.Text = "Reset App";
+                    VVV.Text = "Go back to the VVV";
+                    break;
+                case "nl-NL":
+                    Language.Text = "Selecteer een Route";
+                    Reset.Text = "Reset de Applicatie";
+                    VVV.Text = "Ga terug naar de VVV";
+                    break;
+            }
         }
     }
 }
