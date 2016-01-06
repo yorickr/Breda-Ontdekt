@@ -23,5 +23,10 @@ namespace Breda_Ontdekt.ViewModel.Lib
                 ErrorHandler.handleError("language change error", "ok");
             }
         }
+
+        public static string getCurrentLanguage()
+        {
+            return ApplicationLanguages.PrimaryLanguageOverride;
+        }
     }
 }

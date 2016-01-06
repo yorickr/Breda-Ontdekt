@@ -373,6 +373,8 @@ namespace Breda_Ontdekt.View.Pages
                                 {
                                     //ManeuverDisplay.DisplayManeuver(maneuverList.Where(p => p.Id == report.Geofence.Id).First());
                                     Debug.WriteLine("in geofence");
+                                    //Hier nog coole dingen doen: als aangekomen bij laatste punt, toon popup met melding dat route is afgelopen en vragen of de gebruiker de weg terug wil krijgen naar het vvv
+                                    //Groene 
                                     //new MessageDialog("in geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
                                 });
                                 break;

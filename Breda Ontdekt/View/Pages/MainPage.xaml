@@ -26,19 +26,19 @@
                         <ListView Background="#e9ece5" ItemClick="ListView_ItemClick" IsItemClickEnabled="True">
                             <StackPanel x:Name ="HelpPanel" Orientation="Horizontal" >
                                 <TextBlock x:Name="HelpButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Foreground="#3b3a36" Text="&#xE897;" Width="Auto"/>
-                                <TextBlock x:Uid="Help" Foreground="#3b3a36" Name="Help" Height="Auto" Margin="8,-3"/>
+                                <TextBlock Text="Help" Foreground="#3b3a36" Name="Help" Height="Auto" Margin="8,-3"/>
                             </StackPanel>
                             <StackPanel x:Name="LanguagePanel" Orientation="Horizontal" VerticalAlignment="Center">
                                 <TextBlock x:Name="LanguageButton" Foreground="#3b3a36" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE7C1;"/>
-                                <TextBlock x:Uid="Language" Foreground="#3b3a36" Name="Language" Height="Auto" Margin="8,-3"/>
+                                <TextBlock Foreground="#3b3a36" x:Name="Language" Height="Auto" Margin="8,-3"/>
                             </StackPanel>
                             <StackPanel x:Name="ResetPanel" Orientation="Horizontal" >
                                 <TextBlock x:Name="ResetButton" Foreground="#3b3a36" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE895;"/>
-                                <TextBlock x:Uid="Reset" Foreground="#3b3a36" Name="Reset" Height="Auto" Margin="8,-3"/>
+                                <TextBlock Foreground="#3b3a36" Name="Reset" Height="Auto" Margin="8,-3"/>
                             </StackPanel>
                             <StackPanel x:Name="VVVPanel" Orientation="Horizontal">
                                 <TextBlock x:Name="VVVButton" Foreground="#3b3a36" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE72B;"/>
-                                <TextBlock x:Uid="VVV" Foreground="#3b3a36" Name="VVV" Height="Auto" Margin="8,-3"/>
+                                <TextBlock Foreground="#3b3a36" Name="VVV" Height="Auto" Margin="8,-3"/>
                             </StackPanel>
                         </ListView>
                     </StackPanel>

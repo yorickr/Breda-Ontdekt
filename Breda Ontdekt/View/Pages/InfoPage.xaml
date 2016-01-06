@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto"/>
                 <!--info row-->
                 <RowDefinition Height="Auto"/>
-                <!--back button row-->
+                <!--website button row-->
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -46,6 +46,11 @@
             <!--Info-->
             <RelativePanel Grid.Row="2">
                 <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
+            </RelativePanel>
+
+            <!--Website-->
+            <RelativePanel Grid.Row="3" HorizontalAlignment="Center">
+                <HyperlinkButton NavigateUri="http://www.vvvbreda.nl/" Content="Website" Margin="5,5,5,5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray"/>
             </RelativePanel>
         </Grid>
     </ScrollViewer>
