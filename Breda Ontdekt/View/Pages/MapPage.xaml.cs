@@ -38,6 +38,7 @@ namespace Breda_Ontdekt.View.Pages
         private MapPageModel model;
         private bool routeLoaded = false;
         private TransferClass transfer;
+        private Geopoint oldPoint;
 
         public MapPage()
         {
@@ -131,6 +132,13 @@ namespace Breda_Ontdekt.View.Pages
                 try
                 {
                     DrawObjectInfoIcon(o);
+                    MapIcon mapIcon1 = new MapIcon();
+                    mapIcon1.Location = o.position;
+                    mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                    mapIcon1.Title = o.name;
+                    mapIcon1.ZIndex = 0;
+                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
+                    MapView.MapElements.Add(mapIcon1);
                     AddFence(o.id, o.position);
 
                     //if you want to delete the geofence locations, use this code:
@@ -158,26 +166,22 @@ namespace Breda_Ontdekt.View.Pages
 
         public void DrawObjectInfoIcon(ObjectInfo objectInfo)
         {
-            if (objectInfo.name.Length > 0)
-            {
-                MapIcon mapIcon1 = new MapIcon();
-                mapIcon1.Location = objectInfo.position;
-                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                if(!objectInfo.isPassed)
-                mapIcon1.Title = objectInfo.name;
-                mapIcon1.ZIndex = 0;
-                if (!objectInfo.isPassed)
-                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
-                else
-                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint_seen.png"));
+            MapIcon mapIcon1 = new MapIcon();
+            mapIcon1.Location = objectInfo.position;
+            mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+            mapIcon1.Title = objectInfo.name;
+            mapIcon1.ZIndex = 0;
+            if (!objectInfo.isPassed)
+                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
+            else
+                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint_seen.png"));
 
-                MapView.MapElements.Add(mapIcon1);
-            }
+            MapView.MapElements.Add(mapIcon1);
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(HelpPage),transfer);
+            this.Frame.Navigate(typeof(HelpPage), transfer);
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
@@ -206,7 +210,7 @@ namespace Breda_Ontdekt.View.Pages
         private void DrawRoute(MapRoute route)
         {
             //Draw a semi transparent fat green line
-            var color = Colors.Blue;
+            var color = Colors.Green;
             color.A = 128;
             //MapView.MapElements.Clear();
             var line = new MapPolyline
@@ -251,7 +255,7 @@ namespace Breda_Ontdekt.View.Pages
             icon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/traffic.png"));
             MapView.MapElements.Add(icon);
         }
-        
+
         //private async Task<MapRouteFinderResult> FindRoute()
         //{
         //    //const string beginLocation = "Lovensdijkstraat 63 Breda";
@@ -283,7 +287,7 @@ namespace Breda_Ontdekt.View.Pages
 
         //    return null;
         //}
-        
+
 
         private async void GeolocatorPositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {
@@ -295,15 +299,42 @@ namespace Breda_Ontdekt.View.Pages
 
         private async Task GeolocatorPositionChanged(Geoposition point)
         {
+
             // ... and another coordinate conversion
             var pos = new Geopoint(new BasicGeoposition { Latitude = point.Coordinate.Point.Position.Latitude, Longitude = point.Coordinate.Point.Position.Longitude });
-
+            if (oldPoint != null)
+            {
+                drawWalkedPath(oldPoint, pos);
+            }
             //DrawCarIcon(pos);
             DrawUserIcon(pos);
 
             //slower: DrawCarImage(pos);
 
             await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
+            oldPoint = pos;
+        }
+
+        private async void drawWalkedPath(Geopoint oldPos, Geopoint newPos)
+        {
+            List<BasicGeoposition> points = new List<BasicGeoposition>();
+            points.Add(oldPos.Position);
+            points.Add(newPos.Position);
+
+            var color = Colors.Red;
+            color.A = 128;
+
+            var line = new MapPolyline
+            {
+                StrokeThickness = 5,
+                StrokeColor = color,
+                StrokeDashed = false,
+                ZIndex = 2,
+                Path = new Geopath(points)
+            };
+
+            MapView.MapElements.Add(line);
+
         }
 
         private void DrawUserIcon(Geopoint pos)
