@@ -45,8 +45,10 @@ namespace Breda_Ontdekt.View.Pages
                     TransferClass transfer = (TransferClass)e.Parameter;
                     site = transfer.info;
                     
-                    //for testing
-                    site.isPassed = true;
+                    if (site.lastPoint)
+                    {
+                        //TODO make button to move back to vvv
+                    }
 
                     siteName.Text = site.name;
 
@@ -89,6 +91,11 @@ namespace Breda_Ontdekt.View.Pages
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
 
             currentView.BackRequested -= backButton_Tapped;
+        }
+
+        private void ToVVV_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

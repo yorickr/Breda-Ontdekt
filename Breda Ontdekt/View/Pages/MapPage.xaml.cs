@@ -371,6 +371,10 @@ namespace Breda_Ontdekt.View.Pages
                                 {
                                     Geofence pos = report.Geofence;
                                     int id = Int16.Parse(pos.Id) - 1;
+                                    if(id == model.selectedRoute.routePoints.Count)
+                                    {
+
+                                    }
                                     ObjectInfo o = model.selectedRoute.routePoints[id];
                                     o.isPassed = true;
                                     DrawObjectInfoIcon(o);

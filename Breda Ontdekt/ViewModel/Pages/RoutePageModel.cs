@@ -37,6 +37,8 @@ namespace Breda_Ontdekt.ViewModel
             {
                 route.addRoutePoint(s);
             }
+            ObjectInfo o = route.routePoints.Last();
+            o.lastPoint = true;
             route.name = "Historische Kilometer";
             AddRoute(route);
         }

@@ -7,7 +7,7 @@ using Windows.Devices.Geolocation;
 
 namespace Breda_Ontdekt.Model
 {
-    public  class ObjectInfo
+    public class ObjectInfo
     {
         //the position of the object
         public Geopoint position { get; set; }
@@ -16,14 +16,17 @@ namespace Breda_Ontdekt.Model
         public bool isPassed { get; set; }
         public string id { get; set; }
         public List<string> imageUrls { get; set; }
+        public bool lastPoint { get; set; } 
 
         public ObjectInfo(string name, Geopoint position, string id)
         {
             this.name = id + " " + name;
             this.position = position;
             isPassed = false;
+            this.lastPoint = false;
             this.id = id;
             this.imageUrls = new List<string>();
+            
 
         }
 
