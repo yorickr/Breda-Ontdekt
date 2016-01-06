@@ -308,8 +308,6 @@ namespace Breda_Ontdekt.View.Pages
             DrawUserIcon(pos);
 
             //slower: DrawCarImage(pos);
-
-            await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
             oldPoint = pos;
 
             if (followUser)

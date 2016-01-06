@@ -76,7 +76,9 @@ namespace Breda_Ontdekt.View.Pages
                     this.Frame.Navigate(typeof(LanguagePage),transfer);
                     break;
                 case "ResetPanel":
-                    this.Frame.Navigate(typeof(LanguagePage),transfer);
+                    transfer = new TransferClass();
+                    transfer.resetted = true;
+                    this.Frame.Navigate(typeof(MainPage),transfer);
                     break;
                 case "VVVPanel":
                     transfer.isReturn = true;
