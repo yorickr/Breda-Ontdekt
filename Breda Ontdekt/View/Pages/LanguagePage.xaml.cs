@@ -26,15 +26,12 @@ namespace Breda_Ontdekt.View.Pages
 	/// </summary>
 	public sealed partial class LanguagePage : Page
 	{
-		private Boolean _firstTime = true;
-
         private TransferClass transfer;
 
 		public LanguagePage()
 		{
 			this.InitializeComponent();
 			this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-
 		}
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -45,32 +42,18 @@ namespace Breda_Ontdekt.View.Pages
         private void UK_Button_Click(object sender, RoutedEventArgs e)
 		{
             this.transfer.language = "EN";
-            Setting.switchLanguage("en-GB");
-
-            if (_firstTime)
-            {
-                _firstTime = false;
-                Frame.Navigate(typeof(RoutePage), transfer);
-            }
-            else
-            {
-                Frame.Navigate(typeof(MapPage), transfer);
-            }
+            Setting.switchLanguage("en-US");
+            MainPage.instance.refreshMenu("en-US");
+            Frame.Navigate(typeof(RoutePage), transfer);
+            
         }
 
 		private void NL_Button_Click(object sender, RoutedEventArgs e)
 		{
             this.transfer.language = "NL";
             Setting.switchLanguage("nl-NL");
-            if(_firstTime)
-            {
-                _firstTime = false;
-                Frame.Navigate(typeof(RoutePage), transfer);
-            }
-            else
-            {
-                Frame.Navigate(typeof(MapPage), transfer);
-            }
+            MainPage.instance.refreshMenu("nl-NL");
+            Frame.Navigate(typeof(RoutePage), transfer);
         }
 	}
 }

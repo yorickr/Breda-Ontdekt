@@ -87,7 +87,6 @@ namespace Breda_Ontdekt.View.Pages
                     }
                     catch { }
             }
-            MainPage.instance.transfer = transfer;
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             currentView.BackRequested += backButton_Tapped;
