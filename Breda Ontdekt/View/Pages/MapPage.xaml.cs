@@ -87,6 +87,9 @@ namespace Breda_Ontdekt.View.Pages
                     }
                     catch { }
             }
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            currentView.BackRequested += backButton_Tapped;
 
         }
 
@@ -128,13 +131,6 @@ namespace Breda_Ontdekt.View.Pages
                 try
                 {
                     DrawObjectInfoIcon(o);
-                    MapIcon mapIcon1 = new MapIcon();
-                    mapIcon1.Location = o.position;
-                    mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                    mapIcon1.Title = o.name;
-                    mapIcon1.ZIndex = 0;
-                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
-                    MapView.MapElements.Add(mapIcon1);
                     AddFence(o.id, o.position);
 
                     //if you want to delete the geofence locations, use this code:
@@ -162,17 +158,21 @@ namespace Breda_Ontdekt.View.Pages
 
         public void DrawObjectInfoIcon(ObjectInfo objectInfo)
         {
-            MapIcon mapIcon1 = new MapIcon();
-            mapIcon1.Location = objectInfo.position;
-            mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-            mapIcon1.Title = objectInfo.name;
-            mapIcon1.ZIndex = 0;
-            if (!objectInfo.isPassed)
-                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
-            else
-                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint_seen.png"));
+            if (objectInfo.name.Length > 0)
+            {
+                MapIcon mapIcon1 = new MapIcon();
+                mapIcon1.Location = objectInfo.position;
+                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                if(!objectInfo.isPassed)
+                mapIcon1.Title = objectInfo.name;
+                mapIcon1.ZIndex = 0;
+                if (!objectInfo.isPassed)
+                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
+                else
+                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint_seen.png"));
 
-            MapView.MapElements.Add(mapIcon1);
+                MapView.MapElements.Add(mapIcon1);
+            }
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
@@ -206,7 +206,7 @@ namespace Breda_Ontdekt.View.Pages
         private void DrawRoute(MapRoute route)
         {
             //Draw a semi transparent fat green line
-            var color = Colors.Green;
+            var color = Colors.Blue;
             color.A = 128;
             //MapView.MapElements.Clear();
             var line = new MapPolyline
@@ -466,6 +466,25 @@ namespace Breda_Ontdekt.View.Pages
 
             var geofence = new Geofence(key, geocircle, mask, singleUse, TimeSpan.FromSeconds(1));
             GeofenceMonitor.Current.Geofences.Add(geofence);
+        }
+
+        private void backButton_Tapped(object sender, BackRequestedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                transfer.resetted = true;
+                Frame.Navigate(typeof(LanguagePage), transfer);
+            }
+            e.Handled = true;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
+            currentView.BackRequested -= backButton_Tapped;
         }
 
     }

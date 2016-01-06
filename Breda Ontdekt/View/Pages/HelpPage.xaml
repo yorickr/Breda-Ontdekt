@@ -53,8 +53,8 @@
             </RelativePanel>
 
             <RelativePanel Grid.Row="7" HorizontalAlignment="Center">
-                <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
-            </RelativePanel>
+                    <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
+                </RelativePanel>
         </Grid>
     </ScrollViewer>
 </Page>
