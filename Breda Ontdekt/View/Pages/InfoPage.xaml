@@ -20,13 +20,9 @@
 
             <RelativePanel Grid.Row="1">
                 <RelativePanel>
-                        <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
-                    </RelativePanel>
+                    <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
+                </RelativePanel>
             </RelativePanel>
-        <RelativePanel Grid.Row="2">
-            <Button x:Uid="Back" Click="Button_Click"  RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="28" Background="#e9ece5" Foreground="#3b3a36"/>
-        </RelativePanel>
-
-    </Grid>
+        </Grid>
     </ScrollViewer>
 </Page>

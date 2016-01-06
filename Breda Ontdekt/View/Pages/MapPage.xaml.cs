@@ -87,6 +87,9 @@ namespace Breda_Ontdekt.View.Pages
                     }
                     catch { }
             }
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            currentView.BackRequested += backButton_Tapped;
 
         }
 
@@ -469,6 +472,25 @@ namespace Breda_Ontdekt.View.Pages
 
             var geofence = new Geofence(key, geocircle, mask, singleUse, TimeSpan.FromSeconds(1));
             GeofenceMonitor.Current.Geofences.Add(geofence);
+        }
+
+        private void backButton_Tapped(object sender, BackRequestedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                transfer.resetted = true;
+                Frame.Navigate(typeof(LanguagePage), transfer);
+            }
+            e.Handled = true;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
+            currentView.BackRequested -= backButton_Tapped;
         }
 
     }
