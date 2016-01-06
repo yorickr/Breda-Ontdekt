@@ -9,7 +9,7 @@ using Windows.Devices.Geolocation.Geofencing;
 using Windows.UI.Notifications;
 using System.Diagnostics;
 
-namespace Breda_Ontdekt.ViewModel.Lib
+namespace BackgroundTask
 {
     public sealed class GeofenceBackgroundTask : IBackgroundTask
     {

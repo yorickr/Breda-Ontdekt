@@ -41,7 +41,7 @@ namespace Breda_Ontdekt.View.Pages
         private TransferClass transfer;
 
         private const string BackgroundTaskName = "GeofenceBackgroundTask";
-        private const string BackgroundTaskEntryPoint = "Breda_Ontdekt.ViewModel.Lib.GeofenceBackgroundTask";
+        private const string BackgroundTaskEntryPoint = "BackgroundTask.GeofenceBackgroundTask";
 
         private IBackgroundTaskRegistration _geolocTask = null;
 
@@ -80,16 +80,19 @@ namespace Breda_Ontdekt.View.Pages
 
                     foreach (var cur in BackgroundTaskRegistration.AllTasks)
                     {
+                        Debug.WriteLine(cur.Value.Name);
                         if (cur.Value.Name == BackgroundTaskName)
                         {
                             _geolocTask = cur.Value;
                             break;
                         }
                     }
-
-                    if (_geolocTask != null)
+                    Debug.WriteLine("Past for");
+                    Debug.WriteLine(_geolocTask);
+                    if (_geolocTask == null)
                     {
-                        RegisterBackgroundTask(null,null);
+                        Debug.WriteLine("Registering background task");
+                        RegisterBackgroundTask();
                     }
                 }
             };
@@ -100,29 +103,27 @@ namespace Breda_Ontdekt.View.Pages
 
         }
 
-        async private void RegisterBackgroundTask(object sender, RoutedEventArgs e)
+        async private void RegisterBackgroundTask()
         {
             try
             {
-                // Get permission for a background task from the user. If the user has already answered once,
-                // this does nothing and the user must manually update their preference via PC Settings.
-                BackgroundAccessStatus backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
 
-                // Regardless of the answer, register the background task. If the user later adds this application
-                // to the lock screen, the background task will be ready to run.
-                // Create a new background task builder
+                Debug.WriteLine("Making builder");
                 BackgroundTaskBuilder geolocTaskBuilder = new BackgroundTaskBuilder();
 
+                Debug.WriteLine("Registering info");
                 geolocTaskBuilder.Name = BackgroundTaskName;
                 geolocTaskBuilder.TaskEntryPoint = BackgroundTaskEntryPoint;
 
-                // Create a new timer triggering at a 15 minute interval
+                Debug.WriteLine("Making trigger");
                 var trigger = new SystemTrigger(SystemTriggerType.UserAway, false);
 
                 // Associate the timer trigger with the background task builder
+                Debug.WriteLine("Setting trigger");
                 geolocTaskBuilder.SetTrigger(trigger);
 
                 // Register the background task
+                Debug.WriteLine("Registering task");
                 _geolocTask = geolocTaskBuilder.Register();
 
             }
@@ -131,22 +132,6 @@ namespace Breda_Ontdekt.View.Pages
                 Debug.WriteLine(ex.ToString());
             }
         }
-
-        /// <summary>
-        /// Get permission for location from the user. If the user has already answered once,
-        /// this does nothing and the user must manually update their preference via Settings.
-        /// </summary>
-        private async void RequestLocationAccess()
-        {
-            // Request permission to access location
-            var accessStatus = await Geolocator.RequestAccessAsync();
-        }
-
-        /// <summary>
-        /// This is the click handler for the 'Unregister' button.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void UnregisterBackgroundTask(object sender, RoutedEventArgs e)
         {
             // Unregister the background task
