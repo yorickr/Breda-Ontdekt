@@ -337,10 +337,6 @@ namespace Breda_Ontdekt.View.Pages
             };
 
             MapView.MapElements.Add(line);
-<<<<<<< HEAD
-=======
-            
->>>>>>> refs/remotes/origin/dev
         }
 
         private void DrawUserIcon(Geopoint pos)
@@ -373,10 +369,17 @@ namespace Breda_Ontdekt.View.Pages
                             {
                                 await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                                 {
-                                    //ManeuverDisplay.DisplayManeuver(maneuverList.Where(p => p.Id == report.Geofence.Id).First());
+                                    Geofence pos = report.Geofence;
+                                    int id = Int16.Parse(pos.Id) - 1;
+                                    ObjectInfo o = model.selectedRoute.routePoints[id];
+                                    o.isPassed = true;
+                                    DrawObjectInfoIcon(o);
+                                    transfer.info = o;
+                                    Frame.Navigate(typeof(InfoPage), transfer);
+                                    
                                     Debug.WriteLine("in geofence");
                                     //Hier nog coole dingen doen: als aangekomen bij laatste punt, toon popup met melding dat route is afgelopen en vragen of de gebruiker de weg terug wil krijgen naar het vvv
-                                    //Groene 
+                                     
                                     //new MessageDialog("in geofence").ShowAsync().AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
                                 });
                                 break;
@@ -441,10 +444,6 @@ namespace Breda_Ontdekt.View.Pages
             //get mapIcon from args
             MapIcon clickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
             ObjectInfo o = model.GetObject(clickedIcon.Title);
-
-            //for testing:
-            o.isPassed = true;
-            DrawObjectInfoIcon(o);
 
             transfer.info = o;
             //navigate to info page
