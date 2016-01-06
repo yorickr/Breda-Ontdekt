@@ -37,6 +37,7 @@ namespace Breda_Ontdekt.View.Pages
     {
         private MapPageModel model;
         private bool routeLoaded = false;
+        private bool followUser = false;
         private TransferClass transfer;
         private Geopoint oldPoint;
 
@@ -310,6 +311,11 @@ namespace Breda_Ontdekt.View.Pages
 
             await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
             oldPoint = pos;
+
+            if (followUser)
+            {
+                await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
+            }
         }
 
         private async void drawWalkedPath(Geopoint oldPos, Geopoint newPos)
@@ -331,7 +337,7 @@ namespace Breda_Ontdekt.View.Pages
             };
 
             MapView.MapElements.Add(line);
-
+            
         }
 
         private void DrawUserIcon(Geopoint pos)
@@ -517,5 +523,10 @@ namespace Breda_Ontdekt.View.Pages
             currentView.BackRequested -= backButton_Tapped;
         }
 
+        private void SwitchButton_Toggled(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            followUser = toggleSwitch.IsOn;
+        }
     }
 }
