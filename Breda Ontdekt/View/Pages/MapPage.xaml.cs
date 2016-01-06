@@ -158,17 +158,21 @@ namespace Breda_Ontdekt.View.Pages
 
         public void DrawObjectInfoIcon(ObjectInfo objectInfo)
         {
-            MapIcon mapIcon1 = new MapIcon();
-            mapIcon1.Location = objectInfo.position;
-            mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-            mapIcon1.Title = objectInfo.name;
-            mapIcon1.ZIndex = 0;
-            if (!objectInfo.isPassed)
-                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
-            else
-                mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint_seen.png"));
+            if (objectInfo.name.Length > 0)
+            {
+                MapIcon mapIcon1 = new MapIcon();
+                mapIcon1.Location = objectInfo.position;
+                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                if(!objectInfo.isPassed)
+                mapIcon1.Title = objectInfo.name;
+                mapIcon1.ZIndex = 0;
+                if (!objectInfo.isPassed)
+                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
+                else
+                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint_seen.png"));
 
-            MapView.MapElements.Add(mapIcon1);
+                MapView.MapElements.Add(mapIcon1);
+            }
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
@@ -202,7 +206,7 @@ namespace Breda_Ontdekt.View.Pages
         private void DrawRoute(MapRoute route)
         {
             //Draw a semi transparent fat green line
-            var color = Colors.Green;
+            var color = Colors.Blue;
             color.A = 128;
             //MapView.MapElements.Clear();
             var line = new MapPolyline
