@@ -15,7 +15,7 @@ namespace Breda_Ontdekt.Model
         public string description { get; set; }
         public bool isPassed { get; set; }
         public string id { get; set; }
-        public List<Uri> imageUrls { get; set; }
+        public List<string> imageUrls { get; set; }
 
         public ObjectInfo(string name, Geopoint position, string id)
         {
@@ -23,7 +23,7 @@ namespace Breda_Ontdekt.Model
             this.position = position;
             isPassed = false;
             this.id = id;
-            this.imageUrls = new List<Uri>();
+            this.imageUrls = new List<string>();
 
         }
 

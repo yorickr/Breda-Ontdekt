@@ -148,21 +148,18 @@ namespace Breda_Ontdekt.View.Pages
             }
 
             //draw line between all the points
-            ObjectInfo fromObject = null;
-            foreach (ObjectInfo toObject in route.routePoints)
+            List<Geopoint> points = new List<Geopoint>();
+            foreach (ObjectInfo o in route.routePoints)
             {
-                if (fromObject != null)
-                {
-                    MapRouteFinderResult routeResult = await MapRouteFinder.GetWalkingRouteAsync(fromObject.position, toObject.position);
-                    if (routeResult.Status == MapRouteFinderStatus.Success)
-                    {
-                        MapRoute maproute = routeResult.Route;
-                        // Draw all segments of route and add a Geofence for every turn:
-                        DrawRoute(maproute);
-                        // await MapView.TrySetViewBoundsAsync(maproute.BoundingBox, null, MapAnimationKind.Linear);
-                    }
-                }
-                fromObject = toObject;
+                points.Add(new Geopoint(o.position.Position));
+            }
+            MapRouteFinderResult routeResult = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(points);
+            if (routeResult.Status == MapRouteFinderStatus.Success)
+            {
+                MapRoute maproute = routeResult.Route;
+                // Draw all segments of route and add a Geofence for every turn:
+                DrawRoute(maproute);
+                // await MapView.TrySetViewBoundsAsync(maproute.BoundingBox, null, MapAnimationKind.Linear);
             }
         }
 

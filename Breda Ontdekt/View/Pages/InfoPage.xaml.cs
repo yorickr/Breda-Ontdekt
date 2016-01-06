@@ -2,6 +2,7 @@
 using Breda_Ontdekt.Model.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +27,7 @@ namespace Breda_Ontdekt.View.Pages
     public sealed partial class InfoPage : Page
     {
         private ObjectInfo site;
+        private ObservableCollection<Image> images;
 
         public InfoPage()
         {
@@ -47,6 +49,10 @@ namespace Breda_Ontdekt.View.Pages
                     site.isPassed = true;
 
                     siteName.Text = site.name;
+
+                    if (site.imageUrls != null)
+                        LoadImages();
+
                     if (site.description != null)
                     {
                         siteInfo.Text = site.description;
@@ -59,6 +65,23 @@ namespace Breda_Ontdekt.View.Pages
             currentView.BackRequested += backButton_Tapped;
         }
 
+        private void LoadImages()
+        {
+            images = new ObservableCollection<Image>();
+            site.imageUrls.ForEach(u =>
+            {
+                Image j = new Image();
+                j.url = u;
+                images.Add(j);
+            });
+        }
+
+        private void backButton_Tapped(object sender, BackRequestedEventArgs e)
+        {
+            if (Frame.CanGoBack) Frame.GoBack();
+            e.Handled = true;
+        }
+
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             var currentView = SystemNavigationManager.GetForCurrentView();
@@ -66,12 +89,6 @@ namespace Breda_Ontdekt.View.Pages
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
 
             currentView.BackRequested -= backButton_Tapped;
-        }
-
-        private void backButton_Tapped(object sender, BackRequestedEventArgs e)
-        {
-            if (Frame.CanGoBack) Frame.GoBack();
-            e.Handled = true;
         }
     }
 }
