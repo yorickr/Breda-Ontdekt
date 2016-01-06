@@ -207,11 +207,12 @@ namespace Breda_Ontdekt.View.Pages
         {
             //Draw a semi transparent fat green line
             var color = Colors.Blue;
-            color.A = 128;
+            color.A = 150;
             //MapView.MapElements.Clear();
             var line = new MapPolyline
             {
-                StrokeThickness = 5,
+                
+                StrokeThickness = 10,
                 StrokeColor = color,
                 StrokeDashed = false,
                 ZIndex = 2
@@ -318,14 +319,14 @@ namespace Breda_Ontdekt.View.Pages
             points.Add(newPos.Position);
 
             var color = Colors.Red;
-            color.A = 128;
+            color.A = 180;
 
             var line = new MapPolyline
             {
                 StrokeThickness = 5,
                 StrokeColor = color,
                 StrokeDashed = false,
-                ZIndex = 2,
+                ZIndex = 3,
                 Path = new Geopath(points)
             };
 
