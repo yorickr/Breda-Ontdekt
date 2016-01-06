@@ -22,7 +22,7 @@ namespace Breda_Ontdekt.ViewModel.Pages
         {
             foreach(ObjectInfo o in selectedRoute.routePoints)
             {
-                if (o.name.Equals(objectName))
+                if (o.name.Contains(objectName))
                     return o;
             }
 

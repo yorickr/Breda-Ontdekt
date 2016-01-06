@@ -19,7 +19,7 @@ namespace Breda_Ontdekt.Model
 
         public ObjectInfo(string name, Geopoint position, string id)
         {
-            this.name = name;
+            this.name = id + " " + name;
             this.position = position;
             isPassed = false;
             this.id = id;
