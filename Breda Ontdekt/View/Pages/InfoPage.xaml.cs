@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -59,6 +60,9 @@ namespace Breda_Ontdekt.View.Pages
                 }
             }
             catch { }
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            currentView.BackRequested += backButton_Tapped;
         }
 
         private void LoadImages()
@@ -72,9 +76,19 @@ namespace Breda_Ontdekt.View.Pages
             });
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void backButton_Tapped(object sender, BackRequestedEventArgs e)
         {
-            Frame.GoBack();
+            if (Frame.CanGoBack) Frame.GoBack();
+            e.Handled = true;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
+            currentView.BackRequested -= backButton_Tapped;
         }
     }
 }

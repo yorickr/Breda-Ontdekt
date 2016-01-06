@@ -37,16 +37,11 @@
         </RelativePanel>
 
 
-        <RelativePanel Grid.Row="3" Margin="25, 5" HorizontalAlignment="Left" >
+            <RelativePanel Grid.Row="3" Margin="25, 5" HorizontalAlignment="Left" >
                 <TextBlock x:Uid="HelpItem3Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
                 <TextBlock x:Uid="HelpItem3Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
-            <Image Source="/Assets/Help-Menu.png" Margin="0,38,0,0" Height="250"/>
-        </RelativePanel>
-
-        <RelativePanel Grid.Row="6" HorizontalAlignment="Center">
-            <Button x:Uid="Back" x:Name="BackButton" Margin="0,30,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
-
-        </RelativePanel>
-    </Grid>
+                <Image Source="/Assets/Help-Menu.png" Margin="0,38,0,0" Height="250"/>
+            </RelativePanel>
+        </Grid>
     </ScrollViewer>
 </Page>

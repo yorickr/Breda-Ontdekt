@@ -41,20 +41,10 @@ namespace Breda_Ontdekt.View.Pages
             currentView.BackRequested += backButton_Tapped;
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-		{
-            this.Frame.Navigate(typeof(MapPage),transfer);
-		}
-
         private void backButton_Tapped(object sender, BackRequestedEventArgs e)
-
         {
-
-            // insert anything you need to do before navigating
-
             if (Frame.CanGoBack) Frame.GoBack();
             e.Handled = true;
-
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
