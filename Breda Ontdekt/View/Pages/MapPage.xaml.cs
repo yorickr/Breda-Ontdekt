@@ -37,6 +37,7 @@ namespace Breda_Ontdekt.View.Pages
     {
         private MapPageModel model;
         private bool routeLoaded = false;
+        private bool followUser = false;
         private TransferClass transfer;
 
         public MapPage()
@@ -302,8 +303,10 @@ namespace Breda_Ontdekt.View.Pages
             DrawUserIcon(pos);
 
             //slower: DrawCarImage(pos);
-
-            await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
+            if (followUser)
+            {
+                await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
+            }
         }
 
         private void DrawUserIcon(Geopoint pos)
@@ -489,5 +492,10 @@ namespace Breda_Ontdekt.View.Pages
             currentView.BackRequested -= backButton_Tapped;
         }
 
+        private void SwitchButton_Toggled(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            followUser = toggleSwitch.IsOn;
+        }
     }
 }
