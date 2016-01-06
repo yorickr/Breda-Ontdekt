@@ -308,13 +308,14 @@ namespace Breda_Ontdekt.View.Pages
             DrawUserIcon(pos);
 
             //slower: DrawCarImage(pos);
-            if(followUser)
-            {
-                await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
-            }
 
             await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
             oldPoint = pos;
+
+            if (followUser)
+            {
+                await MapView.TrySetViewAsync(pos, MapView.ZoomLevel, MapView.Heading, MapView.Pitch, MapAnimationKind.Linear);
+            }
         }
 
         private async void drawWalkedPath(Geopoint oldPos, Geopoint newPos)
@@ -336,6 +337,10 @@ namespace Breda_Ontdekt.View.Pages
             };
 
             MapView.MapElements.Add(line);
+<<<<<<< HEAD
+=======
+            
+>>>>>>> refs/remotes/origin/dev
         }
 
         private void DrawUserIcon(Geopoint pos)
