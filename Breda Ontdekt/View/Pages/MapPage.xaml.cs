@@ -125,7 +125,6 @@ namespace Breda_Ontdekt.View.Pages
             ObjectInfo centerObject = model.GetObject("Begijnenhof");
             MapView.Center = centerObject.position;
             MapView.ZoomLevel = 15;
-
             //draw each object in from the route on the map
             foreach (ObjectInfo o in route.routePoints)
             {
@@ -133,13 +132,6 @@ namespace Breda_Ontdekt.View.Pages
                 {
 
                     DrawObjectInfoIcon(o);
-                    MapIcon mapIcon1 = new MapIcon();
-                    mapIcon1.Location = o.position;
-                    mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-                    mapIcon1.Title = o.name;
-                    mapIcon1.ZIndex = 0;
-                    mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
-                    MapView.MapElements.Add(mapIcon1);
                     AddFence(o.id, o.position);
 
                     //if you want to delete the geofence locations, use this code:
@@ -171,7 +163,7 @@ namespace Breda_Ontdekt.View.Pages
             {
                 MapIcon mapIcon1 = new MapIcon();
                 mapIcon1.Location = objectInfo.position;
-                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1);
                 mapIcon1.Title = objectInfo.name;
                 mapIcon1.ZIndex = 0;
                 if (!objectInfo.isPassed)

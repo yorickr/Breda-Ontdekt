@@ -124,7 +124,7 @@ namespace Breda_Ontdekt.Model
                     sites.ForEach(s =>
                     {
                         //if it is the same add the uris
-                        if (s.name == key)
+                        if (s.name.Contains(key))
                             s.imageUrls = uriValues;
                     });
 
