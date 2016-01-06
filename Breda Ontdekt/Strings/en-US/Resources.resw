@@ -142,7 +142,7 @@
     <value>Menu</value>
   </data>
   <data name="HelpItem3Info.Text" xml:space="preserve">
-    <value>Here you can find the following:</value>
+    <value>Here you can find the following: Help, Taal Selectie, App Reset, and a function to get the way back to the VVV HQ.</value>
   </data>
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>

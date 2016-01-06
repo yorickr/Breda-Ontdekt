@@ -126,6 +126,24 @@
   <data name="Help.Text" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="HelpItem1Header.Text" xml:space="preserve">
+    <value>Positie</value>
+  </data>
+  <data name="HelpItem1Info.Text" xml:space="preserve">
+    <value>Dit icoontje geeft je positie weer.</value>
+  </data>
+  <data name="HelpItem2Header.Text" xml:space="preserve">
+    <value>Overzicht</value>
+  </data>
+  <data name="HelpItem2Info.Text" xml:space="preserve">
+    <value>Zo ziet de app er uit zonder het menu open. Hier zie je de vogende dingen: Uw route, uw al afgelegde route, uw positie, alle bezienswaardig heden, de kaart van breda. Wilt u het menu openen moet u op de 3 horizontale streepjes drukken.</value>
+  </data>
+  <data name="HelpItem3Header.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="HelpItem3Info.Text" xml:space="preserve">
+    <value>Hier kunt u het volgende vinden: Help, Taal Selectie, App Reset, En een functie om terug naar de VVV te worden geleid.</value>
+  </data>
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>
   </data>
