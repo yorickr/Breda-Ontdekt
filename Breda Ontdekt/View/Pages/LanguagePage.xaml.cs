@@ -45,18 +45,32 @@ namespace Breda_Ontdekt.View.Pages
         private void UK_Button_Click(object sender, RoutedEventArgs e)
 		{
             this.transfer.language = "EN";
-            _firstTime = false;
             Setting.switchLanguage("en-GB");
-            Frame.Navigate(typeof(RoutePage), transfer);
 
+            if (_firstTime)
+            {
+                _firstTime = false;
+                Frame.Navigate(typeof(RoutePage), transfer);
+            }
+            else
+            {
+                Frame.Navigate(typeof(MapPage), transfer);
+            }
         }
 
 		private void NL_Button_Click(object sender, RoutedEventArgs e)
 		{
             this.transfer.language = "NL";
-            _firstTime = false;
             Setting.switchLanguage("nl-NL");
-            Frame.Navigate(typeof(RoutePage), transfer);
+            if(_firstTime)
+            {
+                _firstTime = false;
+                Frame.Navigate(typeof(RoutePage), transfer);
+            }
+            else
+            {
+                Frame.Navigate(typeof(MapPage), transfer);
+            }
         }
 	}
 }

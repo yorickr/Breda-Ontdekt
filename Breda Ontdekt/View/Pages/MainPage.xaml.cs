@@ -27,7 +27,7 @@ namespace Breda_Ontdekt.View.Pages
     public sealed partial class MainPage : Page
     {
 
-        private TransferClass transfer;
+        public TransferClass transfer;
 
 		public static MainPage instance
         {
@@ -74,7 +74,6 @@ namespace Breda_Ontdekt.View.Pages
                 case "LanguagePanel":
                     transfer.resetted = true;
                     this.Frame.Navigate(typeof(LanguagePage),transfer);
-
                     break;
                 case "ResetPanel":
                     this.Frame.Navigate(typeof(LanguagePage),transfer);
