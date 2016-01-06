@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Background;
 using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
 using Windows.Foundation;
@@ -39,6 +40,11 @@ namespace Breda_Ontdekt.View.Pages
         private bool routeLoaded = false;
         private TransferClass transfer;
 
+        private const string BackgroundTaskName = "GeofenceBackgroundTask";
+        private const string BackgroundTaskEntryPoint = "Breda_Ontdekt.ViewModel.Lib.GeofenceBackgroundTask";
+
+        private IBackgroundTaskRegistration _geolocTask = null;
+
         public MapPage()
         {
             model = new MapPageModel();
@@ -53,6 +59,102 @@ namespace Breda_Ontdekt.View.Pages
             };
             model.geolocator.PositionChanged += GeolocatorPositionChanged;
             GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
+
+            Window.Current.CoreWindow.SizeChanged += (ss, ee) =>
+            {
+                var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+                if (appView.IsFullScreen)
+                {
+                    //maximized
+
+                }
+                ee.Handled = true;
+            };
+            Window.Current.VisibilityChanged += (ss, ee) =>
+            {
+                if (!ee.Visible)
+                {
+                    //minimized
+
+                    Debug.WriteLine("Minimized");
+
+                    foreach (var cur in BackgroundTaskRegistration.AllTasks)
+                    {
+                        if (cur.Value.Name == BackgroundTaskName)
+                        {
+                            _geolocTask = cur.Value;
+                            break;
+                        }
+                    }
+
+                    if (_geolocTask != null)
+                    {
+                        RegisterBackgroundTask(null,null);
+                    }
+                }
+            };
+            Window.Current.Closed += (ss, ee) =>
+            {
+                //closed
+            };
+
+        }
+
+        async private void RegisterBackgroundTask(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Get permission for a background task from the user. If the user has already answered once,
+                // this does nothing and the user must manually update their preference via PC Settings.
+                BackgroundAccessStatus backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
+
+                // Regardless of the answer, register the background task. If the user later adds this application
+                // to the lock screen, the background task will be ready to run.
+                // Create a new background task builder
+                BackgroundTaskBuilder geolocTaskBuilder = new BackgroundTaskBuilder();
+
+                geolocTaskBuilder.Name = BackgroundTaskName;
+                geolocTaskBuilder.TaskEntryPoint = BackgroundTaskEntryPoint;
+
+                // Create a new timer triggering at a 15 minute interval
+                var trigger = new SystemTrigger(SystemTriggerType.UserAway, false);
+
+                // Associate the timer trigger with the background task builder
+                geolocTaskBuilder.SetTrigger(trigger);
+
+                // Register the background task
+                _geolocTask = geolocTaskBuilder.Register();
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Get permission for location from the user. If the user has already answered once,
+        /// this does nothing and the user must manually update their preference via Settings.
+        /// </summary>
+        private async void RequestLocationAccess()
+        {
+            // Request permission to access location
+            var accessStatus = await Geolocator.RequestAccessAsync();
+        }
+
+        /// <summary>
+        /// This is the click handler for the 'Unregister' button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UnregisterBackgroundTask(object sender, RoutedEventArgs e)
+        {
+            // Unregister the background task
+            if (null != _geolocTask)
+            {
+                _geolocTask.Unregister(true);
+                _geolocTask = null;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

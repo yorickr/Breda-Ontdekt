@@ -40,6 +40,7 @@ namespace Breda_Ontdekt.View.Pages
             transfer = new TransferClass();
             instance = this;
             Frame.Navigate(typeof(StartPage));
+
         }
 
         private void ListView_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
