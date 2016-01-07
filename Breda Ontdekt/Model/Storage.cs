@@ -117,15 +117,28 @@ namespace Breda_Ontdekt.Model
                     List<string> values = lineList[1].Split('&').ToList();
                     List<string> uriValues = new List<string>();
                     //parse string values to uri values
+
                     values.ForEach(v =>
                         uriValues.Add("/Assets/siteImages/" + v + ".jpg"));
+
+                    //get video url
+                    Uri url = new Uri("http://www.vvvbreda.nl");
+                    try
+                    {
+                        if(lineList[2].Length > 2)
+                            url = new Uri("https://" + lineList[2]);
+                    }
+                    catch { }
 
                     //search for same object
                     sites.ForEach(s =>
                     {
                         //if it is the same add the uris
                         if (s.name.Contains(key))
+                        {
                             s.imageUrls = uriValues;
+                            s.videoUrl = url;
+                        }
                     });
 
                 }

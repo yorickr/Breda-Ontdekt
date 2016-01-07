@@ -60,6 +60,7 @@ namespace Breda_Ontdekt.View.Pages
                         BackButton.Content = "go back to vvv";
                     if (site.imageUrls != null)
                         LoadImages();
+                    
 
                     if (site.description != null)
                     {
@@ -101,13 +102,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private async void ToVVV_Click(object sender, RoutedEventArgs e)
         {
-            if(!site.lastPoint)
-                await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.vvvbreda.nl"));
-            else
-            {
-                transfer.isReturn = true;
-                this.Frame.Navigate(typeof(MapPage), transfer);
-            }
+           await Windows.System.Launcher.LaunchUriAsync(site.videoUrl);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
