@@ -194,6 +194,12 @@
   <ItemGroup>
     <Content Include="Assets\car.png" />
     <Content Include="Assets\DutchFlag.png" />
+    <Content Include="Assets\text\14EN.txt" />
+    <Content Include="Assets\text\14NL.txt" />
+    <Content Include="Assets\text\15EN.txt" />
+    <Content Include="Assets\text\15NL.txt" />
+    <Content Include="Assets\text\18EN.txt" />
+    <Content Include="Assets\text\18NL.txt" />
     <Content Include="Assets\text\antoniuskerkEN.txt" />
     <Content Include="Assets\text\antoniuskerkNL.txt" />
     <Content Include="Assets\text\bevrijdingsmonumentEN.txt" />
