@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <RelativePanel Grid.Row="0" Background="#e9ece5">
             <Button x:Name="MenuButton" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Background="Transparent" Width="50" Height="40" Click="MenuButton_Click" />
-            <ToggleSwitch x:Name="SwitchButton" Margin="120, 0, 0, 0" Toggled="SwitchButton_Toggled"/>
+            <ToggleSwitch x:Name="SwitchButton" IsOn="True" Margin="120, 0, 0, 0" Toggled="SwitchButton_Toggled"/>
             <TextBlock Text="Follow" Margin="60, 10, 0, 0"/>
         </RelativePanel>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Grid.Row="1">

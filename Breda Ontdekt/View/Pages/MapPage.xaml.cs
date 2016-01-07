@@ -106,13 +106,17 @@ namespace Breda_Ontdekt.View.Pages
             r.addRoutePoint(new ObjectInfo("VVV", new Geopoint(geopos), "1"));
             Geolocator geolocator = new Geolocator();
             Geoposition geoposition = null;
+            GeofenceMonitor.Current.Geofences.Clear();
+            RemoveGeofences();
             geolocator.PositionChanged += GeolocatorPositionChanged;
+
             GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
             geoposition = await geolocator.GetGeopositionAsync();
             Geopoint p = geoposition.Coordinate.Point;
             r.addRoutePoint(new ObjectInfo("", p, "0"));
             MapView.MapElements.Clear();
             DrawRoute(r);
+            transfer.isReturn = false;
         }
 
         public static double ConvertDegreeAngleToDouble(double degrees, double minutes, double seconds)
@@ -166,7 +170,7 @@ namespace Breda_Ontdekt.View.Pages
                 mapIcon1.Location = objectInfo.position;
                 mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1);
                 mapIcon1.Title = objectInfo.name;
-                mapIcon1.ZIndex = 0;
+                mapIcon1.ZIndex = 5;
                 if (!objectInfo.isPassed)
                     mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                 else
@@ -216,7 +220,7 @@ namespace Breda_Ontdekt.View.Pages
                 StrokeThickness = 10,
                 StrokeColor = color,
                 StrokeDashed = false,
-                ZIndex = 2
+                ZIndex = 0
             };
 
             // Route has legs, legs have maneuvers
@@ -330,7 +334,7 @@ namespace Breda_Ontdekt.View.Pages
                 StrokeThickness = 5,
                 StrokeColor = color,
                 StrokeDashed = false,
-                ZIndex = 3,
+                ZIndex = 4,
                 Path = new Geopath(points)
             };
 
@@ -339,7 +343,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private void DrawUserIcon(Geopoint pos)
         {
-            int userZIndex = 4;
+            int userZIndex = 6;
             var userIcon = MapView.MapElements.OfType<MapIcon>().FirstOrDefault(p => p.ZIndex == userZIndex);
             if (userIcon == null)
             {
