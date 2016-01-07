@@ -101,6 +101,117 @@ namespace Breda_Ontdekt.Model.Entities
                             base.description = GetDescription(new Uri("ms-appx:///Assets/text/kloosterkazerneEN.txt"));
                         }
                         break;
+                    //liefdezuster
+                    case 8:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/liefdezusterNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/liefdezusterEN.txt"));
+                        }
+                        break;
+                    //lighthouse
+                    case 9:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/lighthouseNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/lighthouseEN.txt"));
+                        }
+                        break;
+                    //stadhouderspoort
+                    case 10:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/stadhouderspoortNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/stadhouderspoortEN.txt"));
+                        }
+                        break;
+                     //huisvanbrecht
+                    case 11:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/huisvanbrechtNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/huisvanbrechtEN.txt"));
+                        }
+                        break;
+                    //Spanjaardsgat
+                    case 12:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/spanjaardsgatNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/spanjaardsgatEN.txt"));
+                        }
+                        break;
+                    //Grote Kerk
+                    case 13:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/grotekerkNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/grotekerkEN.txt"));
+                        }
+                        break;
+                    //bevrijdingsmonument
+                    case 14:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/bevrijdingsmonumentNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/bevrijdingsmonumentEN.txt"));
+                        }
+                        break;
+                    //chassetheater
+                    case 15:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/chassetheaterNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/chassetheaterEN.txt"));
+                        }
+                        break;
+                     //binding van isaac
+                    case 16:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/bindingvanisaacNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/bindingvanisaacEN.txt"));
+                        }
+                        break;
+                    //beyerd
+                    case 17:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/beyerdNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/beyerdEN.txt"));
+                        }
+                        break;
+
                 }
                 Debug.WriteLine("Succesfully converted description to id.");
             }
