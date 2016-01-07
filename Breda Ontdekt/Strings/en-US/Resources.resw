@@ -139,13 +139,13 @@
     <value>Overview</value>
   </data>
   <data name="HelpItem2Info.Text" xml:space="preserve">
-    <value>This is how the main app looks like. Left you can see the Menu open, you can open the menu by pushing on the 3 vertical stripes in the left upper corner. </value>
+    <value>This is the view with your route. You can open the menu by pushing the three vertical stripes in the upper left corner.</value>
   </data>
   <data name="HelpItem3Header.Text" xml:space="preserve">
     <value>Menu</value>
   </data>
   <data name="HelpItem3Info.Text" xml:space="preserve">
-    <value>Here you can find the following: Help (where you are now), App Reset, and a function to get the way back to the VVV HQ.</value>
+    <value>Here you can find the following: Help (where you are now), App Reset and a function to get the directions back to the Tourist Office Center.</value>
   </data>
   <data name="HelpItem4Header.Text" xml:space="preserve">
     <value>Clickable Points</value>

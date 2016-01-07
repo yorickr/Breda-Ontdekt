@@ -139,13 +139,13 @@
     <value>Overzicht</value>
   </data>
   <data name="HelpItem2Info.Text" xml:space="preserve">
-    <value>Zo ziet de app er uit zonder het menu open. Hier zie je de vogende dingen: Uw route, uw al afgelegde route, uw positie, alle bezienswaardig heden, de kaart van breda. Wilt u het menu openen moet u op de 3 horizontale streepjes drukken.</value>
+    <value>Dit is het scherm met uw wandelroute. De volgende zaken worden hier weergeven: Uw route, uw afgelegde route, uw positie, alle bezienswaardigheden en de kaart van breda. Om het menu te openen klikt u op de drie horizontale streepjes linksbovenin het scherm.</value>
   </data>
   <data name="HelpItem3Header.Text" xml:space="preserve">
     <value>Menu</value>
   </data>
   <data name="HelpItem3Info.Text" xml:space="preserve">
-    <value>Hier kunt u het volgende vinden: Help (waar u zich nu bevind), App Reset, En een functie om terug naar de VVV te worden geleid.</value>
+    <value>Hier kunt u het volgende vinden: Help (waar u zich nu bevind), App Reset en een functie om terug naar het VVV kantoor.</value>
   </data>
   <data name="HelpItem4Header.Text" xml:space="preserve">
     <value>Klikbare punten</value>

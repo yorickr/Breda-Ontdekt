@@ -93,6 +93,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\ClickLocation.PNG" />
+    <Content Include="Assets\FollowButton.PNG" />
+    <Content Include="Assets\IconColorChange.PNG" />
+    <Content Include="Assets\MonumentPage.PNG" />
+    <Content Include="Assets\Rodelijn.PNG" />
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
@@ -249,6 +254,7 @@
     <Content Include="Assets\text\4NL.txt" />
     <Content Include="Assets\UKFlag.png" />
     <Content Include="Assets\user.png" />
+    <Content Include="Assets\Zoom.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
