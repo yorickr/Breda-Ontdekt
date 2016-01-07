@@ -27,7 +27,7 @@
 
             <!--Images-->
             <RelativePanel Grid.Row="1">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <ScrollViewer HorizontalScrollBarVisibility="Visible">
                     <GridView ItemsSource="{x:Bind images}" IsItemClickEnabled="True">
 
                         <GridView.ItemTemplate>
