@@ -14,6 +14,7 @@ namespace Breda_Ontdekt.Model.Entities
         public bool isReturn { get; set; }
         public string language { get; set; }
         public bool resetted { get; set; }
+        public bool languageChanged { get; set; }
 
     }
 }
