@@ -51,7 +51,9 @@ namespace Breda_Ontdekt.View.Pages
             model.geolocator = new Geolocator
             {
                 DesiredAccuracy = PositionAccuracy.High,
-                MovementThreshold = 1
+                MovementThreshold = 5,
+                //minimal time between location opdates in milliseconds
+                ReportInterval = 5000
             };
             model.geolocator.PositionChanged += GeolocatorPositionChanged;
             GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
