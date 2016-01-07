@@ -1,3 +1,6 @@
+Entrance: always
+Entrance: free
+
 Artwork: Lighthouse
 Artist: Aldo Rossi (1931-1997)
 Year: 1992
