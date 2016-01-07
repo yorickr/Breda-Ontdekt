@@ -19,12 +19,14 @@ namespace Breda_Ontdekt.ViewModel
         //private static Settings settings;
         //rest vd objecten
 
+        public static bool ZoomedIn;
+
+
         private AppGlobal() { }
 
         public static AppGlobal getInstance()
         {
-            if (instance == null)
-                instance = new AppGlobal();
+            if (instance == null) { instance = new AppGlobal(); ZoomedIn = false; }
             return instance;
         }
 
