@@ -44,6 +44,7 @@ namespace Breda_Ontdekt.View.Pages
             this.transfer.language = "EN";
             Setting.switchLanguage("en-US");
             MainPage.instance.refreshMenu("en-US");
+            transfer.languageChanged = true;
             Frame.Navigate(typeof(RoutePage), transfer);
             
         }
@@ -53,6 +54,7 @@ namespace Breda_Ontdekt.View.Pages
             this.transfer.language = "NL";
             Setting.switchLanguage("nl-NL");
             MainPage.instance.refreshMenu("nl-NL");
+            transfer.languageChanged = true;
             Frame.Navigate(typeof(RoutePage), transfer);
         }
 	}
