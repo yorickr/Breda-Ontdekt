@@ -105,12 +105,12 @@ namespace Breda_Ontdekt.View.Pages
             switch(language)
             {
                 case "en-US":
-                    Language.Text = "Select Route";
+                    //Language.Text = "Select Route";
                     Reset.Text = "Reset App";
                     VVV.Text = "Go back to the VVV";
                     break;
                 case "nl-NL":
-                    Language.Text = "Selecteer een Route";
+                    //Language.Text = "Selecteer een Route";
                     Reset.Text = "Reset de Applicatie";
                     VVV.Text = "Ga terug naar de VVV";
                     break;
