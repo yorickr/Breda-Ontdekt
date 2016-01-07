@@ -33,6 +33,10 @@ namespace Breda_Ontdekt.View.Pages
         public InfoPage()
         {
             this.InitializeComponent();
+            if (ViewModel.AppGlobal.ZoomedIn)
+                siteInfo.FontSize = 18;
+            else
+                siteInfo.FontSize = 40;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -115,6 +119,21 @@ namespace Breda_Ontdekt.View.Pages
             }
             else
                 if (Frame.CanGoBack) Frame.GoBack();
+        }
+
+        private void ZoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.AppGlobal.ZoomedIn)
+            {
+                siteInfo.FontSize = 18;
+                ViewModel.AppGlobal.ZoomedIn = false;
+            }
+            else
+            {
+                siteInfo.FontSize = 40;
+                ViewModel.AppGlobal.ZoomedIn = true;
+            }
+
         }
     }
 }

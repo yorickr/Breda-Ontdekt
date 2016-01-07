@@ -162,11 +162,20 @@
   <data name="LanguagePage.Text" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="MapPageFollow.Text" xml:space="preserve">
+    <value>Follow</value>
+  </data>
   <data name="Reset.Text" xml:space="preserve">
     <value>Reset App</value>
   </data>
   <data name="RoutePage.Text" xml:space="preserve">
     <value>Select your route</value>
+  </data>
+  <data name="SwitchButton.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="SwitchButton.OnContent" xml:space="preserve">
+    <value>On</value>
   </data>
   <data name="VVV.Text" xml:space="preserve">
     <value>Go back to the VVV</value>
