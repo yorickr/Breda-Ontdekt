@@ -271,7 +271,7 @@ namespace Breda_Ontdekt.View.Pages
                 StrokeThickness = 10,
                 StrokeColor = color,
                 StrokeDashed = false,
-                ZIndex = 0
+                ZIndex = 5
             };
 
             // Route has legs, legs have maneuvers

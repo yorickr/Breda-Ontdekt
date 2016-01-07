@@ -204,8 +204,12 @@
     <Content Include="Assets\text\bibliotheekNL.txt" />
     <Content Include="Assets\text\bindingvanisaacEN.txt" />
     <Content Include="Assets\text\bindingvanisaacNL.txt" />
+    <Content Include="Assets\text\BochtCEN.txt" />
+    <Content Include="Assets\text\BochtCNL.txt" />
     <Content Include="Assets\text\chassetheaterEN.txt" />
     <Content Include="Assets\text\chassetheaterNL.txt" />
+    <Content Include="Assets\text\Crossing1EN.txt" />
+    <Content Include="Assets\text\Crossing1NL.txt" />
     <Content Include="Assets\text\grotekerkEN.txt" />
     <Content Include="Assets\text\grotekerkNL.txt" />
     <Content Include="Assets\text\huisvanbrechtEN.txt" />
@@ -220,6 +224,8 @@
     <Content Include="Assets\text\lighthouseNL.txt" />
     <Content Include="Assets\text\nassaumonumentEN.txt" />
     <Content Include="Assets\text\nassaumonumentNL.txt" />
+    <Content Include="Assets\text\ParkeindeEN.txt" />
+    <Content Include="Assets\text\ParkeindeNL.txt" />
     <Content Include="Assets\text\spanjaardsgatEN.txt" />
     <Content Include="Assets\text\spanjaardsgatNL.txt" />
     <Content Include="Assets\text\stadhouderspoortEN.txt" />
@@ -228,6 +234,12 @@
     <Content Include="Assets\text\stadhuisNL.txt" />
     <Content Include="Assets\text\torenstraatEN.txt" />
     <Content Include="Assets\text\torenstraatNL.txt" />
+    <Content Include="Assets\text\VVVEN.txt" />
+    <Content Include="Assets\text\VVVNL.txt" />
+    <Content Include="Assets\text\Waypoint2EN.txt" />
+    <Content Include="Assets\text\Waypoint2NL.txt" />
+    <Content Include="Assets\text\WaypointEN.txt" />
+    <Content Include="Assets\text\WaypointNL.txt" />
     <Content Include="Assets\UKFlag.png" />
     <Content Include="Assets\user.png" />
     <Content Include="Assets\xml\XMLFile1.xml" />
