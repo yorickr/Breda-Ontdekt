@@ -83,7 +83,7 @@ namespace Breda_Ontdekt.Model
                 double longminutes = Double.Parse(sepvals[2].Split('°')[1], CultureInfo.InvariantCulture);
 
                 var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(latdegrees, latminutes, 0), Longitude = ConvertDegreeAngleToDouble(longdegrees, longminutes, 0) };
-                siteList.Add(new Site(sepvals[0], sepvals[3], new Geopoint(geopos), sepvals[4], language));
+                siteList.Add(new Site(sepvals[0], sepvals[3], new Geopoint(geopos), language));
 
             });
             siteList.ForEach(s => Debug.WriteLine(s.ToString()));
