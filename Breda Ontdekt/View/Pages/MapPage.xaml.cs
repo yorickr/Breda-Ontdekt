@@ -65,6 +65,14 @@ namespace Breda_Ontdekt.View.Pages
             {
                 returnHome();
             }
+            if (transfer.languageChanged)
+            {
+                //MapView.MapElements.Clear();
+                //model.selectedRoute = transfer.route;
+                //DrawRoute(model.selectedRoute);
+                //routeLoaded = true;
+                //transfer.languageChanged = false;
+            }
             if (transfer.resetted)
             {
                 MapView.MapElements.Clear();

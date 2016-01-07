@@ -165,6 +165,9 @@
   <data name="LanguagePage.Text" xml:space="preserve">
     <value>Taal</value>
   </data>
+  <data name="MapPageFollow.Text" xml:space="preserve">
+    <value>Volg</value>
+  </data>
   <data name="Reset.Text" xml:space="preserve">
     <value>Reset App</value>
   </data>
