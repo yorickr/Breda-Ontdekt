@@ -17,6 +17,21 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -50,6 +65,60 @@
 
             <RelativePanel Grid.Row="6" Margin="25, 5" HorizontalAlignment="Center">
                 <Image Source="/Assets/Menu.png" Margin="0,20,0,0" Height="250"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="7" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem4Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem4Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="8" Margin="25, 5" HorizontalAlignment="Center">
+                <Image Source="/Assets/ClickLocation.png" Margin="0,20,0,0" Height="250"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="9" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem5Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem5Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="10" Margin="25, 5" HorizontalAlignment="Center">
+                <Image Source="/Assets/FollowButton.png" Margin="0,20,0,0" Height="250"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="11" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem6Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem6Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="12" Margin="25, 5" HorizontalAlignment="Center">
+                <Image Source="/Assets/IconColorChange.png" Margin="0,20,0,0" Height="250"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="13" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem7Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem7Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="14" Margin="25, 5" HorizontalAlignment="Center">
+                <Image Source="/Assets/MonumentPage.png" Margin="0,20,0,0" Height="250"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="15" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem8Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem8Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="16" Margin="25, 5" HorizontalAlignment="Center">
+                <Image Source="/Assets/Zoom.png" Margin="0,20,0,0" Height="250"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="17" Margin="25, 5" HorizontalAlignment="Left" >
+                <TextBlock x:Uid="HelpItem9Header" RelativePanel.AlignLeftWithPanel="True" FontSize="14" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Uid="HelpItem9Info" RelativePanel.AlignLeftWithPanel="True" FontSize="12" TextWrapping="WrapWholeWords" Margin="0,17,0,0"/>
+            </RelativePanel>
+
+            <RelativePanel Grid.Row="18" Margin="25, 5" HorizontalAlignment="Center">
+                <Image Source="/Assets/Rodelijn.png" Margin="0,20,0,0" Height="250"/>
             </RelativePanel>
         </Grid>
     </ScrollViewer>
