@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toast launch="app-defined-string">
+  <visual>
+    <binding template="ToastGeneric">
+      <text>Bad GPS signal</text>
+      <text>
+        Your GPS signal is turned of or really bad.
+        Please turn your location on or improve signal strength.
+      </text>
+    </binding>
+  </visual>
+</toast>
