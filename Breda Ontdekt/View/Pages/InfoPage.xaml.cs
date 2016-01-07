@@ -53,7 +53,7 @@ namespace Breda_Ontdekt.View.Pages
 
                     siteName.Text = site.name;
                     if (site.lastPoint)
-                        websiteButton.Content = "go back to vvv";
+                        BackButton.Content = "go back to vvv";
                     if (site.imageUrls != null)
                         LoadImages();
 
@@ -104,6 +104,17 @@ namespace Breda_Ontdekt.View.Pages
                 transfer.isReturn = true;
                 this.Frame.Navigate(typeof(MapPage), transfer);
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (site.lastPoint)
+            {
+                transfer.isReturn = true;
+                this.Frame.Navigate(typeof(MapPage), transfer);
+            }
+            else
+                if (Frame.CanGoBack) Frame.GoBack();
         }
     }
 }

@@ -120,6 +120,9 @@
   <data name="Back.Content" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="BackButtonInfoPage.Content" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="Continue.Content" xml:space="preserve">
     <value>Continue</value>
   </data>

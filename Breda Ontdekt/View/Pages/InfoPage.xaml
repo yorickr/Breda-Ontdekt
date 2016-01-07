@@ -50,7 +50,15 @@
 
             <!--Website-->
             <RelativePanel Grid.Row="3" HorizontalAlignment="Center">
-                <Button Content="Website" Name="websiteButton" Click="ToVVV_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Website" Name="websiteButton" Click="ToVVV_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="0" />
+                    <Button x:Uid="BackButtonInfoPage" Content="" Name="BackButton" Click="BackButton_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="1" />
+                </Grid>
+                
             </RelativePanel>
         </Grid>
     </ScrollViewer>
