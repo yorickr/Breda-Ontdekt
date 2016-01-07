@@ -15,6 +15,7 @@ using Windows.Foundation.Collections;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
+using Windows.UI.Notifications;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -25,6 +26,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Xml.Linq;
+using Windows.Data.Xml.Dom;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -46,7 +49,7 @@ namespace Breda_Ontdekt.View.Pages
             model = new MapPageModel();
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-
+            
             //enable user tracking
             model.geolocator = new Geolocator
             {
@@ -60,7 +63,7 @@ namespace Breda_Ontdekt.View.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             transfer = (TransferClass)e.Parameter;
-
+            
             if (transfer.isReturn == true)
             {
                 returnHome();
@@ -101,6 +104,46 @@ namespace Breda_Ontdekt.View.Pages
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             currentView.BackRequested += backButton_Tapped;
 
+            
+        }
+
+        public static XmlDocument MakeToast(string lang)
+        {
+            XmlDocument xmlDoc = new XmlDocument(); ;
+
+            if(lang == "EN")
+            {
+                var xDoc = new XDocument(
+                new XElement("toast",
+                new XElement("visual",
+                new XElement("binding", new XAttribute("template", "ToastGeneric"),
+                new XElement("text", "Bad GPS signal"),
+                new XElement("text", "Your GPS signal is turned of or really bad. Please turn your location on or improve signal strength.")
+                ))));
+                xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(xDoc.ToString());
+            }
+            else if(lang == "NL")
+            {
+                var xDoc = new XDocument(
+                new XElement("toast",
+                new XElement("visual",
+                new XElement("binding", new XAttribute("template", "ToastGeneric"),
+                new XElement("text", "Slecht GPS signaal"),
+                new XElement("text", "Uw GPS signaal staat uit of is erg slecht. Zet uw GPS aan of verbeter het signaal.")
+                ))));
+                xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(xDoc.ToString());
+            }
+            return xmlDoc;
+        }
+
+        public void showToast()
+        {
+            var xmdock = MakeToast(transfer.language);
+            var toast = new ToastNotification(xmdock);
+            var noti = ToastNotificationManager.CreateToastNotifier();
+            noti.Show(toast);
         }
 
         private async void returnHome()
@@ -178,7 +221,7 @@ namespace Breda_Ontdekt.View.Pages
                 mapIcon1.Location = objectInfo.position;
                 mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1);
                 mapIcon1.Title = objectInfo.name;
-                mapIcon1.ZIndex = 5;
+                mapIcon1.ZIndex = 6;
                 if (!objectInfo.isPassed)
                     mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                 else
@@ -228,7 +271,7 @@ namespace Breda_Ontdekt.View.Pages
                 StrokeThickness = 10,
                 StrokeColor = color,
                 StrokeDashed = false,
-                ZIndex = 0
+                ZIndex = 5
             };
 
             // Route has legs, legs have maneuvers
@@ -309,7 +352,11 @@ namespace Breda_Ontdekt.View.Pages
 
         private async Task GeolocatorPositionChanged(Geoposition point)
         {
-
+            double accuracyInMeters = point.Coordinate.Accuracy;
+            if(accuracyInMeters > 80){
+                Debug.WriteLine(accuracyInMeters);
+                showToast();
+            }
             // ... and another coordinate conversion
             var pos = new Geopoint(new BasicGeoposition { Latitude = point.Coordinate.Point.Position.Latitude, Longitude = point.Coordinate.Point.Position.Longitude });
             if (oldPoint != null)
@@ -351,7 +398,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private void DrawUserIcon(Geopoint pos)
         {
-            int userZIndex = 6;
+            int userZIndex = 7;
             var userIcon = MapView.MapElements.OfType<MapIcon>().FirstOrDefault(p => p.ZIndex == userZIndex);
             if (userIcon == null)
             {

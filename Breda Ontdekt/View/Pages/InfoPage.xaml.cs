@@ -33,6 +33,10 @@ namespace Breda_Ontdekt.View.Pages
         public InfoPage()
         {
             this.InitializeComponent();
+            if (!ViewModel.AppGlobal.ZoomedIn)
+                siteInfo.FontSize = 18;
+            else
+                siteInfo.FontSize = 40;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -56,6 +60,7 @@ namespace Breda_Ontdekt.View.Pages
                         BackButton.Content = "go back to vvv";
                     if (site.imageUrls != null)
                         LoadImages();
+                    
 
                     if (site.description != null)
                     {
@@ -97,13 +102,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private async void ToVVV_Click(object sender, RoutedEventArgs e)
         {
-            if(!site.lastPoint)
-                await Windows.System.Launcher.LaunchUriAsync(new Uri("http://www.vvvbreda.nl"));
-            else
-            {
-                transfer.isReturn = true;
-                this.Frame.Navigate(typeof(MapPage), transfer);
-            }
+           await Windows.System.Launcher.LaunchUriAsync(site.videoUrl);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -115,6 +114,21 @@ namespace Breda_Ontdekt.View.Pages
             }
             else
                 if (Frame.CanGoBack) Frame.GoBack();
+        }
+
+        private void ZoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.AppGlobal.ZoomedIn)
+            {
+                siteInfo.FontSize = 18;
+                ViewModel.AppGlobal.ZoomedIn = false;
+            }
+            else
+            {
+                siteInfo.FontSize = 40;
+                ViewModel.AppGlobal.ZoomedIn = true;
+            }
+
         }
     }
 }

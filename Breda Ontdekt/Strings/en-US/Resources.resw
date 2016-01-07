@@ -171,7 +171,13 @@
   <data name="RoutePage.Text" xml:space="preserve">
     <value>Select your route</value>
   </data>
+  <data name="SwitchButton.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="SwitchButton.OnContent" xml:space="preserve">
+    <value>On</value>
+  </data>
   <data name="VVV.Text" xml:space="preserve">
-    <value>Go back to the VVV</value>
+    <value>Go back to the Tourist Office</value>
   </data>
 </root>

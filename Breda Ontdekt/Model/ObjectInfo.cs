@@ -17,6 +17,7 @@ namespace Breda_Ontdekt.Model
         public string id { get; set; }
         public List<string> imageUrls { get; set; }
         public bool lastPoint { get; set; } 
+        public Uri videoUrl { get; set; }
 
         public ObjectInfo(string name, Geopoint position, string id)
         {

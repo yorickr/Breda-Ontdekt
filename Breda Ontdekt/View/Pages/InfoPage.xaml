@@ -13,6 +13,8 @@
                 <RowDefinition Height="Auto"/>
                 <!--image row-->
                 <RowDefinition Height="Auto"/>
+                <!--zoom row-->
+                <RowDefinition Height="Auto"/>
                 <!--info row-->
                 <RowDefinition Height="Auto"/>
                 <!--website button row-->
@@ -43,20 +45,25 @@
                 </ScrollViewer>
             </RelativePanel>
 
-            <!--Info-->
+            <!--Zoom-->
             <RelativePanel Grid.Row="2">
+                <Button x:Uid="ZoomInfoPage"  Content="&#59166;" FontFamily="Segoe MDL2 Assets" FontSize="30" Name="ZoomButton" Click="ZoomButton_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" />
+            </RelativePanel>
+
+            <!--Info-->
+            <RelativePanel Grid.Row="3">
                 <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
             </RelativePanel>
 
-            <!--Website-->
-            <RelativePanel Grid.Row="3" HorizontalAlignment="Center">
+            <!--Website&&Back button-->
+            <RelativePanel Grid.Row="4" HorizontalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Website" Name="websiteButton" Click="ToVVV_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="0" />
-                    <Button x:Uid="BackButtonInfoPage" Content="" Name="BackButton" Click="BackButton_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="1" />
+                    <Button Content="Website/Video" FontSize="40" Name="websiteButton" Click="ToVVV_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="0" />
+                    <Button x:Uid="BackButtonInfoPage" FontSize="40" Content="" Name="BackButton" Click="BackButton_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="1" />
                 </Grid>
                 
             </RelativePanel>
