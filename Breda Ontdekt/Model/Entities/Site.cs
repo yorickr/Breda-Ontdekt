@@ -211,6 +211,72 @@ namespace Breda_Ontdekt.Model.Entities
                             base.description = GetDescription(new Uri("ms-appx:///Assets/text/beyerdEN.txt"));
                         }
                         break;
+                    //VVV
+                    case 18:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/VVVNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/VVVEN.txt"));
+                        }
+                        break;
+                    //Waypoint 1
+                    case 19:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/WaypointNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/WaypointEN.txt"));
+                        }
+                        break;
+                    //Waypoint: einde park
+                    case 20:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/ParkeindeNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/ParkeindeEN.txt"));
+                        }
+                        break;
+                    //Waypoint: kruising Kasteelplein/Cingelstraat
+                    case 21:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/Crossing1NL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/Crossing1EN.txt"));
+                        }
+                        break;
+                    //Waypoint: bocht Cingelstraat
+                    case 22:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/BochtCNL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/BochtCEN.txt"));
+                        }
+                        break;
+                    //Waypoint 2
+                    case 23:
+                        if (language == "NL")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/Waypoint2NL.txt"));
+                        }
+                        else if (language == "EN")
+                        {
+                            base.description = GetDescription(new Uri("ms-appx:///Assets/text/Waypoint2EN.txt"));
+                        }
+                        break;
 
                 }
                 Debug.WriteLine("Succesfully converted description to id.");

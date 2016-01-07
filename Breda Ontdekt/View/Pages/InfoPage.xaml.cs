@@ -33,7 +33,7 @@ namespace Breda_Ontdekt.View.Pages
         public InfoPage()
         {
             this.InitializeComponent();
-            if (ViewModel.AppGlobal.ZoomedIn)
+            if (!ViewModel.AppGlobal.ZoomedIn)
                 siteInfo.FontSize = 18;
             else
                 siteInfo.FontSize = 40;
