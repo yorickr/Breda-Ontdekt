@@ -227,7 +227,7 @@ namespace Breda_Ontdekt.Model.Entities
         private string GetDescription(Uri uri)
         {
             StorageFile file = StorageFile.GetFileFromApplicationUriAsync(uri).AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
-            return File.ReadAllText(file.Path);
+            return File.ReadAllText(file.Path,Encoding.UTF7);
         }
 
         public override string ToString()
