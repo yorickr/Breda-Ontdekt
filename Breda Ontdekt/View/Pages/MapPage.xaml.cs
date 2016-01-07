@@ -221,7 +221,7 @@ namespace Breda_Ontdekt.View.Pages
                 mapIcon1.Location = objectInfo.position;
                 mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1);
                 mapIcon1.Title = objectInfo.name;
-                mapIcon1.ZIndex = 5;
+                mapIcon1.ZIndex = 6;
                 if (!objectInfo.isPassed)
                     mapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/routepoint.png"));
                 else
@@ -398,7 +398,7 @@ namespace Breda_Ontdekt.View.Pages
 
         private void DrawUserIcon(Geopoint pos)
         {
-            int userZIndex = 6;
+            int userZIndex = 7;
             var userIcon = MapView.MapElements.OfType<MapIcon>().FirstOrDefault(p => p.ZIndex == userZIndex);
             if (userIcon == null)
             {
