@@ -145,7 +145,43 @@
     <value>Menu</value>
   </data>
   <data name="HelpItem3Info.Text" xml:space="preserve">
-    <value>Here you can find the following: Help, Taal Selectie, App Reset, and a function to get the way back to the VVV HQ.</value>
+    <value>Here you can find the following: Help (where you are now), App Reset, and a function to get the way back to the VVV HQ.</value>
+  </data>
+  <data name="HelpItem4Header.Text" xml:space="preserve">
+    <value>Clickable Points</value>
+  </data>
+  <data name="HelpItem4Info.Text" xml:space="preserve">
+    <value>To get more information about certain points on the route, you can click to open a frame with more information about that point. These points are the black marks shown in the picture below.</value>
+  </data>
+  <data name="HelpItem5Header.Text" xml:space="preserve">
+    <value>Follow-Toggle</value>
+  </data>
+  <data name="HelpItem5Info.Text" xml:space="preserve">
+    <value>You can decide if you want the page centered on you. Do you want to take a look around the map? No problem! Just turn off the follow-switch on the top on the screen. Check the image below if you don't know what it looks like.</value>
+  </data>
+  <data name="HelpItem6Header.Text" xml:space="preserve">
+    <value>Visited Points</value>
+  </data>
+  <data name="HelpItem6Info.Text" xml:space="preserve">
+    <value>If you get near a monument, the application will notice it. You will be redirected to the information-page of this monument. Here you can read more information about it. If you return to the map by clicking "Back", you'll notice the point on the map turned green. This is to make clear you visited the point.</value>
+  </data>
+  <data name="HelpItem7Header.Text" xml:space="preserve">
+    <value>Info about monuments</value>
+  </data>
+  <data name="HelpItem7Info.Text" xml:space="preserve">
+    <value>This page contains information, images and options about a monument on the tour. On the picture below, you notice a magnifying-glass icon, which enlarges the text on the screen. Also you see a button with "Website/Video". This button redirects you to a website with more information or even a video about the monument.</value>
+  </data>
+  <data name="HelpItem8Header.Text" xml:space="preserve">
+    <value>Zoom option</value>
+  </data>
+  <data name="HelpItem8Info.Text" xml:space="preserve">
+    <value>You can zoom in on the map with the "+" icon and zoom out with the "-" icon. You can also zoom in and out with touch gestures.</value>
+  </data>
+  <data name="HelpItem9Header.Text" xml:space="preserve">
+    <value>Walk Trace</value>
+  </data>
+  <data name="HelpItem9Info.Text" xml:space="preserve">
+    <value>When you walk, you'll notice a red line on the map. This is a trace of the path you walked. This way you can show what detour(s) you took and if you missed a part of the tour.</value>
   </data>
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>
