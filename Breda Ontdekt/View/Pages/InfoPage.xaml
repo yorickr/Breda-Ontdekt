@@ -62,8 +62,8 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Website" Name="websiteButton" Click="ToVVV_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="0" />
-                    <Button x:Uid="BackButtonInfoPage" Content="" Name="BackButton" Click="BackButton_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="1" />
+                    <Button Content="Website/Video" FontSize="40" Name="websiteButton" Click="ToVVV_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="0" />
+                    <Button x:Uid="BackButtonInfoPage" FontSize="40" Content="" Name="BackButton" Click="BackButton_Click" Margin="5" BorderThickness="1" BorderBrush="Gray" Padding="5" Background="LightGray" Grid.Column="1" />
                 </Grid>
                 
             </RelativePanel>
