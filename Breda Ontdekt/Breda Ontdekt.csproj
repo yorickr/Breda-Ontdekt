@@ -236,6 +236,16 @@
     <Content Include="Assets\text\35NL.txt" />
     <Content Include="Assets\text\3EN.txt" />
     <Content Include="Assets\text\3NL.txt" />
+    <Content Include="Assets\text\41EN.txt" />
+    <Content Include="Assets\text\41NL.txt" />
+    <Content Include="Assets\text\42EN.txt" />
+    <Content Include="Assets\text\42NL.txt" />
+    <Content Include="Assets\text\43EN.txt" />
+    <Content Include="Assets\text\43NL.txt" />
+    <Content Include="Assets\text\44EN.txt" />
+    <Content Include="Assets\text\44NL.txt" />
+    <Content Include="Assets\text\45EN.txt" />
+    <Content Include="Assets\text\45NL.txt" />
     <Content Include="Assets\text\5EN.txt" />
     <Content Include="Assets\text\5NL.txt" />
     <Content Include="Assets\text\7EN.txt" />
