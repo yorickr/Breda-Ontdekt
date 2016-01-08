@@ -1,0 +1,2 @@
+MainPackage=C:\Users\rkeet\Documents\Breda-Ontdekt\Breda Ontdekt\bin\x86\Debug\Breda Ontdekt_1.0.2.0_x86_Debug.appx
+SymbolPackage=C:\Users\rkeet\Documents\Breda-Ontdekt\Breda Ontdekt\AppPackages\Breda Ontdekt_1.0.2.0_Debug_Test\Breda Ontdekt_1.0.2.0_x86_Debug.appxsym

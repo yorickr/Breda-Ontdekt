@@ -1,0 +1,3 @@
+MainPackage=C:\Users\rkeet\Documents\Breda-Ontdekt\Breda Ontdekt\bin\ARM\Debug\Breda Ontdekt_1.0.2.0_ARM_Debug.appx
+SymbolPackage=C:\Users\rkeet\Documents\Breda-Ontdekt\Breda Ontdekt\AppPackages\Breda Ontdekt_1.0.2.0_Debug_Test\Breda Ontdekt_1.0.2.0_ARM_Debug.appxsym
+ResourcePack=C:\Users\rkeet\Documents\Breda-Ontdekt\Breda Ontdekt\bin\ARM\Debug\Breda Ontdekt_1.0.2.0_language-nl.appx
