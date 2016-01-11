@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Back.Content" xml:space="preserve">
+    <value>Terug</value>
+  </data>
+  <data name="BackButtonInfoPage.Content" xml:space="preserve">
+    <value>Terug</value>
+  </data>
+  <data name="Continue.Content" xml:space="preserve">
+    <value>Doorgaan</value>
+  </data>
+  <data name="Help.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpItem1Header.Text" xml:space="preserve">
+    <value>Positie</value>
+  </data>
+  <data name="HelpItem1Info.Text" xml:space="preserve">
+    <value>Dit icoontje geeft je positie weer.</value>
+  </data>
+  <data name="HelpItem2Header.Text" xml:space="preserve">
+    <value>Overzicht</value>
+  </data>
+  <data name="HelpItem2Info.Text" xml:space="preserve">
+    <value>Dit is het scherm met uw wandelroute. De volgende zaken worden hier weergeven: Uw route, uw afgelegde route, uw positie, alle bezienswaardigheden en de kaart van breda. Om het menu te openen klikt u op de drie horizontale streepjes linksbovenin het scherm.</value>
+  </data>
+  <data name="HelpItem3Header.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="HelpItem3Info.Text" xml:space="preserve">
+    <value>Hier kunt u het volgende vinden: Help (waar u zich nu bevind), App Reset en een functie om terug naar het VVV kantoor.</value>
+  </data>
+  <data name="HelpItem4Header.Text" xml:space="preserve">
+    <value>Klikbare punten</value>
+  </data>
+  <data name="HelpItem4Info.Text" xml:space="preserve">
+    <value>Om meer informatie over verschillende monumenten te krijgen, kun je op een van deze monumenten klikken. Hierna opent er een venster waar meer informatie staat over een monument. Zie de foto hieronder om te zien hoe die punten eruit zien.</value>
+  </data>
+  <data name="HelpItem5Header.Text" xml:space="preserve">
+    <value>Volg-optie</value>
+  </data>
+  <data name="HelpItem5Info.Text" xml:space="preserve">
+    <value>Als je eens rond wil kijken op de kaart, kan je de volg-optie boven aan de pagina uitzetten. Weet je niet waar dit te doen is? Zie de foto hieronder om te zien waar dit moet.</value>
+  </data>
+  <data name="HelpItem6Header.Text" xml:space="preserve">
+    <value>Bekeken monumenten</value>
+  </data>
+  <data name="HelpItem6Info.Text" xml:space="preserve">
+    <value>Als je bij een monument aankomt registreert de applicatie dat. Als dit gebeurt wordt er een pagina geopend met meer informatie over het menu. Wanneer je terug naar de kaart-pagina gaat, zie je dat het punt op de kaart dat bij het monument hoort een groene kleur heeft gekregen. Dit betekend dat je dit monument hebt bezichtigd.</value>
+  </data>
+  <data name="HelpItem7Header.Text" xml:space="preserve">
+    <value>Info over monument</value>
+  </data>
+  <data name="HelpItem7Info.Text" xml:space="preserve">
+    <value>De pagina die informatie bevat over een monument, bevat ook fotos en opties. Op de foto hieronder zijn ook nog een aantal knoppen te zien. Het vergrootglas vergroot de text (voor slechtzienden). Ook is er een knop met "Websites/video's", die verwijst naar een webpagina met extra informatie over het monument of zelfs een video.</value>
+  </data>
+  <data name="HelpItem8Header.Text" xml:space="preserve">
+    <value>Zoom opties</value>
+  </data>
+  <data name="HelpItem8Info.Text" xml:space="preserve">
+    <value>Er kan worden ingezoomd met de "+" en er kan worden uitgezoomd met de "-" knop. Ook kan er worden in- en uitgezoomd met uw vingers.</value>
+  </data>
+  <data name="HelpItem9Header.Text" xml:space="preserve">
+    <value>Gelopen pad</value>
+  </data>
+  <data name="HelpItem9Info.Text" xml:space="preserve">
+    <value>Als u loopt, merkt u dat er een rode lijn op de kaart wordt getekend. Dit is het pad dat u gelopen heeft. Zo kan u zien of u een omweg heeft gemaakt en of u nog monumenten bent vergeten.</value>
+  </data>
+  <data name="HelpPage.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpTextPart1.Text" xml:space="preserve">
+    <value>Deze applicatie laat een route zien met bezienswaardigheden. In het routeoverzicht op de kaart is het pad aangegeven tussen verschillende monumenten die op de route liggen. Er kan gebruik gemaakt worden van in- en uitzoomen op de kaart. Ook is er een handig menu dat u kan helpen met verschillende dingen, zoals het selecteren van een nieuwe taal, of het terugkeren naar de VVV.</value>
+  </data>
+  <data name="HelpTextPart2.Text" xml:space="preserve">
+    <value>Aan de onderzijde van het routeoverzicht ziet u een balk met een aantal icoontjes. Deze icoontjes hebben allemaal een actie.</value>
+  </data>
+  <data name="InfoPage.Text" xml:space="preserve">
+    <value>Informatie</value>
+  </data>
+  <data name="Language.Text" xml:space="preserve">
+    <value>Selecteer een taal</value>
+  </data>
+  <data name="LanguagePage.Text" xml:space="preserve">
+    <value>Taal</value>
+  </data>
+  <data name="MapPageFollow.Text" xml:space="preserve">
+    <value>Volg</value>
+  </data>
+  <data name="Reset.Text" xml:space="preserve">
+    <value>Reset App</value>
+  </data>
+  <data name="RoutePage.Text" xml:space="preserve">
+    <value>Selecteer uw route</value>
+  </data>
+  <data name="SwitchButton.OffContent" xml:space="preserve">
+    <value>Uit</value>
+  </data>
+  <data name="SwitchButton.OnContent" xml:space="preserve">
+    <value>Aan</value>
+  </data>
+  <data name="VVV.Text" xml:space="preserve">
+    <value>Ga naar de VVV</value>
+  </data>
+</root>

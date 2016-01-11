@@ -7,25 +7,52 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#e9ece5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <RelativePanel Grid.Row="0">
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" FontSize="24" Margin="20,10,0,0" Text="Breda Ontdekt"/>
-        </RelativePanel>
-
-        <RelativePanel Grid.Row="1">
-            <StackPanel Margin="0, 0, 360,580">
-                
-            </StackPanel>
-        </RelativePanel>
-
-        <RelativePanel Grid.Row="2">
-
-        </RelativePanel>
+        <SplitView Grid.Row="0" x:Name="HamburgerMenu" DisplayMode="Overlay" IsPaneOpen="False" CompactPaneLength="20" OpenPaneLength="200">
+            <SplitView.Pane>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <RelativePanel Grid.Row="0" Background="#e9ece5">
+                        <Button x:Name="MenuButton" RelativePanel.AlignLeftWithPanel="True" Foreground="#3b3a36" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Background="Transparent" Width="50" Height="50" Click="MenuButton_Click"/>
+                    </RelativePanel>
+                    <StackPanel Background="#e9ece5" Grid.Row="1" ManipulationMode="TranslateX" ManipulationCompleted="ListView_ManipulationCompleted" >
+                        <ListView Background="#e9ece5" ItemClick="ListView_ItemClick" IsItemClickEnabled="True">
+                            <StackPanel x:Name ="HelpPanel" Orientation="Horizontal" >
+                                <TextBlock x:Name="HelpButton" Height="Auto" FontFamily="Segoe MDL2 Assets" Foreground="#3b3a36" Text="&#xE897;" Width="Auto"/>
+                                <TextBlock Text="Help" Foreground="#3b3a36" Name="Help" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                            <StackPanel x:Name="ResetPanel" Orientation="Horizontal" >
+                                <TextBlock x:Name="ResetButton" Foreground="#3b3a36" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE895;"/>
+                                <TextBlock Foreground="#3b3a36" Name="Reset" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                            <StackPanel x:Name="VVVPanel" Orientation="Horizontal">
+                                <TextBlock x:Name="VVVButton" Foreground="#3b3a36" Height="Auto" FontFamily="Segoe MDL2 Assets" Text="&#xE72B;"/>
+                                <TextBlock Foreground="#3b3a36" Name="VVV" Height="Auto" Margin="8,-3"/>
+                            </StackPanel>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Frame Name="Frame"/>
+                    <Grid ManipulationMode="TranslateX"
+                          ManipulationCompleted="Grid_ManipulationCompleted"
+                          Width="10"
+                          Background="Transparent"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Stretch">
+                    </Grid>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
+
 </Page>

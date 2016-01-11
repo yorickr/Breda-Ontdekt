@@ -8,15 +8,17 @@ namespace Breda_Ontdekt.Model.Entities
 {
     public class Route
     {
-        public List<RoutePoint> routePoints { get; set; }
+        public List<ObjectInfo> routePoints { get; set; }
+        public string name { get; set; }
+
         public Route()
         {
-            routePoints = new List<RoutePoint>();
+            routePoints = new List<ObjectInfo>();
         }
 
-        public void addRoutePoint(RoutePoint routePoint)
+        public void addRoutePoint(ObjectInfo objectInfo)
         {
-            routePoints.Add(routePoint);
+            routePoints.Add(objectInfo);
         }
     }
 }

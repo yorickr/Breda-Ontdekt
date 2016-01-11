@@ -18,6 +18,9 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>Breda Ontdekt_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -93,7 +96,63 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\ClickLocation.PNG" />
+    <Content Include="Assets\FollowButton.PNG" />
+    <Content Include="Assets\IconColorChange.PNG" />
+    <Content Include="Assets\MonumentPage.PNG" />
+    <Content Include="Assets\Rodelijn.PNG" />
+    <Content Include="Assets\routepoint.png" />
+    <Content Include="Assets\AGS-logo.png" />
+    <Content Include="Assets\routepoint.png" />
+    <Content Include="Assets\routepoint_seen.png" />
+    <Content Include="Assets\Menu.png" />
+    <Content Include="Assets\Map.png" />
+    <Content Include="Assets\siteImages\1.jpg" />
+    <Content Include="Assets\siteImages\10.jpg" />
+    <Content Include="Assets\siteImages\11.jpg" />
+    <Content Include="Assets\siteImages\12.jpg" />
+    <Content Include="Assets\siteImages\13.jpg" />
+    <Content Include="Assets\siteImages\14.jpg" />
+    <Content Include="Assets\siteImages\15.jpg" />
+    <Content Include="Assets\siteImages\16.jpg" />
+    <Content Include="Assets\siteImages\17.jpg" />
+    <Content Include="Assets\siteImages\18.jpg" />
+    <Content Include="Assets\siteImages\19.jpg" />
+    <Content Include="Assets\siteImages\2.jpg" />
+    <Content Include="Assets\siteImages\20.jpg" />
+    <Content Include="Assets\siteImages\21.jpg" />
+    <Content Include="Assets\siteImages\22.jpg" />
+    <Content Include="Assets\siteImages\23.jpg" />
+    <Content Include="Assets\siteImages\24.jpg" />
+    <Content Include="Assets\siteImages\25.jpg" />
+    <Content Include="Assets\siteImages\26.jpg" />
+    <Content Include="Assets\siteImages\27.jpg" />
+    <Content Include="Assets\siteImages\28.jpg" />
+    <Content Include="Assets\siteImages\29.jpg" />
+    <Content Include="Assets\siteImages\3.jpg" />
+    <Content Include="Assets\siteImages\30.jpg" />
+    <Content Include="Assets\siteImages\31.jpg" />
+    <Content Include="Assets\siteImages\32.jpg" />
+    <Content Include="Assets\siteImages\33.jpg" />
+    <Content Include="Assets\siteImages\34.jpg" />
+    <Content Include="Assets\siteImages\35.jpg" />
+    <Content Include="Assets\siteImages\36.jpg" />
+    <Content Include="Assets\siteImages\4.jpg" />
+    <Content Include="Assets\siteImages\5.jpg" />
+    <Content Include="Assets\siteImages\6.jpg" />
+    <Content Include="Assets\siteImages\7.jpg" />
+    <Content Include="Assets\siteImages\8.jpg" />
+    <Content Include="Assets\siteImages\9.jpg" />
+    <Content Include="Assets\sites.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Assets\SiteImagesNumbers" />
+    <Content Include="Assets\SiteImagesNumbers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="project.json" />
+    <PRIResource Include="Strings\nl-nl\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -102,15 +161,20 @@
     <Compile Include="Model\Entities\Route.cs" />
     <Compile Include="Model\Entities\RoutePoint.cs" />
     <Compile Include="Model\Entities\Site.cs" />
+    <Compile Include="Model\Entities\TransferClass.cs" />
     <Compile Include="Model\ObjectInfo.cs" />
+    <Compile Include="Model\Storage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AppGlobal.cs" />
     <Compile Include="ViewModel\Lib\ErrorHandler.cs" />
     <Compile Include="ViewModel\Lib\GeoUtil.cs" />
     <Compile Include="ViewModel\Lib\Setting.cs" />
+    <Compile Include="ViewModel\Pages\MapPageModel.cs" />
+    <Compile Include="ViewModel\Pages\RoutePageModel.cs" />
     <Compile Include="View\Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Image.cs" />
     <Compile Include="View\Pages\InfoPage.xaml.cs">
       <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +190,9 @@
     <Compile Include="View\Pages\RoutePage.xaml.cs">
       <DependentUpon>RoutePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -134,6 +201,73 @@
     <None Include="Breda Ontdekt_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\car.png" />
+    <Content Include="Assets\DutchFlag.png" />
+    <Content Include="Assets\text\12EN.txt" />
+    <Content Include="Assets\text\12NL.txt" />
+    <Content Include="Assets\text\13EN.txt" />
+    <Content Include="Assets\text\13NL.txt" />
+    <Content Include="Assets\text\14EN.txt" />
+    <Content Include="Assets\text\14NL.txt" />
+    <Content Include="Assets\text\15EN.txt" />
+    <Content Include="Assets\text\15NL.txt" />
+    <Content Include="Assets\text\16EN.txt" />
+    <Content Include="Assets\text\16NL.txt" />
+    <Content Include="Assets\text\17EN.txt" />
+    <Content Include="Assets\text\17NL.txt" />
+    <Content Include="Assets\text\18EN.txt" />
+    <Content Include="Assets\text\18NL.txt" />
+    <Content Include="Assets\text\1EN.txt" />
+    <Content Include="Assets\text\1NL.txt" />
+    <Content Include="Assets\text\22EN.txt" />
+    <Content Include="Assets\text\22NL.txt" />
+    <Content Include="Assets\text\23EN.txt" />
+    <Content Include="Assets\text\23NL.txt" />
+    <Content Include="Assets\text\26EN.txt" />
+    <Content Include="Assets\text\26NL.txt" />
+    <Content Include="Assets\text\28EN.txt" />
+    <Content Include="Assets\text\28NL.txt" />
+    <Content Include="Assets\text\2EN.txt" />
+    <Content Include="Assets\text\2NL.txt" />
+    <Content Include="Assets\text\30EN.txt" />
+    <Content Include="Assets\text\30NL.txt" />
+    <Content Include="Assets\text\31EN.txt" />
+    <Content Include="Assets\text\31NL.txt" />
+    <Content Include="Assets\text\33EN.txt" />
+    <Content Include="Assets\text\33NL.txt" />
+    <Content Include="Assets\text\35EN.txt" />
+    <Content Include="Assets\text\35NL.txt" />
+    <Content Include="Assets\text\3EN.txt" />
+    <Content Include="Assets\text\3NL.txt" />
+    <Content Include="Assets\text\41EN.txt" />
+    <Content Include="Assets\text\41NL.txt" />
+    <Content Include="Assets\text\42EN.txt" />
+    <Content Include="Assets\text\42NL.txt" />
+    <Content Include="Assets\text\43EN.txt" />
+    <Content Include="Assets\text\43NL.txt" />
+    <Content Include="Assets\text\44EN.txt" />
+    <Content Include="Assets\text\44NL.txt" />
+    <Content Include="Assets\text\45EN.txt" />
+    <Content Include="Assets\text\45NL.txt" />
+    <Content Include="Assets\text\5EN.txt" />
+    <Content Include="Assets\text\5NL.txt" />
+    <Content Include="Assets\text\7EN.txt" />
+    <Content Include="Assets\text\7NL.txt" />
+    <Content Include="Assets\text\8EN.txt" />
+    <Content Include="Assets\text\8NL.txt" />
+    <Content Include="Assets\text\9EN.txt" />
+    <Content Include="Assets\text\9NL.txt" />
+    <Content Include="Assets\text\11EN.txt" />
+    <Content Include="Assets\text\11NL.txt" />
+    <Content Include="Assets\text\10EN.txt" />
+    <Content Include="Assets\text\10NL.txt" />
+    <Content Include="Assets\text\6EN.txt" />
+    <Content Include="Assets\text\6NL.txt" />
+    <Content Include="Assets\text\4EN.txt" />
+    <Content Include="Assets\text\4NL.txt" />
+    <Content Include="Assets\UKFlag.png" />
+    <Content Include="Assets\user.png" />
+    <Content Include="Assets\Zoom.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -156,8 +290,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\InfoPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Pages\LanguagePage.xaml">
       <SubType>Designer</SubType>
@@ -172,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\RoutePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

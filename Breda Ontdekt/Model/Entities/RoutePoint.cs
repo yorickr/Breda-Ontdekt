@@ -12,12 +12,11 @@ namespace Breda_Ontdekt.Model.Entities
     /// </summary>
     public enum direction { right, left, forward}
 
-
     public class RoutePoint : ObjectInfo
     {
         public direction direction { get; set; }
 
-        public RoutePoint(string name, Geoposition position, direction direction): base(name, position)
+        public RoutePoint(string name, Geopoint position, direction direction): base(name, position,"0" )
         {
             this.direction = direction;
         }
