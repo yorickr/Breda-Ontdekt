@@ -188,7 +188,10 @@ namespace Breda_Ontdekt.View.Pages
                 {
 
                     DrawObjectInfoIcon(o);
-                    AddFence(o.id, o.position);
+                    if (o.isGeofencePoint)
+                    {
+                        AddFence(o.id, o.position);
+                    }  
 
                     //if you want to delete the geofence locations, use this code:
                     //GeofenceMonitor.Current.Geofences.Clear();
@@ -432,9 +435,12 @@ namespace Breda_Ontdekt.View.Pages
                                     {
                                         ObjectInfo o = model.selectedRoute.routePoints[id];
                                         o.isPassed = true;
-                                        DrawObjectInfoIcon(o);
-                                        transfer.info = o;
-                                        Frame.Navigate(typeof(InfoPage), transfer);
+                                        if (o.isGeofencePoint)
+                                        {
+                                            DrawObjectInfoIcon(o);
+                                            transfer.info = o;
+                                            Frame.Navigate(typeof(InfoPage), transfer);
+                                        }
                                     }
                                     catch { }
                                 
@@ -509,7 +515,10 @@ namespace Breda_Ontdekt.View.Pages
 
             transfer.info = o;
             //navigate to info page
-            Frame.Navigate(typeof(InfoPage), transfer);
+            if (o.isGeofencePoint)
+            {
+                Frame.Navigate(typeof(InfoPage), transfer);
+            }
         }
 
         const int fenceIndex = 1;

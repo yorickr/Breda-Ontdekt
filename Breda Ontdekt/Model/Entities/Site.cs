@@ -40,6 +40,11 @@ namespace Breda_Ontdekt.Model.Entities
             this.images = new List<BitmapImage>();
         }
 
+        public void enableGeofencing()
+        {
+            base.isGeofencePoint = true;
+        }
+
         private string GetDescription(Uri uri)
         {
             StorageFile file = StorageFile.GetFileFromApplicationUriAsync(uri).AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
