@@ -6,8 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <ScrollViewer>
-        <Grid Background="#e9ece5">
+    <RelativePanel>
+    <ScrollViewer HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True">
+        <Grid Background="#e9ece5" HorizontalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <!--title row-->
                 <RowDefinition Height="Auto"/>
@@ -22,7 +23,7 @@
             </Grid.RowDefinitions>
 
             <!--Title-->
-            <RelativePanel Grid.Row="0">
+            <RelativePanel Grid.Row="0" HorizontalAlignment="Stretch">
                 <TextBlock Name="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="32" Margin="20,10,0,0" FontWeight="Bold" x:Uid="InfoPage" Foreground="#3b3a36"/>
                 <TextBlock x:Name="siteName" RelativePanel.Below="TitleLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="24" Foreground="#3b3a36" Margin="5,5,5,10" FontWeight="Bold"/>
             </RelativePanel>
@@ -51,7 +52,7 @@
             </RelativePanel>
 
             <!--Info-->
-            <RelativePanel Grid.Row="3">
+            <RelativePanel Grid.Row="3" HorizontalAlignment="Stretch">
                 <TextBlock x:Name="siteInfo" FontSize="18" Margin="10" TextWrapping="WrapWholeWords" Foreground="#3b3a36"/>
             </RelativePanel>
 
@@ -69,4 +70,5 @@
             </RelativePanel>
         </Grid>
     </ScrollViewer>
+    </RelativePanel>
 </Page>
