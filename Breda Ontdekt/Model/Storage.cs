@@ -83,7 +83,17 @@ namespace Breda_Ontdekt.Model
                 double longminutes = Double.Parse(sepvals[2].Split('°')[1], CultureInfo.InvariantCulture);
 
                 var geopos = new BasicGeoposition() { Latitude = ConvertDegreeAngleToDouble(latdegrees, latminutes, 0), Longitude = ConvertDegreeAngleToDouble(longdegrees, longminutes, 0) };
-                siteList.Add(new Site(sepvals[0], sepvals[3], new Geopoint(geopos), sepvals[4], language));
+                Site s = new Site(sepvals[0], sepvals[3], new Geopoint(geopos), language);
+                if ( Boolean.Parse(sepvals[4]))
+                {
+                    Debug.WriteLine("Is geofencingenabled site");
+                    s.enableGeofencing();
+                }
+                else
+                {
+                    Debug.WriteLine("Is not geofencing enabled site");
+                }
+                siteList.Add(s);
 
             });
             siteList.ForEach(s => Debug.WriteLine(s.ToString()));

@@ -18,6 +18,9 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>Breda Ontdekt_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -93,6 +96,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\ClickLocation.PNG" />
+    <Content Include="Assets\FollowButton.PNG" />
+    <Content Include="Assets\IconColorChange.PNG" />
+    <Content Include="Assets\MonumentPage.PNG" />
+    <Content Include="Assets\Rodelijn.PNG" />
     <Content Include="Assets\routepoint.png" />
     <Content Include="Assets\AGS-logo.png" />
     <Content Include="Assets\routepoint.png" />
@@ -231,6 +239,16 @@
     <Content Include="Assets\text\35NL.txt" />
     <Content Include="Assets\text\3EN.txt" />
     <Content Include="Assets\text\3NL.txt" />
+    <Content Include="Assets\text\41EN.txt" />
+    <Content Include="Assets\text\41NL.txt" />
+    <Content Include="Assets\text\42EN.txt" />
+    <Content Include="Assets\text\42NL.txt" />
+    <Content Include="Assets\text\43EN.txt" />
+    <Content Include="Assets\text\43NL.txt" />
+    <Content Include="Assets\text\44EN.txt" />
+    <Content Include="Assets\text\44NL.txt" />
+    <Content Include="Assets\text\45EN.txt" />
+    <Content Include="Assets\text\45NL.txt" />
     <Content Include="Assets\text\5EN.txt" />
     <Content Include="Assets\text\5NL.txt" />
     <Content Include="Assets\text\7EN.txt" />
@@ -249,6 +267,7 @@
     <Content Include="Assets\text\4NL.txt" />
     <Content Include="Assets\UKFlag.png" />
     <Content Include="Assets\user.png" />
+    <Content Include="Assets\Zoom.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

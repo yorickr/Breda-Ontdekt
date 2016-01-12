@@ -16,7 +16,7 @@ namespace Breda_Ontdekt.Model.Entities
     {
         public List<BitmapImage> images { get; set; }
 
-        public Site(string id, string name, Geopoint location, string description, string language) : base(name, location, id)
+        public Site(string id, string name, Geopoint location, string language) : base(name, location, id)
         {
             try
             {
@@ -38,6 +38,11 @@ namespace Breda_Ontdekt.Model.Entities
             }
 
             this.images = new List<BitmapImage>();
+        }
+
+        public void enableGeofencing()
+        {
+            base.isGeofencePoint = true;
         }
 
         private string GetDescription(Uri uri)

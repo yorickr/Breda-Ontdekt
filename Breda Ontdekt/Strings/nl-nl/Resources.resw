@@ -139,13 +139,49 @@
     <value>Overzicht</value>
   </data>
   <data name="HelpItem2Info.Text" xml:space="preserve">
-    <value>Zo ziet de app er uit zonder het menu open. Hier zie je de vogende dingen: Uw route, uw al afgelegde route, uw positie, alle bezienswaardig heden, de kaart van breda. Wilt u het menu openen moet u op de 3 horizontale streepjes drukken.</value>
+    <value>Dit is het scherm met uw wandelroute. De volgende zaken worden hier weergeven: Uw route, uw afgelegde route, uw positie, alle bezienswaardigheden en de kaart van breda. Om het menu te openen klikt u op de drie horizontale streepjes linksbovenin het scherm.</value>
   </data>
   <data name="HelpItem3Header.Text" xml:space="preserve">
     <value>Menu</value>
   </data>
   <data name="HelpItem3Info.Text" xml:space="preserve">
-    <value>Hier kunt u het volgende vinden: Help, Taal Selectie, App Reset, En een functie om terug naar de VVV te worden geleid.</value>
+    <value>Hier kunt u het volgende vinden: Help (waar u zich nu bevind), App Reset en een functie om terug naar het VVV kantoor.</value>
+  </data>
+  <data name="HelpItem4Header.Text" xml:space="preserve">
+    <value>Klikbare punten</value>
+  </data>
+  <data name="HelpItem4Info.Text" xml:space="preserve">
+    <value>Om meer informatie over verschillende monumenten te krijgen, kun je op een van deze monumenten klikken. Hierna opent er een venster waar meer informatie staat over een monument. Zie de foto hieronder om te zien hoe die punten eruit zien.</value>
+  </data>
+  <data name="HelpItem5Header.Text" xml:space="preserve">
+    <value>Volg-optie</value>
+  </data>
+  <data name="HelpItem5Info.Text" xml:space="preserve">
+    <value>Als je eens rond wil kijken op de kaart, kan je de volg-optie boven aan de pagina uitzetten. Weet je niet waar dit te doen is? Zie de foto hieronder om te zien waar dit moet.</value>
+  </data>
+  <data name="HelpItem6Header.Text" xml:space="preserve">
+    <value>Bekeken monumenten</value>
+  </data>
+  <data name="HelpItem6Info.Text" xml:space="preserve">
+    <value>Als je bij een monument aankomt registreert de applicatie dat. Als dit gebeurt wordt er een pagina geopend met meer informatie over het menu. Wanneer je terug naar de kaart-pagina gaat, zie je dat het punt op de kaart dat bij het monument hoort een groene kleur heeft gekregen. Dit betekend dat je dit monument hebt bezichtigd.</value>
+  </data>
+  <data name="HelpItem7Header.Text" xml:space="preserve">
+    <value>Info over monument</value>
+  </data>
+  <data name="HelpItem7Info.Text" xml:space="preserve">
+    <value>De pagina die informatie bevat over een monument, bevat ook fotos en opties. Op de foto hieronder zijn ook nog een aantal knoppen te zien. Het vergrootglas vergroot de text (voor slechtzienden). Ook is er een knop met "Websites/video's", die verwijst naar een webpagina met extra informatie over het monument of zelfs een video.</value>
+  </data>
+  <data name="HelpItem8Header.Text" xml:space="preserve">
+    <value>Zoom opties</value>
+  </data>
+  <data name="HelpItem8Info.Text" xml:space="preserve">
+    <value>Er kan worden ingezoomd met de "+" en er kan worden uitgezoomd met de "-" knop. Ook kan er worden in- en uitgezoomd met uw vingers.</value>
+  </data>
+  <data name="HelpItem9Header.Text" xml:space="preserve">
+    <value>Gelopen pad</value>
+  </data>
+  <data name="HelpItem9Info.Text" xml:space="preserve">
+    <value>Als u loopt, merkt u dat er een rode lijn op de kaart wordt getekend. Dit is het pad dat u gelopen heeft. Zo kan u zien of u een omweg heeft gemaakt en of u nog monumenten bent vergeten.</value>
   </data>
   <data name="HelpPage.Text" xml:space="preserve">
     <value>Help</value>

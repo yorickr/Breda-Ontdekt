@@ -54,6 +54,10 @@ namespace Breda_Ontdekt.View.Pages
                     {
                         //TODO make button to move back to vvv
                     }
+                    if (site.videoUrl == null)
+                    {
+                        websiteButton.Visibility = Visibility.Collapsed;
+                    }
 
                     siteName.Text = site.name;
                     if (site.lastPoint)
@@ -102,7 +106,15 @@ namespace Breda_Ontdekt.View.Pages
 
         private async void ToVVV_Click(object sender, RoutedEventArgs e)
         {
-           await Windows.System.Launcher.LaunchUriAsync(site.videoUrl);
+            try
+            {
+                await Windows.System.Launcher.LaunchUriAsync(site.videoUrl);
+            }
+            catch(Exception ex)
+            {
+
+            }
+           
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

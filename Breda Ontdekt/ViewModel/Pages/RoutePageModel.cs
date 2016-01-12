@@ -30,8 +30,6 @@ namespace Breda_Ontdekt.ViewModel
             {
 
             }
-            //todo load routes from class Storage
-            //for testing: 
             Route route = new Route();
             foreach (Site s in sites)
             {
