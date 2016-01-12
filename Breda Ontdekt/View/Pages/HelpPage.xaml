@@ -65,7 +65,7 @@
             </RelativePanel>
 
             <RelativePanel Grid.Row="6" Margin="25, 5" HorizontalAlignment="Center">
-                <Image Source="/Assets/Menu.png" Margin="0,20,0,0" Height="250"/>
+                <Image x:Uid="Plaatje" Margin="0,20,0,0" Height="250"/>
             </RelativePanel>
 
             <RelativePanel Grid.Row="7" Margin="25, 5" HorizontalAlignment="Left" >
