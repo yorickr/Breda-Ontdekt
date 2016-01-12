@@ -201,6 +201,9 @@
   <data name="MapPageFollow.Text" xml:space="preserve">
     <value>Follow</value>
   </data>
+  <data name="Plaatje.Source" xml:space="preserve">
+    <value>/Assets/Help 2 En.png</value>
+  </data>
   <data name="Reset.Text" xml:space="preserve">
     <value>Reset App</value>
   </data>

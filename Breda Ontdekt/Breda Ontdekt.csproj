@@ -98,6 +98,9 @@
     </Content>
     <Content Include="Assets\ClickLocation.PNG" />
     <Content Include="Assets\FollowButton.PNG" />
+    <Content Include="Assets\Help 1.png" />
+    <Content Include="Assets\Help 2 En.png" />
+    <Content Include="Assets\Help 2 Nl.png" />
     <Content Include="Assets\IconColorChange.PNG" />
     <Content Include="Assets\MonumentPage.PNG" />
     <Content Include="Assets\Rodelijn.PNG" />
