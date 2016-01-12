@@ -45,6 +45,20 @@
                 </ListView>
             </Grid>
         </ScrollViewer>
-
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="10,0,0,0" Grid.Row="0" FontWeight="Bold" Foreground="#3b3a36" Text="Route info"></TextBlock>
+            <TextBlock Margin="10,0,0,0" Grid.Row="1" Foreground="#3b3a36" TextWrapping="Wrap" x:Uid="RouteDescription" Text=""/>
+            <TextBlock Margin="10,0,0,0" Grid.Row="2" Foreground="#3b3a36" TextWrapping="Wrap" x:Uid="RouteLength" Text=""/>
+            <TextBlock Margin="10,0,0,0" Grid.Row="3" Foreground="#3b3a36" TextWrapping="Wrap" x:Uid="RouteDuration" Text=""/>
+            <TextBlock Margin="10,0,0,0" Grid.Row="4" Foreground="#3b3a36" TextWrapping="Wrap" x:Uid="RouteLocations" Text=""/>
+        </Grid>
+        
     </Grid>
 </Page>

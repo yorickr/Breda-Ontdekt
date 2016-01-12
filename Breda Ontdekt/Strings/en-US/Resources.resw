@@ -204,6 +204,18 @@
   <data name="Reset.Text" xml:space="preserve">
     <value>Reset App</value>
   </data>
+  <data name="RouteDescription.Text" xml:space="preserve">
+    <value>This route shows you the most interesting historical places of Breda.</value>
+  </data>
+  <data name="RouteDuration.Text" xml:space="preserve">
+    <value>Time: approximately 45 min</value>
+  </data>
+  <data name="RouteLength.Text" xml:space="preserve">
+    <value>Lenght: 3km</value>
+  </data>
+  <data name="RouteLocations.Text" xml:space="preserve">
+    <value>Locations: 45</value>
+  </data>
   <data name="RoutePage.Text" xml:space="preserve">
     <value>Select your route</value>
   </data>

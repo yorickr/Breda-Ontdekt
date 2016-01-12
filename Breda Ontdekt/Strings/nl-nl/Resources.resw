@@ -207,6 +207,18 @@
   <data name="Reset.Text" xml:space="preserve">
     <value>Reset App</value>
   </data>
+  <data name="RouteDescription.Text" xml:space="preserve">
+    <value>Deze route brengt u langs de meest interessante historische plekjes in Breda.</value>
+  </data>
+  <data name="RouteDuration.Text" xml:space="preserve">
+    <value>Tijd: ongeveer 45 min</value>
+  </data>
+  <data name="RouteLength.Text" xml:space="preserve">
+    <value>Lengte: 3km</value>
+  </data>
+  <data name="RouteLocations.Text" xml:space="preserve">
+    <value>Locaties: 45</value>
+  </data>
   <data name="RoutePage.Text" xml:space="preserve">
     <value>Selecteer uw route</value>
   </data>
